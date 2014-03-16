@@ -9,10 +9,33 @@
     %meta{ name: 'description', content: 'Alpha State is a web studio.' }
     %title Alpha State
     %link{ href: '/favicon.png', rel: 'icon', type: 'image/png' }
-    %script{ type: 'text/javascript', src:'//use.typekit.net/kof8zcn.js' }
-    %script{ type: 'text/javascript' }= 'try{Typekit.load();}catch(e){}'
     = stylesheet_link_tag :application
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic|Roboto:100,300|Roboto+Slab:100,300&subset=latin,cyrillic'
   %body
-    = yield
+    %article
+      = yield
+      %footer
+        .wrapper
+          %p
+            Have an idea to explore, question to ask, or hello to shout?
+            Go ahead and send us an email or give us a call.
+
+          %address
+            %p Saint Petersburg
+            %p
+              %a{ href: 'mailto:info@alphastate.ru' } info@alphastate.ru
+            %p Tel.: +7 812 982-99-52
+
+          %address
+            %p Stockholm
+            %p
+              %a{ href: 'mailto:info@alphastate.se' } info@alphastate.se
+            %p Tel.: +46 13 28-14-70
+
+          .delimiter= delimiter_tag
+
+          %p#copyright
+            &copy; 2009&ndash;2014 Alpha State
+
     = javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js'
     = javascript_include_tag :application
