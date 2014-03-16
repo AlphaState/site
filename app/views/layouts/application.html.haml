@@ -1,0 +1,18 @@
+!!! 5
+%html{ lang: 'en' }
+  %head
+    %meta{ charset: 'utf-8' }
+    %meta{ property: 'og:url', content: 'http://alphastate.ru' }
+    %meta{ property: 'og:title', content: 'Alpha State' }
+    %meta{ property: 'og:type', content: 'website' }
+    %meta{ property: 'og:description', content: 'Alpha State is a web studio.' }
+    %meta{ name: 'description', content: 'Alpha State is a web studio.' }
+    %title Alpha State
+    %link{ href: '/favicon.png', rel: 'icon', type: 'image/png' }
+    %script{ type: 'text/javascript', src:'//use.typekit.net/kof8zcn.js' }
+    %script{ type: 'text/javascript' }= 'try{Typekit.load();}catch(e){}'
+    = stylesheet_link_tag :application
+  %body
+    = yield
+    = javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js'
+    = javascript_include_tag :application

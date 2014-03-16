@@ -1,0 +1,104 @@
+$width: 800px;
+
+$spec-pos-1: 11.24% / 2;
+$spec-pos-2: 24.16% / 2;
+$spec-pos-3: 39.33% / 2;
+$spec-pos-4: 78.65% / 2;
+$spec-pos-5: 81.46% / 2;
+$spec-pos-6: 100.00% / 2;
+
+$spec-col-1: #f0c83b;
+$spec-col-2: #f1563c;
+$spec-col-3: #c34b9b;
+$spec-col-4: #00b3c1;
+$spec-col-5: #00b36c;
+$spec-col-6: #00b3c1;
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'proxima-nova', 'helvetica neue', helvetica, arial, sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+em, strong {
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+}
+
+h1 {
+  font-family: 'petersburg-web', 'times new roman', times, serif;
+  font-size: 110px;
+  font-weight: normal;
+}
+
+article header {
+  width: $width;
+  margin: 0 auto;
+}
+
+article > header {
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+article section {
+  width: $width;
+  margin: 0 auto;
+  font-size: 28px;
+  font-weight: 300;
+}
+
+nav {
+  margin: 60px 0;
+  padding: 50px 0;
+  background: #000;
+  text-transform: lowercase;
+  color: #fff;
+
+  .wrapper {
+    position: relative;
+    width: $width;
+    margin: 0 auto;
+  }
+
+  ul.primary {
+    width: $width;
+    margin-left: -100px;
+    font-size: 60px;
+    font-weight: 300;
+    display: inline-block;
+    line-height: 80px;
+
+    li:nth-child(2) {
+      margin-left: 100px;
+    }
+
+    li:nth-child(3) {
+      margin-left: 200px;
+    }
+  }
+
+  ul.secondary {
+    font-size: 28px;
+    line-height: 40px;
+    font-weight: 100;
+    position: absolute;
+    right: -100px;
+    top: 45px;
+    height: 100%;
+    vertical-align: middle;
+  }
+}
+
+.spectrum {
+  background: -webkit-linear-gradient(left, $spec-col-1 $spec-pos-1, $spec-col-2 $spec-pos-2, $spec-col-3 $spec-pos-3, $spec-col-4 $spec-pos-4, $spec-col-5 $spec-pos-5, $spec-col-6 $spec-pos-6, $spec-col-5 100% - $spec-pos-5, $spec-col-4 100% - $spec-pos-4, $spec-col-3 100% - $spec-pos-3, $spec-col-2 100% - $spec-pos-2, $spec-col-1 100% - $spec-pos-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-repeat: repeat;
+  background-position: 0px 0px;
+}
