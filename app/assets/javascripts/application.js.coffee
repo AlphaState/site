@@ -28,8 +28,8 @@ onReady = ->
   $window.on 'scroll', onScroll
   onScroll()
 
-  $('#totop a').click (e) ->
-    $('body').animate scrollTop: 0
+  $('a.scroll').click (e) ->
+    $('body').animate { scrollTop: $($(e.target).attr('href')).offset().top }, 600
     e.preventDefault()
     return false
 

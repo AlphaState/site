@@ -7,14 +7,15 @@
     %meta{ property: 'og:type', content: 'website' }
     %meta{ property: 'og:description', content: 'Alpha State is a web studio.' }
     %meta{ name: 'description', content: 'Alpha State is a web studio.' }
-    %title Alpha State
+    %title Alpha State | A web studio with an attitude.
     %link{ href: '/favicon.png', rel: 'icon', type: 'image/png' }
     = stylesheet_link_tag :application
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic|Roboto:100,300|Roboto+Slab:100,300&subset=latin,cyrillic'
   %body
-    %article
+    %article#top{ class: params[:action] }
       = yield
-      %footer
+
+      %footer#contact
         .wrapper
           %p
             Have an idea to explore, question to ask, or hello to shout?
@@ -30,7 +31,7 @@
             %p Stockholm
             %p
               %a{ href: 'mailto:info@alphastate.se' } info@alphastate.se
-            %p Tel.: +46 13 28-14-70
+            %p Tel.: +46 76 583-35-56
 
           .delimiter= delimiter_tag
 

@@ -1,4 +1,5 @@
 AlphaState::Application.routes.draw do
-  match '*path', to: 'application#index', via: :get
-  root 'application#index'
+  get '/manifesto', to: 'application#manifesto'
+  match '*path', to: 'application#home', via: :get
+  root 'application#home'
 end
