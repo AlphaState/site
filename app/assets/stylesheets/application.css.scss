@@ -1,40 +1,48 @@
-$width: 800px;
-
-$spec-pos-1: 11.24% / 2;
-$spec-pos-2: 24.16% / 2;
-$spec-pos-3: 39.33% / 2;
-$spec-pos-4: 78.65% / 2;
-$spec-pos-5: 81.46% / 2;
-$spec-pos-6: 100.00% / 2;
-
-$spec-col-1: #f0c83b;
-$spec-col-2: #f1563c;
-$spec-col-3: #c34b9b;
-$spec-col-4: #00b3c1;
-$spec-col-5: #00b36c;
-$spec-col-6: #00b3c1;
+@import 'reset';
+@import 'definitions';
 
 * {
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto', 'helvetica neue', helvetica, arial, sans-serif;
-}
-
-ul {
-  list-style-type: none;
-}
-
-em, strong {
-  font-size: inherit;
-  font-style: inherit;
-  font-weight: inherit;
+  font-family: $text-font;
+  text-rendering: optimizeLegibility;
 }
 
 a, a:hover, a:visited {
-  border-width: 0;
-  color: inherit;
-  text-decoration: none;
-  font-family: 'Roboto Slab', 'helvetica neue', helvetica, arial, sans-serif;
+  font-family: $alternative-font;
+}
+
+h1, h2 {
+  font-family: $display-font;
+  @include ligatures;
+}
+
+article:not(.home) h1 {
+  font-size: 80px;
+  line-height: 96px;
+
+  padding-top: 25px;
+  padding-bottom: 35px;
+
+  em {
+    font-size: 40px;
+    margin-left: -8px;
+  }
+}
+
+article.home h1 {
+  font-size: 110px;
+  line-height: 132px;
+
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+
+h2 {
+  font-size: 70px;
+  line-height: 90px;
+  text-align: center;
+
+  margin-top: 60px;
+  margin-bottom: 10px;
 }
 
 section {
@@ -61,86 +69,35 @@ footer, nav ul.secondary {
   }
 }
 
-h1, h2 {
-  font-family: 'Playfair Display', 'times new roman', times, serif;
-  font-weight: normal;
-
-  -moz-font-feature-settings: "liga=1, dlig=1";
-  -ms-font-feature-settings: "liga", "dlig";
-  -webkit-font-feature-settings: "liga", "dlig";
-  -o-font-feature-settings: "liga", "dlig";
-  font-feature-settings: "liga", "dlig";
-}
-
-article:not(.home) h1 {
-  font-size: 80px;
-
-  em {
-    font-size: 40px;
-    font-family: inherit;
-    margin-left: -10px;
-  }
-}
-
-article.home h1 {
-  font-size: 110px;
-}
-
-h2 {
-  font-size: 70px;
-  line-height: 90px;
-  text-align: center;
-  margin-top: 60px;
-  margin-bottom: 10px;
-}
-
 p {
   font-size: 28px;
   line-height: 38px;
   font-weight: 300;
 }
 
-article header {
-  width: $width;
-  margin: 0 auto;
+article header, article section {
+  @include balance;
 }
 
 article > header {
-  position: relative;
-
   width: auto;
-  color: #fff;
-  background: #000;
 
   .wrapper {
-    position: relative;
+    @include balance;
   }
 }
 
-article > header .wrapper {
-  width: $width;
-  margin: 0 auto;
-}
-
-article:not(.home) > header .wrapper {
-  padding-top: 20px;
-  padding-bottom: 40px;
+article:not(.home) > header {
+  color: #fff;
+  background: #000;
 }
 
 article.home > header {
   color: #000;
   background: #fff;
-
-  .wrapper {
-    padding-top: 10px;
-    padding-bottom: 30px;
-  }
 }
 
 article section {
-  width: $width;
-  margin: 0 auto;
-
   p {
     text-indent: 2em;
   }
@@ -176,9 +133,7 @@ article.home nav {
   margin: 50px 0;
 
   .wrapper {
-    position: relative;
-    width: $width;
-    margin: 0 auto;
+    @include balance;
     padding: 40px 0;
   }
 
@@ -191,7 +146,7 @@ article.home nav {
     display: inline-block;
 
     a {
-      font-family: 'Roboto', 'helvetica neue', helvetica, arial, sans-serif;
+      font-family: $text-font;
     }
 
     li:nth-child(2) {
@@ -271,8 +226,7 @@ footer {
   color: #fff;
 
   .wrapper {
-    width: $width;
-    margin: 0 auto;
+    @include balance;
   }
 
   p {
@@ -283,7 +237,6 @@ footer {
     margin-top: 50px;
     display: inline-block;
     width: $width / 2 - 2px;
-    font-style: normal;
 
     p:nth-child(1) {
       padding-bottom: 20px;
@@ -297,7 +250,7 @@ footer {
 }
 
 .spectrum {
-  background: -webkit-linear-gradient(left, $spec-col-1 $spec-pos-1, $spec-col-2 $spec-pos-2, $spec-col-3 $spec-pos-3, $spec-col-4 $spec-pos-4, $spec-col-5 $spec-pos-5, $spec-col-6 $spec-pos-6, $spec-col-5 100% - $spec-pos-5, $spec-col-4 100% - $spec-pos-4, $spec-col-3 100% - $spec-pos-3, $spec-col-2 100% - $spec-pos-2, $spec-col-1 100% - $spec-pos-1);
+  @include spectrum;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-repeat: repeat;
