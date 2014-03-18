@@ -1,0 +1,11 @@
+ru:
+  company: 'Альфа-уровень'
+
+  application:
+    home:
+      title: 'Главная / Альфа-уровень'
+      name: 'Главная'
+
+    manifesto:
+      title: 'Манифест / Альфа-уровень'
+      name: 'Манифест'

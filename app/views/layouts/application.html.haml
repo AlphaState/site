@@ -1,17 +1,17 @@
 !!! 5
-%html{ lang: 'en' }
+%html{ lang: I18n.locale }
   %head
     %meta{ charset: 'utf-8' }
     %meta{ property: 'og:url', content: 'http://alphastate.ru' }
-    %meta{ property: 'og:title', content: 'Alpha State' }
+    %meta{ property: 'og:title', content: t('company') }
     %meta{ property: 'og:type', content: 'website' }
-    %meta{ property: 'og:description', content: 'Alpha State is a web studio.' }
-    %meta{ name: 'description', content: 'Alpha State is a web studio.' }
-    %title Alpha State | A web studio with an attitude.
+    %meta{ property: 'og:description', content: t('.description') }
+    %meta{ name: 'description', content: t('.description') }
+    %title= t "application.#{ params[:action] }.title"
     %link{ href: '/favicon.png', rel: 'icon', type: 'image/png' }
     = stylesheet_link_tag :application
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic|Roboto:100,300|Roboto+Slab:100,300&subset=latin,cyrillic'
-  %body
+  %body{ class: I18n.locale }
     %article#top{ class: params[:action] }
       = yield
 

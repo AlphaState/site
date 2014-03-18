@@ -4,9 +4,16 @@ $window = $(window)
 $spectrum = $('.spectrum')
 $offset = 800 * Math.random()
 
-$menu = $('nav')
-$menu_height = $menu.height()
-$placeholder = $('<nav/>').css(height: $menu_height + 'px').hide().insertAfter($menu)
+$menu = $('#menu')
+
+$menu_height = $menu.outerHeight()
+$menu_total_height = $menu.outerHeight(true)
+
+$placeholder = $('<div/>')
+  .css(width: '100%', height: $menu_total_height + 'px')
+  .hide()
+  .insertAfter($menu)
+
 $threshold = $menu.offset().top + $menu_height - 20 - 30 - 60
 $compressed = false
 

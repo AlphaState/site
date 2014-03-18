@@ -1,11 +1,11 @@
-%header
+%header#menu
   .wrapper
-    %h1 Alpha State <em>/ manifesto</em>
+    %h1!= "#{ t 'company' } <em>/ #{ t '.name' }</em>"
+
+    #totop
+      %a.scroll{ href: '#top' } &uarr;
 
     %nav
-      #totop
-        %a.scroll{ href: '#top' } &uarr;
-
       %ul.secondary
         %li
           %a{ href: 'http://alphastate.ru' } По-русски

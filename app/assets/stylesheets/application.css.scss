@@ -25,6 +25,7 @@ article:not(.home) h1 {
   em {
     font-size: 40px;
     margin-left: -8px;
+    text-transform: lowercase;
   }
 }
 
@@ -107,13 +108,13 @@ article section {
   }
 }
 
+#totop {
+  display: none;
+}
+
 nav {
   color: #fff;
   text-transform: lowercase;
-
-  #totop {
-    display: none;
-  }
 
   ul.secondary {
     font-size: 28px;
@@ -165,16 +166,13 @@ article.home nav {
   }
 }
 
-article.home nav.compressed {
+article #menu.compressed {
   position: fixed;
   left: 0;
   top: 0;
   right: 0;
+  z-index: 1;
   margin: 0;
-
-  .wrapper {
-    padding: 20px 0 30px 0;
-  }
 
   #totop {
     font-size: 42px;
@@ -182,23 +180,6 @@ article.home nav.compressed {
     display: block;
     left: -100px;
     top: 20px;
-  }
-
-  ul.primary {
-    width: auto;
-    line-height: 1em;
-
-    li {
-      display: inline;
-    }
-
-    li:nth-child(1) {
-      margin-left: 60px;
-    }
-
-    li:nth-child(2), li:nth-child(3) {
-      margin-left: 15px;
-    }
   }
 
   ul.secondary {
@@ -215,6 +196,47 @@ article.home nav.compressed {
 
     li:nth-child(3) {
       margin-left: 10px;
+    }
+  }
+}
+
+article:not(.home) #menu.compressed {
+  nav {
+    top: 40px;
+  }
+
+  h1 {
+    font-size: 40px;
+    line-height: 48px;
+
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    em {
+      margin-left: 0;
+    }
+  }
+}
+
+article.home #menu.compressed {
+  .wrapper {
+    padding: 20px 0 30px 0;
+  }
+
+  ul.primary {
+    width: auto;
+    line-height: 1em;
+
+    li {
+      display: inline;
+    }
+
+    li:nth-child(1) {
+      margin-left: 60px;
+    }
+
+    li:nth-child(2), li:nth-child(3) {
+      margin-left: 15px;
     }
   }
 }
