@@ -19,8 +19,8 @@ article:not(.home) h1 {
   font-size: 80px;
   line-height: 96px;
 
-  padding-top: 25px;
-  padding-bottom: 35px;
+  padding-top: 55px;
+  padding-bottom: 65px;
 
   em {
     font-size: 40px;
@@ -34,16 +34,7 @@ article.home h1 {
   line-height: 132px;
 
   padding-top: 10px;
-  padding-bottom: 30px;
-}
-
-h2 {
-  font-size: 70px;
-  line-height: 90px;
-  text-align: center;
-
-  margin-top: 60px;
-  margin-bottom: 10px;
+  padding-bottom: 50px;
 }
 
 section {
@@ -55,6 +46,15 @@ section {
   a:hover {
     border-style: solid;
     border-bottom-width: 2px;
+  }
+
+  h2 {
+    font-size: 70px;
+    line-height: 90px;
+    text-align: center;
+
+    padding-top: 60px;
+    padding-bottom: 10px;
   }
 }
 
@@ -74,6 +74,10 @@ p {
   font-size: 28px;
   line-height: 38px;
   font-weight: 300;
+
+  em {
+    font-style: italic;
+  }
 }
 
 article header, article section {
@@ -103,9 +107,13 @@ article section {
     text-indent: 2em;
   }
 
-  p:first-of-type {
+  header + p, p:first-of-type {
     text-indent: 0;
   }
+}
+
+article.home section:first-of-type {
+  padding-bottom: 60px;
 }
 
 #totop {
@@ -126,16 +134,15 @@ nav {
 article:not(.home) nav {
   position: absolute;
   right: -100px;
-  top: 20px;
+  top: 35px;
 }
 
 article.home nav {
   background: #000;
-  margin: 50px 0;
 
   .wrapper {
     @include balance;
-    padding: 40px 0;
+    padding: 45px 0 55px 0;
   }
 
   ul.primary {
@@ -162,7 +169,7 @@ article.home nav {
   ul.secondary {
     position: absolute;
     right: -100px;
-    top: 90px;
+    top: 100px;
   }
 }
 
@@ -179,7 +186,6 @@ article #menu.compressed {
     position: absolute;
     display: block;
     left: -100px;
-    top: 20px;
   }
 
   ul.secondary {
@@ -188,14 +194,11 @@ article #menu.compressed {
 
     li {
       display: inline;
+      margin-left: 10px;
     }
 
     li:nth-child(1) {
       display: none;
-    }
-
-    li:nth-child(3) {
-      margin-left: 10px;
     }
   }
 }
@@ -205,12 +208,16 @@ article:not(.home) #menu.compressed {
     top: 40px;
   }
 
+  #totop {
+    top: 15px;
+  }
+
   h1 {
     font-size: 40px;
     line-height: 48px;
 
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 25px;
+    padding-bottom: 35px;
 
     em {
       margin-left: 0;
@@ -223,20 +230,21 @@ article.home #menu.compressed {
     padding: 20px 0 30px 0;
   }
 
+  #totop {
+    top: 20px;
+  }
+
   ul.primary {
     width: auto;
     line-height: 1em;
 
     li {
       display: inline;
+      margin-left: 15px;
     }
 
     li:nth-child(1) {
       margin-left: 60px;
-    }
-
-    li:nth-child(2), li:nth-child(3) {
-      margin-left: 15px;
     }
   }
 }
@@ -279,7 +287,7 @@ footer {
   background-position: 0px 0px;
 }
 
-.delimiter {
+.flower {
   text-align: center;
   margin: 80px 0 80px 0;
   svg {
@@ -289,4 +297,11 @@ footer {
       fill: #fff;
     }
   }
+}
+
+.line {
+  height: 0px;
+  width: $width / 2;
+  margin: 80px auto 0px auto;
+  border-bottom: 1px dashed #000;
 }

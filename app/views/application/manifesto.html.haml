@@ -8,18 +8,20 @@
     %nav
       %ul.secondary
         %li
-          %a{ href: 'http://alphastate.ru' } По-русски
+          %a{ href: locale_path }= t 'navigation.locale'
         %li
-          %a{ href: '/' } Home
+          %a{ href: home_path }= t 'navigation.home'
         %li
-          %a{ href: '#' } Blog
+          %a{ href: blog_path }= t 'navigation.blog'
+        %li
+          %a.scroll{ href: '#contact' }= t 'navigation.contact'
 
 %section
   %header
     %h2 We know our craft.
   %p
     Our clients include creative individuals, nonprofit organizations,
-    diverse firms, national retailers, and international distributors.
+    versatile firms, national retailers, and international distributors.
     Our clients trust us. They recommend us. They come back. We take it
     as the highest acknowledgment of our work.
 
@@ -47,7 +49,7 @@
     Whether it is an individual website, massive media platform, or
     feature-reach web service, it has its own personality. We challenge
     ourselves. We explore, experiment, and balance to get it just right
-    and preserve this uniqueness in our work.
+    and preserve your uniqueness in our work.
 
 %section
   %header

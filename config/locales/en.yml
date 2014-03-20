@@ -1,6 +1,15 @@
 en:
   company: 'Alpha State'
 
+  navigation:
+    services: 'Services'
+    portfolio: 'Portfolio'
+    contact: 'Contact'
+    locale: 'По-русски'
+    home: 'Home'
+    manifesto: 'Manifesto'
+    blog: 'Blog'
+
   layouts:
     application:
       description: 'Alpha State is a web studio.'
@@ -13,3 +22,7 @@ en:
     manifesto:
       title: 'Manifesto / Alpha State'
       name: 'Manifesto'
+
+    blog:
+      title: 'Blog / Alpha State'
+      name: 'Blog'

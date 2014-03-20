@@ -4,9 +4,11 @@
 
 %section
   :markdown
-    Alpha State is a web studio. We develop elegant and reach web experiences.
-    We love what we do, and we are excited to share our passion with you.
-    Work with us and let your customers become your devoted followers.
+    _Alpha State_ is the creative state of your mind.
+    It is also our web studio. We develop elegant and reach web
+    experiences. We love what we do, and we are excited
+    to share our passion with you. Work with us and let your
+    customers become your followers.
 
 %nav#menu
   .wrapper
@@ -15,32 +17,40 @@
 
     %ul.primary.spectrum
       %li
-        %a{ href: '#' } Services
+        %a.scroll{ href: '#services' }= t 'navigation.services'
       %li
-        %a{ href: '#' } Portfolio
+        %a.scroll{ href: '#portfolio' }= t 'navigation.portfolio'
       %li
-        %a.scroll{ href: '#contact' } Contact
+        %a.scroll{ href: '#contact' }= t 'navigation.contact'
 
     %ul.secondary
       %li
-        %a{ href: 'http://alphastate.ru' } По-русски
+        %a{ href: locale_path }= t 'navigation.locale'
       %li
-        %a{ href: '/manifesto' } Manifesto
+        %a{ href: manifesto_path }= t 'navigation.manifesto'
       %li
-        %a{ href: '#' } Blog
+        %a{ href: blog_path }= t 'navigation.blog'
 
-%section
-  :markdown
-    Lorem Ipsum is simply dummy text of the printing and typesetting
-    industry. <a href="#">Lorem Ipsum</a> has been the industry&#39;s standard dummy text
-    ever since the 1500s, when an unknown printer took a galley of type
-    and scrambled it to make a type specimen book. It has survived not
-    only five centuries, but also the leap into electronic typesetting,
-    remaining essentially unchanged. It was popularised in the 1960s with
-    the release of Letraset sheets containing Lorem Ipsum passages, and
-    more recently with desktop publishing software like Aldus PageMaker
-    including versions of Lorem Ipsum.
+%section#services
+  %header
+    %h2 We design &amp; code.
+  %p
+    We make websites, web services, and applications for social networks.
+    In each project, we are driven by its purpose, and we pursue
+    usability and beauty in our solutions.
 
+  %header
+    %h2 We develop &amp; promote.
+  %p
+    We develop digital brand identities. We establish and promote
+    creative individuals and innovative businesses on the Web.
+
+.line
+
+%section#portfolio
+  %header
+    %h2 Our work
+  %p
     Lorem Ipsum is simply dummy text of the printing and typesetting
     industry. Lorem Ipsum has been the industry&#39;s standard dummy text
     ever since the 1500s, when an unknown printer took a galley of type
@@ -50,17 +60,7 @@
     the release of Letraset sheets containing Lorem Ipsum passages, and
     more recently with desktop publishing software like Aldus PageMaker
     including versions of Lorem Ipsum.
-
-    Lorem Ipsum is simply dummy text of the printing and typesetting
-    industry. Lorem Ipsum has been the industry&#39;s standard dummy text
-    ever since the 1500s, when an unknown printer took a galley of type
-    and scrambled it to make a type specimen book. It has survived not
-    only five centuries, but also the leap into electronic typesetting,
-    remaining essentially unchanged. It was popularised in the 1960s with
-    the release of Letraset sheets containing Lorem Ipsum passages, and
-    more recently with desktop publishing software like Aldus PageMaker
-    including versions of Lorem Ipsum.
-
+  %p
     Lorem Ipsum is simply dummy text of the printing and typesetting
     industry. Lorem Ipsum has been the industry&#39;s standard dummy text
     ever since the 1500s, when an unknown printer took a galley of type

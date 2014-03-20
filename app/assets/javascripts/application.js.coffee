@@ -5,16 +5,15 @@ $spectrum = $('.spectrum')
 $offset = 800 * Math.random()
 
 $menu = $('#menu')
-
 $menu_height = $menu.outerHeight()
-$menu_total_height = $menu.outerHeight(true)
+$placeholder_height = $menu.outerHeight(true)
 
 $placeholder = $('<div/>')
-  .css(width: '100%', height: $menu_total_height + 'px')
+  .css(width: '100%', height: $placeholder_height + 'px')
   .hide()
   .insertAfter($menu)
 
-$threshold = $menu.offset().top + $menu_height - 20 - 30 - 60
+$threshold = $menu.offset().top + $menu_height - 110
 $compressed = false
 
 onScroll = (e) ->
@@ -36,7 +35,8 @@ onReady = ->
   onScroll()
 
   $('a.scroll').click (e) ->
-    $('body').animate { scrollTop: $($(e.target).attr('href')).offset().top }, 600
+    position = Math.max(0, $($(e.target).attr('href')).offset().top - 100)
+    $('body').animate { scrollTop: position }, 600
     e.preventDefault()
     return false
 

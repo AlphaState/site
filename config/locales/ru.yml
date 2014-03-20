@@ -1,6 +1,15 @@
 ru:
   company: 'Альфа-уровень'
 
+  navigation:
+    services: 'Услуги'
+    portfolio: 'Портфолио'
+    contact: 'Контакты'
+    locale: 'English'
+    home: 'Главная'
+    manifesto: 'Манифест'
+    blog: 'Блог'
+
   application:
     home:
       title: 'Главная / Альфа-уровень'
@@ -9,3 +18,7 @@ ru:
     manifesto:
       title: 'Манифест / Альфа-уровень'
       name: 'Манифест'
+
+    blog:
+      title: 'Блог / Альфа-уровень'
+      name: 'Блог'

@@ -10,9 +10,9 @@
     %title= t "application.#{ params[:action] }.title"
     %link{ href: '/favicon.png', rel: 'icon', type: 'image/png' }
     = stylesheet_link_tag :application
-    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic|Roboto:100,300|Roboto+Slab:100,300&subset=latin,cyrillic'
-  %body{ class: I18n.locale }
-    %article#top{ class: params[:action] }
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Playfair+Display|Roboto:100,300,300italic|Roboto+Slab:300,100&subset=latin,cyrillic'
+  %body
+    %article#top{ class: "#{ I18n.locale } #{ params[:action] }" }
       = yield
 
       %footer#contact
@@ -33,10 +33,9 @@
               %a{ href: 'mailto:info@alphastate.se' } info@alphastate.se
             %p Tel.: +46 76 583-35-56
 
-          .delimiter= delimiter_tag
+          .flower= flower_tag :black_leaf
 
-          %p#copyright
-            &copy; 2009&ndash;2014 Alpha State
+          %p#copyright!= "&copy; 2009&ndash;2014 #{ t 'company' }"
 
     = javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js'
     = javascript_include_tag :application
