@@ -10,7 +10,7 @@
     %title= t "application.#{ params[:action] }.title"
     %link{ href: '/favicon.png', rel: 'icon', type: 'image/png' }
     = stylesheet_link_tag :application
-    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Playfair+Display|Roboto:100,300,300italic|Roboto+Slab:300,100&subset=latin,cyrillic'
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Playfair+Display|Roboto:100,300,300italic|Roboto+Condensed:300|Roboto+Slab:100,300&subset=latin,cyrillic'
   %body
     %article#top{ class: "#{ I18n.locale } #{ params[:action] }" }
       = yield
@@ -18,8 +18,8 @@
       %footer#contact
         .wrapper
           %p
-            Should you have an idea to explore, a question to ask, or a hello
-            to shout, send us an email or give us a call.
+            Should you have an idea to explore, question to ask,
+            or hello to shout, send us an email or give us a call.
 
           %address
             %p Saint Petersburg

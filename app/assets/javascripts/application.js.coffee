@@ -36,8 +36,18 @@ onReady = ->
   onScroll()
 
   $('a.scroll').click (e) ->
-    position = Math.max(0, $($(e.target).attr('href')).offset().top - 150)
+    anchor = $(e.target).attr('href')
+
+    position =  $(anchor).offset().top
+    if anchor is '#top'
+    else if anchor is '#contact'
+      position = position - 60
+    else
+      position = position - 130
+
     $body.animate { scrollTop: position }, 600
+    history.pushState null, null, anchor
+
     e.preventDefault()
     return false
 
