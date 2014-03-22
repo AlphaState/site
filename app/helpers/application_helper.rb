@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def flower_tag id = 'leaf'
+  def dingbat_tag id = 'leaf'
     result = <<-EOL
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 560 560 560" enable-background="new 0 560 560 560" xml:space="preserve">
@@ -16,7 +16,7 @@ module ApplicationHelper
 <use xlink:href="##{ id }"  width="251.1" height="241" x="-125.6" y="-120.5" transform="matrix(-1 0 0 1 420 970)" overflow="visible"/>
 </svg>
     EOL
-    result.html_safe
+    content_tag :div, result.html_safe, :class => :dingbat
   end
 
   def locale_path

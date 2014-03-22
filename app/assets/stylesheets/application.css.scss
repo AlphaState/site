@@ -6,12 +6,15 @@
   text-rendering: optimizeLegibility;
 }
 
-a, a:hover, a:visited {
+a {
   font-family: $alternative-font;
 }
 
 h1, h2 {
   font-family: $display-font;
+  a {
+    font-family: $display-font;
+  }
   @include ligatures;
 }
 
@@ -53,8 +56,8 @@ section {
     line-height: 90px;
     text-align: center;
 
-    padding-top: 60px;
-    padding-bottom: 10px;
+    margin-top: 60px;
+    margin-bottom: 10px;
   }
 }
 
@@ -134,7 +137,7 @@ nav {
 article:not(.home) nav {
   position: absolute;
   right: -100px;
-  top: 35px;
+  top: 55px;
 }
 
 article.home nav {
@@ -281,15 +284,33 @@ footer {
 
 .spectrum {
   @include spectrum;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-repeat: repeat;
   background-position: 0px 0px;
 }
 
-.flower {
+#menu .spectrum {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fadeout {
+  position: relative;
+}
+
+.fadeout:after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  @include fadeout;
+}
+
+.dingbat {
   text-align: center;
-  margin: 80px 0 80px 0;
+  margin: 80px 0;
   svg {
     height: 110px;
     width: 110px;
@@ -299,9 +320,42 @@ footer {
   }
 }
 
-.line {
-  height: 0px;
-  width: $width / 2;
-  margin: 80px auto 0px auto;
-  border-bottom: 1px dashed #000;
+.separator {
+  height: 2px;
+  width: 800px;
+  margin: 100px auto 70px auto;
+}
+
+#portfolio {
+  width: 3 * (300px + 2 * 15px) + 10;
+  text-align: center;
+
+  a, a:hover {
+    border: 0;
+  }
+
+  a {
+    @include grayscale-on;
+    transition: 0.1s;
+  }
+
+  a:hover {
+    @include grayscale-off;
+  }
+
+  .project {
+    margin: 15px;
+
+    display: inline-block;
+    overflow: hidden;
+
+    width: 300px;
+    height: 300px;
+  }
+
+  img {
+    width: 400px;
+    height: 400px;
+    margin: -50px 0 0 -50px;
+  }
 }

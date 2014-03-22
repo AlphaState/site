@@ -19,7 +19,57 @@ $spec-col-5: #00b36c;
 $spec-col-6: #00b3c1;
 
 @mixin spectrum {
-  background: -webkit-linear-gradient(left, $spec-col-1 $spec-pos-1, $spec-col-2 $spec-pos-2, $spec-col-3 $spec-pos-3, $spec-col-4 $spec-pos-4, $spec-col-5 $spec-pos-5, $spec-col-6 $spec-pos-6, $spec-col-5 100% - $spec-pos-5, $spec-col-4 100% - $spec-pos-4, $spec-col-3 100% - $spec-pos-3, $spec-col-2 100% - $spec-pos-2, $spec-col-1 100% - $spec-pos-1);
+  background: -webkit-linear-gradient(left,
+    $spec-col-1 $spec-pos-1,
+    $spec-col-2 $spec-pos-2,
+    $spec-col-3 $spec-pos-3,
+    $spec-col-4 $spec-pos-4,
+    $spec-col-5 $spec-pos-5,
+    $spec-col-6 $spec-pos-6,
+    $spec-col-5 100% - $spec-pos-5,
+    $spec-col-4 100% - $spec-pos-4,
+    $spec-col-3 100% - $spec-pos-3,
+    $spec-col-2 100% - $spec-pos-2,
+    $spec-col-1 100% - $spec-pos-1);
+}
+
+@mixin fadeout {
+  background: -moz-linear-gradient(left,
+    rgba(255,255,255,1) 0%,
+    rgba(255,255,255,0) 25%,
+    rgba(255,255,255,0) 75%,
+    rgba(255,255,255,1));
+  background: -ms-linear-gradient(left,
+    rgba(255,255,255,1) 0%,
+    rgba(255,255,255,0) 25%,
+    rgba(255,255,255,0) 75%,
+    rgba(255,255,255,1));
+  background: -webkit-linear-gradient(left,
+    rgba(255,255,255,1) 0%,
+    rgba(255,255,255,0) 25%,
+    rgba(255,255,255,0) 75%,
+    rgba(255,255,255,1));
+  background: -o-linear-gradient(left,
+    rgba(255,255,255,1) 0%,
+    rgba(255,255,255,0) 25%,
+    rgba(255,255,255,0) 75%,
+    rgba(255,255,255,1));
+  background: linear-gradient(left,
+    rgba(255,255,255,1) 0%,
+    rgba(255,255,255,0) 25%,
+    rgba(255,255,255,0) 75%,
+    rgba(255,255,255,1));
+}
+
+@mixin grayscale-on {
+  filter: url(/filters.svg#grayscale);
+  filter: gray;
+  -webkit-filter: grayscale(1);
+}
+
+@mixin grayscale-off {
+  filter: none;
+  -webkit-filter: grayscale(0);
 }
 
 @mixin ligatures {

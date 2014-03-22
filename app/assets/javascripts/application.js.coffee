@@ -1,5 +1,6 @@
 $document = $(document)
 $window = $(window)
+$body = $('body')
 
 $spectrum = $('.spectrum')
 $offset = 800 * Math.random()
@@ -35,8 +36,8 @@ onReady = ->
   onScroll()
 
   $('a.scroll').click (e) ->
-    position = Math.max(0, $($(e.target).attr('href')).offset().top - 100)
-    $('body').animate { scrollTop: position }, 600
+    position = Math.max(0, $($(e.target).attr('href')).offset().top - 150)
+    $body.animate { scrollTop: position }, 600
     e.preventDefault()
     return false
 

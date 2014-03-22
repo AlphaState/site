@@ -1,6 +1,6 @@
 %header#menu
   .wrapper
-    %h1!= "#{ t 'company' } <em>/ #{ t '.name' }</em>"
+    %h1!= "#{ link_to t('company'), home_path } <em>/ #{ t '.name' }</em>"
 
     #totop
       %a.scroll{ href: '#top' } &uarr;
@@ -9,8 +9,6 @@
       %ul.secondary
         %li
           %a{ href: locale_path }= t 'navigation.locale'
-        %li
-          %a{ href: home_path }= t 'navigation.home'
         %li
           %a{ href: manifesto_path }= t 'navigation.manifesto'
         %li
