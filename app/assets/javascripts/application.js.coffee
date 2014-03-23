@@ -31,21 +31,30 @@ onScroll = (e) ->
     $placeholder.hide()
     $compressed = false
 
+anchorToScroll = (anchor) ->
+  position =  $(anchor).offset().top
+  if anchor is '#top'
+  else if anchor is '#contact'
+    position = position - 60
+  else
+    position = position - 130
+  position
+
 onReady = ->
-  $window.on 'scroll', onScroll
+  setTimeout(
+    () ->
+      anchor = window.location.hash
+      if anchor and anchor.length > 0
+        $body.scrollTop anchorToScroll(anchor)
+    1
+  )
+
   onScroll()
+  $window.on 'scroll', onScroll
 
   $('a.scroll').click (e) ->
     anchor = $(e.target).attr('href')
-
-    position =  $(anchor).offset().top
-    if anchor is '#top'
-    else if anchor is '#contact'
-      position = position - 60
-    else
-      position = position - 130
-
-    $body.animate { scrollTop: position }, 600
+    $body.animate { scrollTop: anchorToScroll(anchor) }, 600
     history.pushState null, null, anchor
 
     e.preventDefault()
