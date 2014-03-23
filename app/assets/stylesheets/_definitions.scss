@@ -81,6 +81,13 @@ $spec-col-6: #00b3c1;
   font-feature-settings: "liga", "dlig";
 }
 
+@mixin hyphenation {
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
 @mixin balance {
   position: relative;
   width: $width;

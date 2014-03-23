@@ -1,5 +1,6 @@
 en:
   company: 'Alpha State'
+  url: 'http://alphastate.se'
 
   navigation:
     services: 'Services'

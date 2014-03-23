@@ -2,7 +2,7 @@
 %html{ lang: I18n.locale }
   %head
     %meta{ charset: 'utf-8' }
-    %meta{ property: 'og:url', content: 'http://alphastate.ru' }
+    %meta{ property: 'og:url', content: t('url') }
     %meta{ property: 'og:title', content: t('company') }
     %meta{ property: 'og:type', content: 'website' }
     %meta{ property: 'og:description', content: t('.description') }
@@ -15,7 +15,7 @@
     %article#top{ class: "#{ I18n.locale } #{ params[:action] }" }
       = yield
 
-      %footer#contact
+      %footer.inversed#contact
         .wrapper
           %p
             Should you have an idea to explore, question to ask,
