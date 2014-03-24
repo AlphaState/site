@@ -4,17 +4,35 @@ ru:
 
   navigation:
     services: 'Услуги'
-    portfolio: 'Портфолио'
+    portfolio: 'Работы'
     contact: 'Контакты'
     locale: 'English'
     home: 'Главная'
     manifesto: 'Манифест'
     blog: 'Блог'
 
+  layouts:
+    application:
+      description: 'Сайт студии веб-разработки Альфа-уровень.'
+
+      contact:
+        introduction: 'Звоните или пишите письма. Мы с радостью ответим на ваши вопросы и обсудим варианты сотрудничества.'
+        city-1: 'Санкт-Петербург'
+        city-2: 'Стокгольм'
+        telephone-1: 'Тел.: +7 812 982-99-52'
+        telephone-2: 'Тел.: +46 76 583-35-56'
+
   application:
     home:
       title: 'Главная / Альфа-уровень'
       name: 'Главная'
+
+      services:
+        header-1: 'Дизайн и разработка'
+        header-2: 'Создание и развитие'
+
+      portfolio:
+        header: 'Наши работы'
 
     manifesto:
       title: 'Манифест / Альфа-уровень'

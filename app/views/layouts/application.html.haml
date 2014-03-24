@@ -17,25 +17,24 @@
 
       %footer.inversed#contact
         .wrapper
-          %p
-            Should you have an idea to explore, question to ask,
-            or hello to shout, send us an email or give us a call.
+          %p= t '.contact.introduction'
 
           %address
-            %p Saint Petersburg
+            %p= t '.contact.city-1'
             %p
               %a{ href: 'mailto:info@alphastate.ru' } info@alphastate.ru
-            %p Tel.: +7 812 982-99-52
+            %p= t '.contact.telephone-1'
 
           %address
-            %p Stockholm
+            %p= t '.contact.city-2'
             %p
               %a{ href: 'mailto:info@alphastate.se' } info@alphastate.se
-            %p Tel.: +46 76 583-35-56
+            %p= t '.contact.telephone-2'
 
           = dingbat_tag
 
           %p#copyright!= "&copy; 2009&ndash;2014 #{ t 'company' }"
 
     = javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js'
+    %script{ src: '/assets/hyphenator.js' }
     = javascript_include_tag :application

@@ -30,8 +30,8 @@ h1, h2 {
 }
 
 p {
-  font-size: 28px;
-  line-height: 38px;
+  font-size: 24px;
+  line-height: 32px;
   font-weight: 300;
   @include hyphenation;
 
@@ -51,29 +51,24 @@ article header {
   }
 }
 
-article.home header {
-  h1 {
-    font-size: 110px;
-    line-height: 132px;
+article.home header h1 {
+  font-size: 110px;
+  line-height: 132px;
 
-    padding-top: 10px;
-    padding-bottom: 50px;
-  }
+  padding-top: 30px;
 }
 
-article:not(.home) header {
-  h1 {
-    font-size: 80px;
-    line-height: 96px;
+article:not(.home) header h1 {
+  font-size: 80px;
+  line-height: 100px;
 
-    padding-top: 55px;
-    padding-bottom: 65px;
+  padding-top: 40px;
+  padding-bottom: 60px;
 
-    em {
-      font-size: 40px;
-      margin-left: -8px;
-      text-transform: lowercase;
-    }
+  em {
+    font-size: 40px;
+    margin-left: -8px;
+    text-transform: lowercase;
   }
 }
 
@@ -95,7 +90,7 @@ article section {
 
   h2 {
     font-size: 70px;
-    line-height: 90px;
+    line-height: 84px;
     text-align: center;
 
     margin-top: 60px;
@@ -103,15 +98,7 @@ article section {
   }
 
   h2:first-of-type {
-    margin-top: $delimiter-size - 40px;
-  }
-
-  p {
-    text-indent: 2em;
-  }
-
-  h2 + p, p:first-of-type {
-    text-indent: 0;
+    margin-top: $delimiter-size - 20px;
   }
 
   p:last-of-type {
@@ -121,7 +108,7 @@ article section {
 
 article.home section:first-of-type {
   p:last-of-type {
-    margin-bottom: 60px;
+    margin: 60px 0;
   }
 }
 
@@ -145,7 +132,7 @@ article nav {
 article:not(.home) nav {
   position: absolute;
   right: -100px;
-  top: 55px;
+  top: 35px;
 }
 
 article.home nav {
@@ -214,7 +201,7 @@ article #menu.compressed {
 
 article:not(.home) #menu.compressed {
   nav {
-    top: 35px;
+    top: 32px;
   }
 
   #totop {
@@ -248,11 +235,12 @@ article.home #menu.compressed {
 
     li {
       display: inline;
-      margin-left: 15px;
+      margin-left: 25px;
     }
 
     a {
-      line-height: 1em;
+      font-size: 50px;
+      line-height: 60px;
     }
 
     li:nth-child(1) {
@@ -332,21 +320,67 @@ article footer, article nav ul.secondary {
       @include grayscale-off;
     }
 
-    h3, p {
-      font-family: $condensed-font;
-      font-weight: 100;
-    }
-
     h3 {
       margin-top: 10px;
       font-size: 28px;
     }
 
     p {
+      font-family: $condensed-font;
       font-size: 20px;
+      font-weight: 300;
       white-space: nowrap;
       margin-bottom: 8px;
     }
+  }
+}
+
+//
+// Blog
+//
+article.blog section {
+  h2 {
+    font-size: 40px;
+    line-height: 48px;
+    text-align: left;
+    margin-bottom: 30px;
+  }
+
+  p {
+    margin-top: 18px;
+  }
+
+  p.description {
+    margin-bottom: 50px;
+    font-style: italic;
+  }
+
+  p.author, p.date {
+    font-style: italic;
+  }
+
+  p.author {
+    margin-top: 50px;
+    margin-bottom: 0;
+  }
+
+  p.date {
+    margin-top: 8px;
+  }
+}
+
+//
+// Language-specific tweaks
+//
+article.ru.home {
+  header h1 {
+    font-size: 100px;
+  }
+}
+
+article.ru:not(.home) {
+  header h1 {
+    font-size: 60px;
   }
 }
 

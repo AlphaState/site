@@ -13,12 +13,26 @@ en:
 
   layouts:
     application:
-      description: 'Alpha State is a web studio.'
+      description: 'Website of a web studio Alpha State.'
+
+      contact:
+        introduction: 'Should you have an idea to explore, question to ask, or hello to shout, send us an email or give us a call.'
+        city-1: 'Saint Petersburg'
+        city-2: 'Stockholm'
+        telephone-1: 'Tel.: +7 812 982-99-52'
+        telephone-2: 'Tel.: +46 76 583-35-56'
 
   application:
     home:
       title: 'Home / Alpha State'
       name: 'Home'
+
+      services:
+        header-1: 'We design &amp; code.'
+        header-2: 'We create &amp; develop.'
+
+      portfolio:
+        header: 'Recent projects'
 
     manifesto:
       title: 'Manifesto / Alpha State'

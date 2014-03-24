@@ -61,3 +61,6 @@ onReady = ->
     return false
 
 $document.on 'ready', onReady
+
+if /chrom(e|ium)/.test navigator.userAgent.toLowerCase()
+  Hyphenator.run()
