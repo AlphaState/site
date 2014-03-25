@@ -1,0 +1,46 @@
+section {
+  h2 {
+    font-size: 40px;
+    line-height: 48px;
+    text-align: left;
+  }
+
+  p {
+    margin-top: 18px;
+  }
+
+  p.meta {
+    font-style: italic;
+  }
+}
+
+&.index section {
+  p.meta {
+    margin-top: 4px;
+    margin-bottom: 24px;
+  }
+
+  p.read {
+    text-align: right;
+  }
+}
+
+&.show section {
+  h2 {
+    margin-bottom: 30px;
+  }
+
+  p.description {
+    margin-bottom: 50px;
+    font-style: italic;
+  }
+
+  p.author {
+    margin-top: 50px;
+    margin-bottom: 0;
+  }
+
+  p.date {
+    margin-top: 8px;
+  }
+}

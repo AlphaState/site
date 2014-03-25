@@ -1,0 +1,40 @@
+$project-size: 300px;
+$projects-per-line: 3;
+
+#portfolio {
+  width: $projects-per-line * ($project-size + 2 * 15px) + 10;
+  margin-bottom: $delimiter-size;
+  text-align: center;
+
+  a, a:hover {
+    border: 0;
+  }
+
+  .project {
+    margin: 15px 15px 50px 15px;
+
+    width: $project-size;
+    display: inline-block;
+    overflow: hidden;
+
+    @include grayscale-on;
+    transition: 0.1s;
+
+    &:hover {
+      @include grayscale-off;
+    }
+
+    h3 {
+      font-size: 28px;
+      margin-top: 10px;
+    }
+
+    p {
+      font-family: $condensed-font;
+      font-size: 20px;
+      font-weight: 300;
+      white-space: nowrap;
+      margin-bottom: 10px;
+    }
+  }
+}

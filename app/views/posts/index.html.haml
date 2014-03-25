@@ -1,0 +1,8 @@
+= render partial: 'header'
+
+%section
+  - for post in @posts
+    %h2= post.title
+    %p.meta= "#{ post.author }, #{ l post.date }"
+    %p.description= post.description
+    %p.read= link_to t('actions.read'), post_path(id: post.to_param)

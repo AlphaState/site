@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.0.4'
+gem 'sqlite3', '~> 1.3.9'
 
 gem 'haml', '~> 4.0.5'
 gem 'markdown', '~> 1.1.1'

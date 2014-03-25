@@ -1,4 +1,10 @@
 en:
+  date:
+    formats:
+      default: '%B %-d, %Y'
+
+    month_names: [ ~, January, February, March, April, May, June, July, August, September, October, November, December ]
+
   company: 'Alpha State'
   url: 'http://alphastate.se'
 
@@ -10,6 +16,9 @@ en:
     home: 'Home'
     manifesto: 'Manifesto'
     blog: 'Blog'
+
+  actions:
+    read: 'Continue reading'
 
   layouts:
     application:
@@ -38,6 +47,7 @@ en:
       title: 'Manifesto / Alpha State'
       name: 'Manifesto'
 
-    blog:
+  posts:
+    header:
       title: 'Blog / Alpha State'
       name: 'Blog'

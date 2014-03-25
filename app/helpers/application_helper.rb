@@ -1,4 +1,19 @@
 module ApplicationHelper
+  def locale_path
+    url_for :locale => I18n.default_locale? ? I18n.alternative_locale : nil
+  end
+
+  def page_title
+    title = t "#{ params[:controller] }.#{ params[:action] }.title",
+      default: t("#{ params[:controller] }.header.title")
+    title = "#{ @post.title } / #{ title }" unless @post.blank?
+    title
+  end
+
+  def page_labels
+    "#{ I18n.locale } #{ params[:controller] } #{ params[:action] }"
+  end
+
   def dingbat_tag id = 'leaf'
     result = <<-EOL
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 560 560 560" enable-background="new 0 560 560 560" xml:space="preserve">
@@ -12,10 +27,5 @@ module ApplicationHelper
 </svg>
     EOL
     content_tag :div, result.html_safe, :class => :dingbat
-  end
-
-  def locale_path
-    url_for :locale => (I18n.locale == I18n.default_locale) ? \
-      I18n.available_locales.detect{ |l| l != I18n.default_locale } : nil
   end
 end

@@ -1,0 +1,18 @@
+- first = link_to t('company'), home_path
+- second = t '.name'
+- second = link_to second, posts_path if defined?(link) && link
+%header.inversed#menu
+  .wrapper
+    %h1!= "#{ first } <em>/ #{ second }</em>"
+
+    #totop
+      %a.scroll{ href: '#top' } &uarr;
+
+    %nav
+      %ul.secondary
+        %li
+          %a{ href: locale_path }= t 'navigation.locale'
+        %li
+          %a{ href: manifesto_path }= t 'navigation.manifesto'
+        %li
+          %a.scroll{ href: '#contact' }= t 'navigation.contact'

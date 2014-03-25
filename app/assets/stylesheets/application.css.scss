@@ -1,15 +1,32 @@
 @import 'reset';
-@import 'definitions';
+@import 'extensions';
 
 //
-// Constants
+// Layout
 //
-$project-size: 300px;
-$projects-per-line: 3;
+$width: 800px;
 $delimiter-size: 120px;
 
+@mixin balance {
+  position: relative;
+  width: $width;
+  margin: 0 auto;
+}
+
 //
-// Basic
+// Fonts
+//
+$display-font: 'Playfair Display',
+  'Times New Roman', times, serif;
+$text-font: 'Roboto',
+  'Helvetica Neue', helvetica, arial, sans-serif;
+$alternative-font: 'Roboto Slab',
+  'Helvetica Neue', helvetica, arial, sans-serif;
+$condensed-font: 'Roboto Condensed',
+  'Helvetica Neue', helvetica, arial, sans-serif;
+
+//
+// Defaults
 //
 * {
   font-family: $text-font;
@@ -19,14 +36,28 @@ $delimiter-size: 120px;
 
 a {
   font-family: $alternative-font;
+
+  border-style: dashed;
+  border-bottom-width: 1px;
+
+  &:hover {
+    border-style: solid;
+    border-bottom-width: 1px;
+  }
 }
 
 h1, h2 {
   font-family: $display-font;
-  a {
-    font-family: $display-font;
-  }
   @include ligatures;
+
+  a, a:hover {
+    font-family: inherit;
+    font-style: inherit;
+  }
+
+  a {
+    border-bottom-width: 0px;
+  }
 }
 
 p {
@@ -41,14 +72,29 @@ p {
 }
 
 //
+// General overwrites
+//
+#menu .primary a {
+  font-family: $text-font;
+}
+
+#menu, #contact {
+  a {
+    border-bottom-width: 0px;
+  }
+}
+
+#menu .secondary, #menu h1, #contact {
+  a:hover {
+    border-bottom-width: 1px;
+  }
+}
+
+//
 // Header
 //
-article header {
-  width: auto;
-
-  .wrapper {
-    @include balance;
-  }
+article header .wrapper {
+  @include balance;
 }
 
 article.home header h1 {
@@ -78,16 +124,6 @@ article:not(.home) header h1 {
 article section {
   @include balance;
 
-  a {
-    border-style: dotted;
-    border-bottom-width: 2px;
-  }
-
-  a:hover {
-    border-style: solid;
-    border-bottom-width: 2px;
-  }
-
   h2 {
     font-size: 70px;
     line-height: 84px;
@@ -106,10 +142,8 @@ article section {
   }
 }
 
-article.home section:first-of-type {
-  p:last-of-type {
-    margin: 60px 0;
-  }
+article.home section:first-of-type p:last-of-type {
+  margin: 60px 0;
 }
 
 //
@@ -147,7 +181,6 @@ article.home nav {
     display: inline-block;
 
     a {
-      font-family: $text-font;
       font-size: 60px;
       line-height: 80px;
       font-weight: 300;
@@ -253,7 +286,7 @@ article.home #menu.compressed {
 // Footer
 //
 footer {
-  padding: 70px 0 20px 0;
+  padding: 70px 0 30px 0;
 
   .wrapper {
     @include balance;
@@ -275,118 +308,17 @@ footer {
 
   #copyright {
     text-align: center;
-    font-size: 24px;
   }
 }
 
 //
-// Links
+// Decorations
 //
-article footer, article nav ul.secondary {
-  a {
-    border-style: dotted;
-  }
-
-  a:hover {
-    border-style: solid;
-    border-width: 0px;
-    border-bottom-width: 1px;
-  }
+.separator {
+  @include balance;
+  height: 2px;
 }
 
-//
-// Home / Portfolio
-//
-#portfolio {
-  width: $projects-per-line * ($project-size + 2 * 15px) + 10;
-  margin-bottom: $delimiter-size;
-  text-align: center;
-
-  a, a:hover {
-    border: 0;
-  }
-
-  .project {
-    margin: 15px 15px 50px 15px;
-
-    width: $project-size;
-    display: inline-block;
-    overflow: hidden;
-
-    @include grayscale-on;
-    transition: 0.1s;
-
-    &:hover {
-      @include grayscale-off;
-    }
-
-    h3 {
-      margin-top: 10px;
-      font-size: 28px;
-    }
-
-    p {
-      font-family: $condensed-font;
-      font-size: 20px;
-      font-weight: 300;
-      white-space: nowrap;
-      margin-bottom: 8px;
-    }
-  }
-}
-
-//
-// Blog
-//
-article.blog section {
-  h2 {
-    font-size: 40px;
-    line-height: 48px;
-    text-align: left;
-    margin-bottom: 30px;
-  }
-
-  p {
-    margin-top: 18px;
-  }
-
-  p.description {
-    margin-bottom: 50px;
-    font-style: italic;
-  }
-
-  p.author, p.date {
-    font-style: italic;
-  }
-
-  p.author {
-    margin-top: 50px;
-    margin-bottom: 0;
-  }
-
-  p.date {
-    margin-top: 8px;
-  }
-}
-
-//
-// Language-specific tweaks
-//
-article.ru.home {
-  header h1 {
-    font-size: 100px;
-  }
-}
-
-article.ru:not(.home) {
-  header h1 {
-    font-size: 60px;
-  }
-}
-
-//
-// Various
-//
 .inversed {
   color: #fff;
   background: #000;
@@ -398,7 +330,7 @@ article.ru:not(.home) {
   background-position: 0px 0px;
 }
 
-#menu .spectrum {
+.inversed .spectrum {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -424,13 +356,16 @@ article.ru:not(.home) {
   svg {
     height: 110px;
     width: 110px;
-    path {
-      fill: #fff;
-    }
   }
 }
 
-.separator {
-  @include balance;
-  height: 2px;
+.inversed svg path {
+  fill: #fff;
 }
+
+//
+// Page-specific styles
+//
+article.home { @import 'home'; }
+article.posts { @import 'posts'; }
+article.ru { @import 'ru'; }
