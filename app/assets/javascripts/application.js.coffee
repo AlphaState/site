@@ -1,3 +1,5 @@
+#= require menu
+
 $document = $(document)
 $window = $(window)
 $body = $('body')
@@ -6,38 +8,31 @@ $spectrum = $('.spectrum')
 $offset = 800 * Math.random()
 
 $menu = $('#menu')
-$menu_height = $menu.outerHeight()
-$placeholder_height = $menu.outerHeight(true)
+$menu = new Menu $menu, $menu.offset().top + $menu.outerHeight() - 110
 
-$placeholder = $('<div/>')
-  .css(width: '100%', height: $placeholder_height + 'px')
-  .hide()
-  .insertAfter($menu)
-
-$threshold = $menu.offset().top + $menu_height - 110
-$compressed = false
+canCompressMenu = ->
+  $window.height() > 700
 
 onScroll = (e) ->
   scrollTop = $window.scrollTop()
   position = Math.round($offset + 0.5 * scrollTop)
   $spectrum.css 'background-position': position + 'px 0px'
 
-  if scrollTop > $threshold and not $compressed
-    $menu.addClass 'compressed'
-    $placeholder.show()
-    $compressed = true
-  else if scrollTop < $threshold and $compressed
-    $menu.removeClass 'compressed'
-    $placeholder.hide()
-    $compressed = false
+  if not canCompressMenu()
+    if $menu.isCompressed() then $menu.decompress()
+    return
+
+  $menu.update scrollTop
 
 anchorToScroll = (anchor) ->
   position =  $(anchor).offset().top
-  if anchor is '#top'
+
+  if not canCompressMenu() or anchor is '#top'
   else if anchor is '#contact'
     position = position - 60
   else
     position = position - 130
+
   position
 
 onReady = ->
@@ -61,6 +56,3 @@ onReady = ->
     return false
 
 $document.on 'ready', onReady
-
-if /chrom(e|ium)/.test navigator.userAgent.toLowerCase()
-  Hyphenator.run()

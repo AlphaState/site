@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  default_scope { where :locale => [ nil, '', I18n.locale ] }
+
   def to_param
     address.blank? ? id : address
   end

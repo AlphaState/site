@@ -14,6 +14,10 @@ module ApplicationHelper
     "#{ I18n.locale } #{ params[:controller] } #{ params[:action] }"
   end
 
+  def markdown text
+    Markdown.new(text, banner: false).to_html.html_safe
+  end
+
   def dingbat_tag id = 'leaf'
     result = <<-EOL
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 560 560 560" enable-background="new 0 560 560 560" xml:space="preserve">

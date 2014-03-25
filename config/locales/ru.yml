@@ -51,3 +51,6 @@ ru:
     header:
       title: 'Блог / Альфа-уровень'
       name: 'Блог'
+
+    index:
+      meta: '%{author}, %{date}'

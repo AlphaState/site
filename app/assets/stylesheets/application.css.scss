@@ -13,6 +13,14 @@ $delimiter-size: 120px;
   margin: 0 auto;
 }
 
+@mixin apply-when-wide {
+  @media screen and (min-width: 1100px) { @content; }
+}
+
+@mixin apply-when-narrow {
+  @media screen and (max-width: 1100px) { @content; }
+}
+
 //
 // Fonts
 //
@@ -167,6 +175,10 @@ article:not(.home) nav {
   position: absolute;
   right: -100px;
   top: 35px;
+
+  @include apply-when-narrow {
+    right: 0;
+  }
 }
 
 article.home nav {
@@ -177,7 +189,6 @@ article.home nav {
 
   ul.primary {
     width: $width;
-    margin-left: -100px;
     display: inline-block;
 
     a {
@@ -186,19 +197,27 @@ article.home nav {
       font-weight: 300;
     }
 
-    li:nth-child(2) {
-      margin-left: 100px;
-    }
+    @include apply-when-wide {
+      margin-left: -100px;
 
-    li:nth-child(3) {
-      margin-left: 200px;
+      li:nth-child(2) {
+        margin-left: 100px;
+      }
+
+      li:nth-child(3) {
+        margin-left: 200px;
+      }
     }
   }
 
   ul.secondary {
     position: absolute;
-    right: -100px;
     top: 100px;
+    right: -100px;
+
+    @include apply-when-narrow {
+      right: 0;
+    }
   }
 }
 
@@ -215,6 +234,10 @@ article #menu.compressed {
     position: absolute;
     display: block;
     left: -100px;
+
+    @include apply-when-narrow {
+      left: -60px;
+    }
   }
 
   ul.secondary {
@@ -265,10 +288,12 @@ article.home #menu.compressed {
 
   ul.primary {
     width: auto;
+    margin-left: 0;
 
     li {
       display: inline;
-      margin-left: 25px;
+      margin-left: 0;
+      margin-right: 25px;
     }
 
     a {
@@ -276,8 +301,11 @@ article.home #menu.compressed {
       line-height: 60px;
     }
 
-    li:nth-child(1) {
-      margin-left: 60px;
+    @include apply-when-narrow {
+      a {
+        font-size: 45px;
+        line-height: 60px;
+      }
     }
   }
 }

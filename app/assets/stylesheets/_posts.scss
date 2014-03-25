@@ -11,36 +11,20 @@ section {
 
   p.meta {
     font-style: italic;
+    margin-top: 4px;
+    margin-bottom: 24px;
   }
 }
 
 &.index section {
-  p.meta {
-    margin-top: 4px;
-    margin-bottom: 24px;
-  }
-
   p.read {
     text-align: right;
   }
 }
 
 &.show section {
-  h2 {
-    margin-bottom: 30px;
-  }
-
   p.description {
-    margin-bottom: 50px;
     font-style: italic;
-  }
-
-  p.author {
-    margin-top: 50px;
-    margin-bottom: 0;
-  }
-
-  p.date {
-    margin-top: 8px;
+    margin-bottom: 50px;
   }
 }
