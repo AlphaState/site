@@ -1,0 +1,7 @@
+= render partial: 'header', locals: { link: true }
+
+%section
+  = form_for @post do |form|
+    = render partial: 'form', locals: { form: form }
+    = form.submit t('actions.save')
+    = form.submit t('actions.delete'), name: :delete

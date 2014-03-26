@@ -19,6 +19,18 @@ en:
 
   actions:
     read: 'Continue reading'
+    save: 'Save'
+    delete: 'Delete'
+
+  activerecord:
+    attributes:
+      post:
+        title: 'Title'
+        address: 'Address'
+        author: 'Author'
+        date: 'Date'
+        description: 'Description'
+        content: 'Content'
 
   layouts:
     application:
@@ -53,4 +65,7 @@ en:
       name: 'Blog'
 
     index:
-      meta: 'by %{author} on %{date}'
+      meta: &post-meta 'by %{author} on %{date}'
+
+    show:
+      meta: *post-meta

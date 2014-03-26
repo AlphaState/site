@@ -1,15 +1,17 @@
 class Post < ActiveRecord::Base
-  default_scope { where :locale => [ nil, '', I18n.locale ] }
+  default_scope {
+    where(:locale => [ nil, '', I18n.locale ]).order('date DESC')
+  }
 
   def to_param
     address.blank? ? id : address
   end
 
-  def self.find_by_param param
+  def self.find_by_param! param
     if param =~ /^(\d+)/
-      find_by id: $1.to_i
+      find_by! id: $1.to_i
     else
-      find_by address: param
+      find_by! address: param
     end
   end
 end

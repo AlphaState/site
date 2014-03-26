@@ -19,13 +19,25 @@ ru:
 
   actions:
     read: 'Читать далее'
+    save: 'Сохранить'
+    delete: 'Удалить'
+
+  activerecord:
+    attributes:
+      post:
+        title: 'Заголовок'
+        address: 'Адрес'
+        author: 'Автор'
+        date: 'Дата'
+        description: 'Краткое описание'
+        content: 'Содержание'
 
   layouts:
     application:
       description: 'Сайт студии веб-разработки «Альфа-уровень».'
 
       contact:
-        introduction: 'Звоните или пишите письма. Мы с радостью ответим на ваши вопросы и обсудим варианты сотрудничества.'
+        introduction: 'Звоните и пишите письма. Мы с радостью ответим на ваши вопросы и обсудим варианты сотрудничества.'
         city-1: 'Санкт-Петербург'
         city-2: 'Стокгольм'
         telephone-1: 'Тел.: +7 812 982-99-52'
@@ -53,4 +65,7 @@ ru:
       name: 'Блог'
 
     index:
-      meta: '%{author}, %{date}'
+      meta: &post-meta '%{author}, %{date}'
+
+    show:
+      meta: *post-meta

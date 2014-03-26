@@ -5,3 +5,5 @@ log/*
 *.swp
 db/*.sqlite3
 config/database.yml
+*.swn
+*.swo

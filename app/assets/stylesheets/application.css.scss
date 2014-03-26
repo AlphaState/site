@@ -14,11 +14,19 @@ $delimiter-size: 120px;
 }
 
 @mixin apply-when-wide {
-  @media screen and (min-width: 1100px) { @content; }
+  @media screen and (min-width: 1101px) { @content; }
 }
 
 @mixin apply-when-narrow {
   @media screen and (max-width: 1100px) { @content; }
+}
+
+@mixin apply-when-tall {
+  @media screen and (min-height: 701px) { @content; }
+}
+
+@mixin apply-when-short {
+  @media screen and (max-height: 700px) { @content; }
 }
 
 //
@@ -42,7 +50,7 @@ $condensed-font: 'Roboto Condensed',
   line-height: 1em;
 }
 
-a {
+a, input[type=submit] {
   font-family: $alternative-font;
 
   border-style: dashed;
@@ -54,7 +62,7 @@ a {
   }
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-family: $display-font;
   @include ligatures;
 
@@ -157,6 +165,11 @@ article.home section:first-of-type p:last-of-type {
 //
 // Navigation
 //
+#menu-placeholder {
+  background: #000;
+  display: none;
+}
+
 #totop {
   display: none;
 }
@@ -221,90 +234,96 @@ article.home nav {
   }
 }
 
-article #menu.compressed {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  margin: 0;
-
-  #totop {
-    font-size: 42px;
-    position: absolute;
+@include apply-when-tall {
+  #menu-placeholder.active {
     display: block;
-    left: -100px;
+  }
 
-    @include apply-when-narrow {
-      left: -60px;
+  article #menu.compressed {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    margin: 0;
+
+    #totop {
+      font-size: 42px;
+      position: absolute;
+      display: block;
+      left: -100px;
+
+      @include apply-when-narrow {
+        left: -60px;
+      }
+    }
+
+    ul.secondary {
+      line-height: 1em;
+      top: 34px;
+
+      li {
+        display: inline;
+        margin-left: 10px;
+      }
+
+      li:first-of-type {
+        display: none;
+      }
     }
   }
 
-  ul.secondary {
-    line-height: 1em;
-    top: 35px;
-
-    li {
-      display: inline;
-      margin-left: 10px;
+  article:not(.home) #menu.compressed {
+    nav {
+      top: 32px;
     }
 
-    li:first-of-type {
-      display: none;
+    #totop {
+      top: 22px;
+    }
+
+    h1 {
+      font-size: 40px;
+      line-height: 50px;
+
+      padding-top: 25px;
+      padding-bottom: 35px;
+
+      em {
+        margin-left: 0;
+      }
     }
   }
-}
 
-article:not(.home) #menu.compressed {
-  nav {
-    top: 32px;
-  }
+  article.home #menu.compressed {
+    .wrapper {
+      padding: 20px 0 30px 0;
+    }
 
-  #totop {
-    top: 22px;
-  }
+    #totop {
+      top: 25px;
+    }
 
-  h1 {
-    font-size: 40px;
-    line-height: 50px;
-
-    padding-top: 25px;
-    padding-bottom: 35px;
-
-    em {
+    ul.primary {
+      width: auto;
       margin-left: 0;
-    }
-  }
-}
 
-article.home #menu.compressed {
-  .wrapper {
-    padding: 20px 0 30px 0;
-  }
+      li {
+        display: inline;
+        margin-left: 0;
+        margin-right: 25px;
+      }
 
-  #totop {
-    top: 27px;
-  }
-
-  ul.primary {
-    width: auto;
-    margin-left: 0;
-
-    li {
-      display: inline;
-      margin-left: 0;
-      margin-right: 25px;
-    }
-
-    a {
-      font-size: 50px;
-      line-height: 60px;
-    }
-
-    @include apply-when-narrow {
       a {
-        font-size: 45px;
+        font-size: 50px;
         line-height: 60px;
+      }
+
+      @include apply-when-narrow {
+        a {
+          font-size: 45px;
+          line-height: 60px;
+        }
       }
     }
   }
@@ -336,6 +355,70 @@ footer {
 
   #copyright {
     text-align: center;
+  }
+}
+
+//
+// Forms
+//
+form {
+  margin-top: $delimiter-size - 20px;
+  margin-bottom: $delimiter-size;
+  overflow: hidden;
+
+  input, textarea {
+    background: #fafafa;
+    margin-bottom: 20px;
+
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 300;
+
+    width: 100%;
+    border: 0;
+
+    &:focus {
+      outline: 0;
+    }
+
+    @include placeholder {
+      font-style: italic;
+      color: #ccc;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  textarea.title {
+    font-family: $display-font;
+    font-size: 50px;
+    line-height: 60px;
+    height: 2 * 60px;
+    overflow: hidden;
+  }
+
+  textarea.description {
+    height: 5 * 32px;
+    font-style: italic;
+  }
+
+  textarea.content {
+    height: 20 * 32px;
+  }
+
+  input.address {
+    font-family: $alternative-font;
+  }
+
+  input[type=submit] {
+    cursor: pointer;
+    background: none;
+    width: auto;
+    margin-left: 1em;
+    margin-top: 20px;
+    float: right;
   }
 }
 

@@ -2,6 +2,6 @@
 
 %section
   %h2= @post.title
-  %p.meta= "#{ @post.author }, #{ l @post.date }"
+  %p.meta= t('.meta') % { author: @post.author, date: l(@post.date) }
   %p.description= @post.description
   = markdown @post.content

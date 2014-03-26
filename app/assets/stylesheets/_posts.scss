@@ -1,18 +1,45 @@
 section {
   h2 {
-    font-size: 40px;
-    line-height: 48px;
+    font-size: 50px;
+    line-height: 60px;
     text-align: left;
   }
 
-  p {
+  h3 {
+    font-size: 30px;
+    line-height: 36px;
+    margin-top: 40px;
+  }
+
+  p, li {
     margin-top: 18px;
+  }
+
+  p strong {
+    font-weight: 400;
+  }
+
+  h3 + p {
+    margin-top: 10px;
   }
 
   p.meta {
     font-style: italic;
-    margin-top: 4px;
+    margin-top: 20px;
     margin-bottom: 24px;
+  }
+
+  ul {
+  }
+
+  li {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 300;
+    margin-left: 2em;
+
+    list-style-type: square;
+    list-style-position: outside;
   }
 }
 

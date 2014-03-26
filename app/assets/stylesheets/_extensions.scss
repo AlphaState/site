@@ -80,3 +80,10 @@ $spec-col-6: #00b3c1;
   -ms-hyphens: auto;
   hyphens: auto;
 }
+
+@mixin placeholder {
+  &::-webkit-input-placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+}

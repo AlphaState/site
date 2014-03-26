@@ -10,24 +10,16 @@ $offset = 800 * Math.random()
 $menu = $('#menu')
 $menu = new Menu $menu, $menu.offset().top + $menu.outerHeight() - 110
 
-canCompressMenu = ->
-  $window.height() > 700
-
 onScroll = (e) ->
   scrollTop = $window.scrollTop()
   position = Math.round($offset + 0.5 * scrollTop)
   $spectrum.css 'background-position': position + 'px 0px'
-
-  if not canCompressMenu()
-    if $menu.isCompressed() then $menu.decompress()
-    return
-
   $menu.update scrollTop
 
 anchorToScroll = (anchor) ->
   position =  $(anchor).offset().top
 
-  if not canCompressMenu() or anchor is '#top'
+  if $window.height() < 700 or anchor is '#top'
   else if anchor is '#contact'
     position = position - 60
   else
