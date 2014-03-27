@@ -5,7 +5,7 @@
 // Layout
 //
 $width: 800px;
-$delimiter-size: 120px;
+$delimiter-size: 100px;
 
 @mixin balance {
   position: relative;
@@ -46,8 +46,10 @@ $condensed-font: 'Roboto Condensed',
 //
 * {
   font-family: $text-font;
-  text-rendering: optimizeLegibility;
   line-height: 1em;
+
+  text-rendering: optimizeLegibility;
+  @include ligatures;
 }
 
 a, input[type=submit] {
@@ -64,7 +66,6 @@ a, input[type=submit] {
 
 h1, h2, h3 {
   font-family: $display-font;
-  @include ligatures;
 
   a, a:hover {
     font-family: inherit;
@@ -139,6 +140,7 @@ article:not(.home) header h1 {
 //
 article section {
   @include balance;
+  margin-bottom: $delimiter-size;
 
   h2 {
     font-size: 70px;
@@ -153,8 +155,16 @@ article section {
     margin-top: $delimiter-size - 20px;
   }
 
-  p:last-of-type {
-    margin-bottom: $delimiter-size;
+  p.actions {
+    margin-top: $delimiter-size / 2;
+  }
+
+  p.actions + h2, p.actions + form {
+    margin-top: 2 * $delimiter-size / 5;
+  }
+
+  p.actions:last-child {
+    margin-top: $delimiter-size / 2;
   }
 }
 
@@ -335,21 +345,34 @@ article.home nav {
 footer {
   padding: 70px 0 30px 0;
 
-  .wrapper {
-    @include balance;
-  }
-
   p {
     font-weight: 100;
   }
 
-  address {
-    margin-top: 50px;
-    display: inline-block;
-    width: $width / 2 - 2px;
+  .wrapper {
+    @include balance;
+  }
 
-    p:first-of-type {
-      padding-bottom: 20px;
+  #address {
+    text-align: center;
+
+    address {
+      margin-top: 60px;
+      display: inline-block;
+
+      p:first-of-type {
+        padding-bottom: 20px;
+      }
+    }
+
+    address:first-of-type {
+      text-align: left;
+      padding: 0 50px 0 0;
+    }
+
+    address:last-of-type {
+      text-align: left;
+      padding: 0 0 0 50px;
     }
   }
 
@@ -416,9 +439,8 @@ form {
     cursor: pointer;
     background: none;
     width: auto;
-    margin-left: 1em;
+    margin-right: 1em;
     margin-top: 20px;
-    float: right;
   }
 }
 

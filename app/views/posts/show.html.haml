@@ -1,6 +1,7 @@
 = render partial: 'header', locals: { link: true }
 
 %section
+  %p.actions= link_to t('.return').html_safe, posts_path
   %h2= @post.title
   %p.meta= t('.meta') % { author: @post.author, date: l(@post.date) }
   %p.description= @post.description

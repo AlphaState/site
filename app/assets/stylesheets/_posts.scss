@@ -1,26 +1,8 @@
 section {
   h2 {
     font-size: 50px;
-    line-height: 60px;
+    line-height: 55px;
     text-align: left;
-  }
-
-  h3 {
-    font-size: 30px;
-    line-height: 36px;
-    margin-top: 40px;
-  }
-
-  p, li {
-    margin-top: 18px;
-  }
-
-  p strong {
-    font-weight: 400;
-  }
-
-  h3 + p {
-    margin-top: 10px;
   }
 
   p.meta {
@@ -30,6 +12,7 @@ section {
   }
 
   ul {
+    @include hyphenation;
   }
 
   li {
@@ -44,14 +27,33 @@ section {
 }
 
 &.index section {
-  p.read {
+  p.actions {
+    margin-top: 18px;
     text-align: right;
   }
 }
 
 &.show section {
+  h3 {
+    font-size: 30px;
+    line-height: 36px;
+    margin-top: 40px;
+  }
+
   p.description {
     font-style: italic;
     margin-bottom: 50px;
+  }
+
+  p:not(.actions), li {
+    margin-top: 18px;
+  }
+
+  p strong {
+    font-weight: 400;
+  }
+
+  h3 + p {
+    margin-top: 10px;
   }
 }

@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  before_create :set_locale
+
   default_scope {
     where(:locale => [ nil, '', I18n.locale ]).order('date DESC')
   }
@@ -13,5 +15,11 @@ class Post < ActiveRecord::Base
     else
       find_by! address: param
     end
+  end
+
+  private
+
+  def set_locale
+    self.locale = I18n.locale
   end
 end

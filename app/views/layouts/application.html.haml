@@ -19,17 +19,18 @@
         .wrapper
           %p= t '.contact.introduction'
 
-          %address
-            %p= t '.contact.city-1'
-            %p
-              %a{ href: 'mailto:info@alphastate.ru' } info@alphastate.ru
-            %p= t '.contact.telephone-1'
+          #address
+            %address
+              %p= t '.contact.city-1'
+              %p
+                %a{ href: 'mailto:info@alphastate.ru' } info@alphastate.ru
+              %p= t '.contact.telephone-1'
 
-          %address
-            %p= t '.contact.city-2'
-            %p
-              %a{ href: 'mailto:info@alphastate.se' } info@alphastate.se
-            %p= t '.contact.telephone-2'
+            %address
+              %p= t '.contact.city-2'
+              %p
+                %a{ href: 'mailto:info@alphastate.se' } info@alphastate.se
+              %p= t '.contact.telephone-2'
 
           = dingbat_tag
 

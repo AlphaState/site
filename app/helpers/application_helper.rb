@@ -6,7 +6,7 @@ module ApplicationHelper
   def page_title
     title = t "#{ params[:controller] }.#{ params[:action] }.title",
       default: t("#{ params[:controller] }.header.title")
-    title = "#{ @post.title } / #{ title }" unless @post.blank?
+    title = "#{ @post.title } / #{ title }" unless @post.blank? || @post.new_record?
     title
   end
 

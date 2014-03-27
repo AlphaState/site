@@ -5,4 +5,4 @@
     %h2= post.title
     %p.meta= t('.meta') % { author: post.author, date: l(post.date) }
     %p.description= post.description
-    %p.read= link_to t('actions.read'), post_path(id: post.to_param)
+    %p.actions= link_to t('.read'), post_path(post)

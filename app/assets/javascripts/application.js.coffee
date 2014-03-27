@@ -1,4 +1,10 @@
+#= require hyphenator
 #= require menu
+
+window.findElementsToHyphenate = ->
+  return document.querySelectorAll('section p, section ul')
+
+if window.chrome then Hyphenator.run()
 
 $document = $(document)
 $window = $(window)

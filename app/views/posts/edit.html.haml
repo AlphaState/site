@@ -1,6 +1,7 @@
 = render partial: 'header', locals: { link: true }
 
 %section
+  %p.actions= link_to t('.return').html_safe, post_path(@post)
   = form_for @post do |form|
     = render partial: 'form', locals: { form: form }
     = form.submit t('actions.save')
