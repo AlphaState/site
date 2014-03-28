@@ -1,0 +1,26 @@
+$unit: 16px;
+$rhythm: 32px;
+$half-rhythm: $rhythm / 2;
+$double-rhythm: 2 * $rhythm;
+
+//
+// Layout
+//
+$page-width: 800px;
+$delimiter-size: 3 * $rhythm;
+
+//
+// Fonts
+//
+$display-font-family: 'Playfair Display',
+  'Times New Roman', times, serif;
+$text-font-family: 'Roboto',
+  'Helvetica Neue', helvetica, arial, sans-serif;
+$alternative-font-family: 'Roboto Slab',
+  'Helvetica Neue', helvetica, arial, sans-serif;
+$condensed-font-family: 'Roboto Condensed',
+  'Helvetica Neue', helvetica, arial, sans-serif;
+
+$thin-font-weight: 100;
+$light-font-weight: 300;
+$regular-font-weight: 400;

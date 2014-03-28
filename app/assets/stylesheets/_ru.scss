@@ -6,12 +6,12 @@
 
 &:not(.home) {
   header h1 {
-    font-size: 60px;
+    font-size: 70px;
   }
 
   nav {
     @include apply-when-narrow {
-      right: -20px;
+      right: -40px;
     }
   }
 }

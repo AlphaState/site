@@ -1,14 +1,24 @@
 section {
   h2 {
     font-size: 50px;
-    line-height: 55px;
+    line-height: $double-rhythm;
+    margin-top: $double-rhythm;
+    margin-bottom: 0;
     text-align: left;
+  }
+
+  h2:first-of-type {
+    margin-top: 3 * $rhythm;
+  }
+
+  p {
+    margin-bottom: $half-rhythm;
   }
 
   p.meta {
     font-style: italic;
-    margin-top: 20px;
-    margin-bottom: 24px;
+    margin-top: $half-rhythm;
+    margin-bottom: $half-rhythm;
   }
 
   ul {
@@ -17,8 +27,8 @@ section {
 
   li {
     font-size: 24px;
-    line-height: 30px;
-    font-weight: 300;
+    line-height: $rhythm;
+    font-weight: $light-font-weight;
     margin-left: 2em;
 
     list-style-type: square;
@@ -28,32 +38,32 @@ section {
 
 &.index section {
   p.actions {
-    margin-top: 18px;
     text-align: right;
   }
 }
 
 &.show section {
+  h2 {
+    margin-top: $rhythm;
+  }
+
   h3 {
     font-size: 30px;
-    line-height: 36px;
-    margin-top: 40px;
+    line-height: $rhythm;
+    margin-top: 3 * $half-rhythm;
+    margin-bottom: $half-rhythm;
   }
 
   p.description {
     font-style: italic;
-    margin-bottom: 50px;
+    margin-bottom: 3 * $half-rhythm;
   }
 
-  p:not(.actions), li {
-    margin-top: 18px;
+  li {
+    margin-bottom: $half-rhythm;
   }
 
   p strong {
-    font-weight: 400;
-  }
-
-  h3 + p {
-    margin-top: 10px;
+    font-weight: $regular-font-weight;
   }
 }

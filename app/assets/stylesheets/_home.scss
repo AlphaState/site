@@ -2,20 +2,29 @@ $project-size: 300px;
 $projects-per-line: 3;
 
 #portfolio {
-  width: $projects-per-line * ($project-size + 2 * 15px) + 10;
+  width: $projects-per-line * ($project-size + $rhythm) + 20;
   margin-bottom: $delimiter-size;
   text-align: center;
 
   a, a:hover {
+    display: block;
     border: 0;
+    line-height: 0;
   }
 
   .project {
-    margin: 15px 15px 50px 15px;
+    margin-left: $half-rhythm;
+    margin-right: $half-rhythm;
+    margin-bottom: $double-rhythm;
 
     width: $project-size;
     display: inline-block;
-    overflow: hidden;
+
+    img {
+      padding-top: $half-rhythm;
+      padding-bottom: rhythm($project-size + $half-rhythm) -
+        $project-size - $half-rhythm;
+    }
 
     @include grayscale-on;
     transition: 0.1s;
@@ -26,15 +35,14 @@ $projects-per-line: 3;
 
     h3 {
       font-size: 28px;
-      margin-top: 10px;
+      line-height: $rhythm;
     }
 
     p {
-      font-family: $condensed-font;
+      font-family: $condensed-font-family;
       font-size: 20px;
-      font-weight: 300;
+      font-weight: $light-font-weight;
       white-space: nowrap;
-      margin-bottom: 10px;
     }
   }
 }

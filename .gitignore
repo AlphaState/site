@@ -2,8 +2,10 @@
 .bundle
 tmp/*
 log/*
-*.swp
 db/*.sqlite3
 config/database.yml
+*.swl
+*.swm
 *.swn
 *.swo
+*.swp

@@ -1,15 +1,13 @@
 @import 'reset';
 @import 'extensions';
+@import 'constants';
 
 //
 // Layout
 //
-$width: 800px;
-$delimiter-size: 100px;
-
 @mixin balance {
   position: relative;
-  width: $width;
+  width: $page-width;
   margin: 0 auto;
 }
 
@@ -29,31 +27,30 @@ $delimiter-size: 100px;
   @media screen and (max-height: 700px) { @content; }
 }
 
-//
-// Fonts
-//
-$display-font: 'Playfair Display',
-  'Times New Roman', times, serif;
-$text-font: 'Roboto',
-  'Helvetica Neue', helvetica, arial, sans-serif;
-$alternative-font: 'Roboto Slab',
-  'Helvetica Neue', helvetica, arial, sans-serif;
-$condensed-font: 'Roboto Condensed',
-  'Helvetica Neue', helvetica, arial, sans-serif;
+@function rhythm($value) {
+  @return ceil($value / $rhythm) * $rhythm;
+}
+
+@function fix($value, $offset) {
+  @return $value + $offset;
+}
 
 //
 // Defaults
 //
-* {
-  font-family: $text-font;
-  line-height: 1em;
-
+body {
+  font-family: $text-font-family;
   text-rendering: optimizeLegibility;
   @include ligatures;
 }
 
+a, a:hover, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
 a, input[type=submit] {
-  font-family: $alternative-font;
+  font-family: $alternative-font-family;
 
   border-style: dashed;
   border-bottom-width: 1px;
@@ -65,22 +62,18 @@ a, input[type=submit] {
 }
 
 h1, h2, h3 {
-  font-family: $display-font;
-
-  a, a:hover {
-    font-family: inherit;
-    font-style: inherit;
-  }
+  font-family: $display-font-family;
 
   a {
+    font-family: inherit;
     border-bottom-width: 0px;
   }
 }
 
 p {
   font-size: 24px;
-  line-height: 32px;
-  font-weight: 300;
+  line-height: $rhythm;
+  font-weight: $light-font-weight;
   @include hyphenation;
 
   em {
@@ -92,13 +85,11 @@ p {
 // General overwrites
 //
 #menu .primary a {
-  font-family: $text-font;
+  font-family: $text-font-family;
 }
 
-#menu, #contact {
-  a {
-    border-bottom-width: 0px;
-  }
+#menu a, #contact a {
+  border-bottom-width: 0px;
 }
 
 #menu .secondary, #menu h1, #contact {
@@ -114,25 +105,25 @@ article header .wrapper {
   @include balance;
 }
 
-article.home header h1 {
-  font-size: 110px;
-  line-height: 132px;
-
-  padding-top: 30px;
-}
-
-article:not(.home) header h1 {
+article header h1 {
   font-size: 80px;
-  line-height: 100px;
-
-  padding-top: 40px;
-  padding-bottom: 60px;
+  line-height: 4 * $rhythm;
+  padding-top: fix($rhythm, -12);
+  padding-bottom: fix($rhythm, 12);
 
   em {
-    font-size: 40px;
+    font-size: $rhythm;
+    line-height: 0;
     margin-left: -8px;
     text-transform: lowercase;
   }
+}
+
+article.home header h1 {
+  font-size: 110px;
+  line-height: 4 * $rhythm;
+  padding-top: $rhythm;
+  padding-bottom: 0;
 }
 
 //
@@ -144,32 +135,21 @@ article section {
 
   h2 {
     font-size: 70px;
-    line-height: 84px;
+    line-height: 3 * $rhythm;
     text-align: center;
 
-    margin-top: 60px;
-    margin-bottom: 10px;
+    margin-top: fix($double-rhythm, $half-rhythm);
+    margin-bottom: fix($rhythm, - $half-rhythm);
   }
 
-  h2:first-of-type {
-    margin-top: $delimiter-size - 20px;
-  }
-
-  p.actions {
-    margin-top: $delimiter-size / 2;
-  }
-
-  p.actions + h2, p.actions + form {
-    margin-top: 2 * $delimiter-size / 5;
-  }
-
-  p.actions:last-child {
-    margin-top: $delimiter-size / 2;
+  p.actions:first-child {
+    margin-top: $double-rhythm;
   }
 }
 
-article.home section:first-of-type p:last-of-type {
-  margin: 60px 0;
+article.home section:first-of-type {
+  margin-top: $double-rhythm;
+  margin-bottom: $double-rhythm;
 }
 
 //
@@ -181,7 +161,12 @@ article.home section:first-of-type p:last-of-type {
 }
 
 #totop {
+  font-size: 36px;
+  line-height: $rhythm;
   display: none;
+  position: absolute;
+  left: -100px;
+  top: fix($rhythm, -7);
 }
 
 article nav {
@@ -189,15 +174,15 @@ article nav {
 
   ul.secondary a {
     font-size: 28px;
-    line-height: 40px;
-    font-weight: 100;
+    line-height: fix($rhythm, 8);
+    font-weight: $thin-font-weight;
   }
 }
 
 article:not(.home) nav {
   position: absolute;
   right: -100px;
-  top: 35px;
+  top: $rhythm;
 
   @include apply-when-narrow {
     right: 0;
@@ -207,17 +192,23 @@ article:not(.home) nav {
 article.home nav {
   .wrapper {
     @include balance;
-    padding: 45px 0 55px 0;
+    padding-top: fix(3 * $half-rhythm, -6);
+    padding-bottom: fix(3 * $half-rhythm, 6);
   }
 
   ul.primary {
-    width: $width;
+    width: $page-width;
     display: inline-block;
 
     a {
       font-size: 60px;
-      line-height: 80px;
-      font-weight: 300;
+      line-height: $double-rhythm;
+      font-weight: $light-font-weight;
+    }
+
+    li:nth-child(2) {
+      margin-top: $half-rhythm;
+      margin-bottom: $half-rhythm;
     }
 
     @include apply-when-wide {
@@ -235,7 +226,7 @@ article.home nav {
 
   ul.secondary {
     position: absolute;
-    top: 100px;
+    top: 3 * $rhythm;
     right: -100px;
 
     @include apply-when-narrow {
@@ -258,10 +249,7 @@ article.home nav {
     margin: 0;
 
     #totop {
-      font-size: 42px;
-      position: absolute;
       display: block;
-      left: -100px;
 
       @include apply-when-narrow {
         left: -60px;
@@ -269,12 +257,11 @@ article.home nav {
     }
 
     ul.secondary {
-      line-height: 1em;
-      top: 34px;
+      top: fix($rhythm, -4);
 
       li {
         display: inline;
-        margin-left: 10px;
+        margin-left: 1em;
       }
 
       li:first-of-type {
@@ -285,19 +272,15 @@ article.home nav {
 
   article:not(.home) #menu.compressed {
     nav {
-      top: 32px;
-    }
-
-    #totop {
-      top: 22px;
+      top: fix($rhythm, -3);
     }
 
     h1 {
       font-size: 40px;
-      line-height: 50px;
+      line-height: $rhythm;
 
-      padding-top: 25px;
-      padding-bottom: 35px;
+      padding-top: fix($rhythm, -3);
+      padding-bottom: fix($rhythm, 3);
 
       em {
         margin-left: 0;
@@ -307,11 +290,8 @@ article.home nav {
 
   article.home #menu.compressed {
     .wrapper {
-      padding: 20px 0 30px 0;
-    }
-
-    #totop {
-      top: 25px;
+      padding-top: $half-rhythm;
+      padding-bottom: $half-rhythm;
     }
 
     ul.primary {
@@ -321,20 +301,15 @@ article.home nav {
       li {
         display: inline;
         margin-left: 0;
-        margin-right: 25px;
+        margin-right: 1em;
       }
 
       a {
-        font-size: 50px;
-        line-height: 60px;
+        font-size: 46px;
+        line-height: fix($double-rhythm, -12);
       }
 
-      @include apply-when-narrow {
-        a {
-          font-size: 45px;
-          line-height: 60px;
-        }
-      }
+      padding-bottom: fix(0px, 12);
     }
   }
 }
@@ -343,10 +318,10 @@ article.home nav {
 // Footer
 //
 footer {
-  padding: 70px 0 30px 0;
+  padding: $double-rhythm 0 $rhythm 0;
 
   p {
-    font-weight: 100;
+    font-weight: $thin-font-weight;
   }
 
   .wrapper {
@@ -357,22 +332,22 @@ footer {
     text-align: center;
 
     address {
-      margin-top: 60px;
+      margin-top: $double-rhythm;
       display: inline-block;
 
       p:first-of-type {
-        padding-bottom: 20px;
+        padding-bottom: $rhythm;
       }
     }
 
     address:first-of-type {
       text-align: left;
-      padding: 0 50px 0 0;
+      padding: 0 4em 0 0;
     }
 
     address:last-of-type {
       text-align: left;
-      padding: 0 0 0 50px;
+      padding: 0 0 0 4em;
     }
   }
 
@@ -395,7 +370,7 @@ form {
 
     font-size: 24px;
     line-height: 32px;
-    font-weight: 300;
+    font-weight: $light-font-weight;
 
     width: 100%;
     border: 0;
@@ -415,7 +390,7 @@ form {
   }
 
   textarea.title {
-    font-family: $display-font;
+    font-family: $display-font-family;
     font-size: 50px;
     line-height: 60px;
     height: 2 * 60px;
@@ -432,7 +407,7 @@ form {
   }
 
   input.address {
-    font-family: $alternative-font;
+    font-family: $alternative-font-family;
   }
 
   input[type=submit] {
@@ -450,6 +425,7 @@ form {
 .separator {
   @include balance;
   height: 2px;
+  margin-bottom: -2px;
 }
 
 .inversed {
@@ -484,11 +460,12 @@ form {
 }
 
 .dingbat {
+  line-height: 0;
   text-align: center;
-  margin: 80px 0;
+  margin: $double-rhythm;
   svg {
-    height: 110px;
-    width: 110px;
+    height: 3 * $rhythm;
+    width: 3 * $rhythm;
   }
 }
 
