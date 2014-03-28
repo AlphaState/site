@@ -35,6 +35,10 @@
   @return $value + $offset;
 }
 
+@mixin hack {
+  @content;
+}
+
 //
 // Defaults
 //
@@ -74,37 +78,11 @@ p {
   font-size: 24px;
   line-height: $rhythm;
   font-weight: $light-font-weight;
-  @include hyphenation;
-
-  em {
-    font-style: italic;
-  }
-}
-
-//
-// General overwrites
-//
-#menu .primary a {
-  font-family: $text-font-family;
-}
-
-#menu a, #contact a {
-  border-bottom-width: 0px;
-}
-
-#menu .secondary, #menu h1, #contact {
-  a:hover {
-    border-bottom-width: 1px;
-  }
 }
 
 //
 // Header
 //
-article header .wrapper {
-  @include balance;
-}
-
 article header h1 {
   font-size: 80px;
   line-height: 4 * $rhythm;
@@ -117,39 +95,6 @@ article header h1 {
     margin-left: -8px;
     text-transform: lowercase;
   }
-}
-
-article.home header h1 {
-  font-size: 110px;
-  line-height: 4 * $rhythm;
-  padding-top: $rhythm;
-  padding-bottom: 0;
-}
-
-//
-// Sections
-//
-article section {
-  @include balance;
-  margin-bottom: $delimiter-size;
-
-  h2 {
-    font-size: 70px;
-    line-height: 3 * $rhythm;
-    text-align: center;
-
-    margin-top: fix($double-rhythm, $half-rhythm);
-    margin-bottom: fix($rhythm, - $half-rhythm);
-  }
-
-  p.actions:first-child {
-    margin-top: $double-rhythm;
-  }
-}
-
-article.home section:first-of-type {
-  margin-top: $double-rhythm;
-  margin-bottom: $double-rhythm;
 }
 
 //
@@ -170,68 +115,48 @@ article.home section:first-of-type {
 }
 
 article nav {
-  text-transform: lowercase;
+  @include balance;
 
-  ul.secondary a {
-    font-size: 28px;
-    line-height: fix($rhythm, 8);
-    font-weight: $thin-font-weight;
-  }
-}
-
-article:not(.home) nav {
-  position: absolute;
-  right: -100px;
-  top: $rhythm;
-
-  @include apply-when-narrow {
-    right: 0;
-  }
-}
-
-article.home nav {
-  .wrapper {
-    @include balance;
-    padding-top: fix(3 * $half-rhythm, -6);
-    padding-bottom: fix(3 * $half-rhythm, 6);
+  a {
+    border-bottom-width: 0px;
   }
 
-  ul.primary {
-    width: $page-width;
-    display: inline-block;
+  h1 a:hover {
+    border-bottom-width: 1px;
+  }
 
+  .primary {
     a {
-      font-size: 60px;
-      line-height: $double-rhythm;
-      font-weight: $light-font-weight;
+      font-family: $text-font-family;
     }
 
-    li:nth-child(2) {
-      margin-top: $half-rhythm;
-      margin-bottom: $half-rhythm;
-    }
-
-    @include apply-when-wide {
-      margin-left: -100px;
-
-      li:nth-child(2) {
-        margin-left: 100px;
-      }
-
-      li:nth-child(3) {
-        margin-left: 200px;
-      }
+    a:hover {
+      border-bottom-width: 0px;
     }
   }
 
-  ul.secondary {
+  .secondary {
     position: absolute;
-    top: 3 * $rhythm;
     right: -100px;
+    top: $rhythm;
 
     @include apply-when-narrow {
       right: 0;
     }
+
+    a {
+      font-size: 28px;
+      line-height: fix($rhythm, 8);
+      font-weight: $thin-font-weight;
+    }
+
+    a:hover {
+      border-bottom-width: 1px;
+    }
+  }
+
+  .primary, .secondary {
+    text-transform: lowercase;
   }
 }
 
@@ -248,6 +173,18 @@ article.home nav {
     z-index: 1;
     margin: 0;
 
+    h1 {
+      font-size: 40px;
+      line-height: $double-rhythm;
+
+      padding-top: fix($half-rhythm, -3);
+      padding-bottom: fix($half-rhythm, 3);
+
+      em {
+        margin-left: 0;
+      }
+    }
+
     #totop {
       display: block;
 
@@ -256,8 +193,8 @@ article.home nav {
       }
     }
 
-    ul.secondary {
-      top: fix($rhythm, -4);
+    .secondary {
+      top: fix($rhythm, -3);
 
       li {
         display: inline;
@@ -269,48 +206,56 @@ article.home nav {
       }
     }
   }
+}
 
-  article:not(.home) #menu.compressed {
-    nav {
-      top: fix($rhythm, -3);
-    }
+//
+// Sections
+//
+article section {
+  @include balance;
+  margin-bottom: 4 * $rhythm;
 
-    h1 {
-      font-size: 40px;
-      line-height: $rhythm;
+  &:first-of-type {
+    margin-top: 3 * $rhythm;
+  }
 
-      padding-top: fix($rhythm, -3);
-      padding-bottom: fix($rhythm, 3);
+  h2 {
+    font-size: 70px;
+    line-height: 3 * $rhythm;
+    text-align: center;
 
-      em {
-        margin-left: 0;
-      }
+    margin-top: $double-rhythm;
+    margin-bottom: $half-rhythm;
+
+    &:first-of-type {
+      margin-top: 0;
     }
   }
 
-  article.home #menu.compressed {
-    .wrapper {
-      padding-top: $half-rhythm;
-      padding-bottom: $half-rhythm;
+  p, ul {
+    margin-bottom: $half-rhythm;
+    @include hyphenation;
+
+    em {
+      font-style: italic;
     }
 
-    ul.primary {
-      width: auto;
-      margin-left: 0;
-
-      li {
-        display: inline;
-        margin-left: 0;
-        margin-right: 1em;
-      }
-
-      a {
-        font-size: 46px;
-        line-height: fix($double-rhythm, -12);
-      }
-
-      padding-bottom: fix(0px, 12);
+    strong {
+      font-weight: $regular-font-weight;
     }
+  }
+
+  p.actions:first-child {
+    margin-top: $double-rhythm;
+  }
+
+  li {
+    font-size: 24px;
+    line-height: $rhythm;
+    font-weight: $light-font-weight;
+    margin-left: 2em;
+    list-style-type: square;
+    list-style-position: outside;
   }
 }
 
@@ -322,6 +267,14 @@ footer {
 
   p {
     font-weight: $thin-font-weight;
+  }
+
+  a {
+    border-bottom-width: 0px;
+  }
+
+  a:hover {
+    border-bottom-width: 1px;
   }
 
   .wrapper {
@@ -336,7 +289,7 @@ footer {
       display: inline-block;
 
       p:first-of-type {
-        padding-bottom: $rhythm;
+        padding-bottom: $half-rhythm;
       }
     }
 
@@ -360,17 +313,23 @@ footer {
 // Forms
 //
 form {
-  margin-top: $delimiter-size - 20px;
-  margin-bottom: $delimiter-size;
-  overflow: hidden;
+  margin-top: $rhythm;
+  @include hack {
+    line-height: 0; // To eliminate extra space
+  }
 
   input, textarea {
-    background: #fafafa;
-    margin-bottom: 20px;
+    margin: 0;
+    padding: 0;
+    display: inline;
 
-    font-size: 24px;
-    line-height: 32px;
+    font-family: $text-font-family;
     font-weight: $light-font-weight;
+    font-size: 24px;
+    line-height: $rhythm;
+
+    background: #fafafa;
+    margin-bottom: $half-rhythm;
 
     width: 100%;
     border: 0;
@@ -389,33 +348,15 @@ form {
     resize: vertical;
   }
 
-  textarea.title {
-    font-family: $display-font-family;
-    font-size: 50px;
-    line-height: 60px;
-    height: 2 * 60px;
-    overflow: hidden;
-  }
-
-  textarea.description {
-    height: 5 * 32px;
-    font-style: italic;
-  }
-
-  textarea.content {
-    height: 20 * 32px;
-  }
-
-  input.address {
-    font-family: $alternative-font-family;
-  }
-
   input[type=submit] {
     cursor: pointer;
     background: none;
     width: auto;
+    margin-top: $rhythm;
     margin-right: 1em;
-    margin-top: 20px;
+    @include hack {
+      margin-bottom: -1px; // To keep the vertical rhythm
+    }
   }
 }
 
@@ -425,7 +366,9 @@ form {
 .separator {
   @include balance;
   height: 2px;
-  margin-bottom: -2px;
+  @include hack {
+    margin-bottom: -2px; // To keep the vertical rhythm
+  }
 }
 
 .inversed {
@@ -460,7 +403,9 @@ form {
 }
 
 .dingbat {
-  line-height: 0;
+  @include hack {
+    line-height: 0; // To eliminate extra space
+  }
   text-align: center;
   margin: $double-rhythm;
   svg {

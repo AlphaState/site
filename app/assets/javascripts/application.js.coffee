@@ -14,7 +14,7 @@ $spectrum = $('.spectrum')
 $offset = 800 * Math.random()
 
 $menu = $('#menu')
-$menu = new Menu $menu, $menu.offset().top + $menu.outerHeight() - 110
+$menu = new Menu $menu, $menu.offset().top + $menu.outerHeight() - 100
 
 onScroll = (e) ->
   scrollTop = $window.scrollTop()

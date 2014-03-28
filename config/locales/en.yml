@@ -68,8 +68,8 @@ en:
       meta: &post-meta 'by %{author} on %{date}'
 
     show:
-      return: '&larr; Back to posts'
+      return: '&larr; To the list of posts'
       meta: *post-meta
 
     edit:
-      return: '&larr; Back to reading'
+      return: '&larr; To reading'

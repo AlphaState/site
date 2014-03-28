@@ -1,9 +1,110 @@
 $project-size: 300px;
 $projects-per-line: 3;
 
-#portfolio {
-  width: $projects-per-line * ($project-size + $rhythm) + 20;
-  margin-bottom: $delimiter-size;
+//
+// Header
+//
+header h1 {
+  font-size: 110px;
+  line-height: 4 * $rhythm;
+
+  @include balance;
+  padding-top: $rhythm;
+  padding-bottom: 0;
+}
+
+//
+// Navigation
+//
+nav {
+  width: auto;
+
+  .wrapper {
+    @include balance;
+    padding-top: fix(3 * $half-rhythm, -6);
+    padding-bottom: fix(3 * $half-rhythm, 6);
+  }
+
+  .primary {
+    width: $page-width;
+    display: inline-block;
+
+    a {
+      font-size: 60px;
+      line-height: $double-rhythm;
+      font-weight: $light-font-weight;
+    }
+
+    li:nth-child(2) {
+      margin-top: $half-rhythm;
+      margin-bottom: $half-rhythm;
+    }
+
+    @include apply-when-wide {
+      margin-left: -100px;
+
+      li:nth-child(2) {
+        margin-left: 100px;
+      }
+
+      li:nth-child(3) {
+        margin-left: 200px;
+      }
+    }
+  }
+
+  .secondary {
+    top: 3 * $rhythm;
+  }
+}
+
+@include apply-when-tall {
+  #menu.compressed {
+    .wrapper {
+      padding-top: $half-rhythm;
+      padding-bottom: $half-rhythm;
+    }
+
+    .primary {
+      width: auto;
+      margin-left: 0;
+
+      li {
+        display: inline;
+        margin-left: 0;
+        margin-right: 1em;
+      }
+
+      a {
+        font-size: 46px;
+        line-height: fix($double-rhythm, -12);
+      }
+
+      padding-bottom: fix(0px, 12);
+    }
+
+    .secondary {
+      top: fix($rhythm, -4);
+    }
+  }
+}
+
+//
+// Sections
+//
+section:first-of-type {
+  margin-top: $double-rhythm;
+  margin-bottom: $double-rhythm;
+}
+
+section#services {
+  margin-top: 3 * $rhythm;
+  margin-bottom: fix(4 * $rhythm, -$half-rhythm);
+}
+
+section#portfolio {
+  margin-top: 3 * $rhythm;
+  width: fix($projects-per-line * ($project-size + $rhythm), 20);
   text-align: center;
 
   a, a:hover {

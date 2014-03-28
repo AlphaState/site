@@ -9,9 +9,9 @@
     font-size: 70px;
   }
 
-  nav {
+  nav .secondary {
     @include apply-when-narrow {
-      right: -40px;
+      right: -50px;
     }
   }
 }

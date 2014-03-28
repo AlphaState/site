@@ -1,38 +1,24 @@
 section {
   h2 {
-    font-size: 50px;
-    line-height: $double-rhythm;
-    margin-top: $double-rhythm;
-    margin-bottom: 0;
+    font-size: 40px;
+    line-height: 3 * $half-rhythm;
     text-align: left;
   }
 
-  h2:first-of-type {
-    margin-top: 3 * $rhythm;
-  }
-
-  p {
+  h3 {
+    font-size: 30px;
+    line-height: $rhythm;
+    margin-top: $rhythm;
     margin-bottom: $half-rhythm;
   }
 
   p.meta {
     font-style: italic;
-    margin-top: $half-rhythm;
     margin-bottom: $half-rhythm;
   }
 
-  ul {
-    @include hyphenation;
-  }
-
-  li {
-    font-size: 24px;
-    line-height: $rhythm;
-    font-weight: $light-font-weight;
-    margin-left: 2em;
-
-    list-style-type: square;
-    list-style-position: outside;
+  p.description {
+    margin-bottom: $rhythm;
   }
 }
 
@@ -47,23 +33,30 @@ section {
     margin-top: $rhythm;
   }
 
-  h3 {
-    font-size: 30px;
-    line-height: $rhythm;
-    margin-top: 3 * $half-rhythm;
-    margin-bottom: $half-rhythm;
-  }
-
   p.description {
     font-style: italic;
-    margin-bottom: 3 * $half-rhythm;
+  }
+}
+
+form {
+  textarea.title {
+    font-family: $display-font-family;
+    font-size: 40px;
+    line-height: 3 * $half-rhythm;
+    height: 2 * 3 * $half-rhythm;
+    overflow: hidden;
   }
 
-  li {
-    margin-bottom: $half-rhythm;
+  textarea.description {
+    height: 5 * $rhythm;
+    font-style: italic;
   }
 
-  p strong {
-    font-weight: $regular-font-weight;
+  textarea.content {
+    height: 20 * $rhythm;
+  }
+
+  input.address {
+    font-family: $alternative-font-family;
   }
 }

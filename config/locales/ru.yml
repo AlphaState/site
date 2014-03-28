@@ -68,7 +68,7 @@ ru:
       meta: &post-meta '%{author}, %{date}'
 
     show:
-      return: '&larr; К списку записей в блоге'
+      return: '&larr; К списку статей'
       meta: *post-meta
 
     edit:
