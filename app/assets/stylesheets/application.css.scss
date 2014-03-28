@@ -245,6 +245,10 @@ article section {
     }
   }
 
+  p + ul {
+    margin-top: -$half-rhythm;
+  }
+
   p.actions:first-child {
     margin-top: $double-rhythm;
   }
@@ -364,6 +368,7 @@ form {
 // Decorations
 //
 .separator {
+  background: #000;
   @include balance;
   height: 2px;
   @include hack {

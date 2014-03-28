@@ -95,6 +95,10 @@ nav {
 section:first-of-type {
   margin-top: $double-rhythm;
   margin-bottom: $double-rhythm;
+
+  p {
+    margin: 0;
+  }
 }
 
 section#services {
@@ -144,6 +148,7 @@ section#portfolio {
       font-size: 20px;
       font-weight: $light-font-weight;
       white-space: nowrap;
+      margin: 0;
     }
   }
 }

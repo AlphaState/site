@@ -8,7 +8,7 @@ if window.chrome then Hyphenator.run()
 
 $document = $(document)
 $window = $(window)
-$body = $('body')
+$scrollable = $('body, html') # To make IE work
 
 $spectrum = $('.spectrum')
 $offset = 800 * Math.random()
@@ -38,7 +38,7 @@ onReady = ->
     () ->
       anchor = window.location.hash
       if anchor and anchor.length > 0
-        $body.scrollTop anchorToScroll(anchor)
+        $scrollable.scrollTop anchorToScroll(anchor)
     1
   )
 
@@ -47,7 +47,7 @@ onReady = ->
 
   $('a.scroll').click (e) ->
     anchor = $(e.target).attr('href')
-    $body.animate { scrollTop: anchorToScroll(anchor) }, 600
+    $scrollable.animate { scrollTop: anchorToScroll(anchor) }, 600
     history.pushState null, null, anchor
 
     e.preventDefault()
