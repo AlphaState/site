@@ -27,10 +27,6 @@
   @media screen and (max-height: 700px) { @content; }
 }
 
-@function rhythm($value) {
-  @return ceil($value / $rhythm) * $rhythm;
-}
-
 @function fix($value, $offset) {
   @return $value + $offset;
 }
@@ -43,6 +39,7 @@
 // Defaults
 //
 body {
+  min-width: $page-width;
   font-family: $text-font-family;
   text-rendering: optimizeLegibility;
   @include ligatures;
@@ -189,7 +186,7 @@ article nav {
       display: block;
 
       @include apply-when-narrow {
-        left: -60px;
+        left: -50px;
       }
     }
 
@@ -221,10 +218,10 @@ article section {
 
   h2 {
     font-size: 70px;
-    line-height: 3 * $rhythm;
+    line-height: 6 * $half-rhythm;
     text-align: center;
 
-    margin-top: $double-rhythm;
+    margin-top: 5 * $half-rhythm;
     margin-bottom: $half-rhythm;
 
     &:first-of-type {
@@ -233,7 +230,7 @@ article section {
   }
 
   p, ul {
-    margin-bottom: $half-rhythm;
+    margin-bottom: $rhythm;
     @include hyphenation;
 
     em {
@@ -247,10 +244,6 @@ article section {
 
   p + ul {
     margin-top: -$half-rhythm;
-  }
-
-  p.actions:first-child {
-    margin-top: $double-rhythm;
   }
 
   li {
@@ -286,25 +279,18 @@ footer {
   }
 
   #address {
-    text-align: center;
-
-    address {
-      margin-top: $double-rhythm;
-      display: inline-block;
-
-      p:first-of-type {
-        padding-bottom: $half-rhythm;
-      }
-    }
+    position: relative;
 
     address:first-of-type {
-      text-align: left;
-      padding: 0 4em 0 0;
+      margin-left: $double-rhythm;
+      margin-top: $double-rhythm;
+      padding-bottom: $half-rhythm;
     }
 
     address:last-of-type {
-      text-align: left;
-      padding: 0 0 0 4em;
+      position: absolute;
+      right: $double-rhythm;
+      top: 0;
     }
   }
 
@@ -367,15 +353,6 @@ form {
 //
 // Decorations
 //
-.separator {
-  background: #000;
-  @include balance;
-  height: 2px;
-  @include hack {
-    margin-bottom: -2px; // To keep the vertical rhythm
-  }
-}
-
 .inversed {
   color: #fff;
   background: #000;
@@ -390,21 +367,6 @@ form {
 .inversed .spectrum {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.fadeout {
-  position: relative;
-}
-
-.fadeout:after {
-  content: '';
-  position: absolute;
-  display: block;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  @include fadeout;
 }
 
 .dingbat {

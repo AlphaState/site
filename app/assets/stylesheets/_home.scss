@@ -1,5 +1,14 @@
-$project-size: 300px;
-$projects-per-line: 3;
+$project-image-size: 300px;
+$project-size: ceil($project-image-size / $half-rhythm) * $half-rhythm;
+$framed-project-size: ($project-size + 2 * $half-rhythm);
+
+@mixin apply-when-extra-wide {
+  @media screen and (min-width: fix(4 * $framed-project-size, 40)) { @content; }
+}
+
+@mixin apply-when-extra-narrow {
+  @media screen and (max-width: fix(3 * $framed-project-size, 40)) { @content; }
+}
 
 //
 // Header
@@ -72,7 +81,7 @@ nav {
       li {
         display: inline;
         margin-left: 0;
-        margin-right: 1em;
+        margin-right: 1.5em;
       }
 
       a {
@@ -93,8 +102,8 @@ nav {
 // Sections
 //
 section:first-of-type {
-  margin-top: $double-rhythm;
-  margin-bottom: $double-rhythm;
+  margin-top: 5 * $half-rhythm;
+  margin-bottom: 5 * $half-rhythm;
 
   p {
     margin: 0;
@@ -103,13 +112,21 @@ section:first-of-type {
 
 section#services {
   margin-top: 3 * $rhythm;
-  margin-bottom: fix(4 * $rhythm, -$half-rhythm);
+  margin-bottom: 7 * $half-rhythm;
 }
 
 section#portfolio {
-  margin-top: 3 * $rhythm;
-  width: fix($projects-per-line * ($project-size + $rhythm), 20);
+  margin-top: 8 * $half-rhythm;
   text-align: center;
+  width: fix(3 * $framed-project-size, 20);
+
+  @include apply-when-extra-narrow {
+    width: fix(2 * $framed-project-size, 20);
+  }
+
+  @include apply-when-extra-wide {
+    width: fix(4 * $framed-project-size, 20);
+  }
 
   a, a:hover {
     display: block;
@@ -127,8 +144,11 @@ section#portfolio {
 
     img {
       padding-top: $half-rhythm;
-      padding-bottom: rhythm($project-size + $half-rhythm) -
-        $project-size - $half-rhythm;
+
+      $extra-space: $project-size - $project-image-size;
+      padding-bottom: $extra-space;
+      padding-left: $extra-space / 2;
+      padding-right: $extra-space / 2;
     }
 
     @include grayscale-on;

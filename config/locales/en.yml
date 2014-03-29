@@ -47,16 +47,44 @@ en:
       title: 'Home / Alpha State'
       name: 'Home'
 
+      introduction: >
+        We are a web studio. We develop elegant and reach web experiences.
+        We love what we do, and we are excited to share our passion with you.
+        Work with us and let your customers become your followers.
+
       services:
         header-1: 'We design &amp; code.'
         header-2: 'We create &amp; develop.'
 
-      portfolio:
-        header: 'Recent projects'
-
     manifesto:
       title: 'Manifesto / Alpha State'
       name: 'Manifesto'
+
+      statement-1: We are agile.
+      note-1: >
+        We work in short iterations and value your feedback. We adapt
+        as we go to deliver the solution that you will benefit the most from.
+
+      statement-2: We thrive on novelty.
+      note-2: >
+        Web technologies sky-rocket, and we are on the cutting edge. We use
+        modern and indispensably efficient, reliable tools and frameworks.
+
+      statement-3: We praise identity.
+      note-3: >
+        Each project has its own personality. We explore, experiment,
+        and balance to get this personality just right and preserve it
+        in our work.
+
+      statement-4: We make it real.
+      note-4: >
+        We are designers, coders, and consultants. We are thinkers, makers,
+        and communicators. We have it all to make your web ideas work.
+
+      statement-5: We know our craft.
+      note-5: >
+        Our clients recommend us and come back. We take it as the
+        highest acknowledgment of our work.
 
   posts:
     header:

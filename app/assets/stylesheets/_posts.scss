@@ -8,13 +8,12 @@ section {
   h3 {
     font-size: 30px;
     line-height: $rhythm;
-    margin-top: 3 * $half-rhythm;
     margin-bottom: $half-rhythm;
   }
 
   p.meta {
     font-style: italic;
-    margin-bottom: $half-rhythm;
+    margin-bottom: $rhythm;
   }
 
   p.description {
@@ -29,12 +28,9 @@ section {
 }
 
 &.show section {
-  h2 {
-    margin-top: $rhythm;
-  }
-
   p.description {
-    font-style: italic;
+    font-weight: $regular-font-weight;
+    margin-bottom: 2 * $rhythm;
   }
 }
 

@@ -1,7 +1,5 @@
-&.home {
-  header h1 {
-    font-size: 100px;
-  }
+&.home header h1 {
+  font-size: 100px;
 }
 
 &:not(.home) {
@@ -14,4 +12,8 @@
       right: -50px;
     }
   }
+}
+
+&.manifesto section h2 {
+  font-size: 60px;
 }

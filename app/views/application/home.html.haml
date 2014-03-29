@@ -2,10 +2,7 @@
   %h1= t 'company'
 
 %section
-  %p
-    Alpha State is a web studio. We develop elegant and reach web experiences.
-    We love what we do, and we are excited to share our passion with you.
-    Work with us and let your customers become your followers.
+  %p!= t '.introduction'
 
 %nav.inversed#menu
   .wrapper
@@ -41,11 +38,9 @@
     companies. We help to promote personalities, differentiate businesses,
     and reach clients and audiences.
 
-.separator.spectrum.fadeout
+= dingbat_tag 'black'
 
 %section#portfolio
-  %h2= t '.portfolio.header'
-
   .project
     %h3 Roxy
     %p Erotic-dance studio
