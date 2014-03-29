@@ -42,6 +42,9 @@ en:
         telephone-1: 'Tel.: +7 812 982-99-52'
         telephone-2: 'Tel.: +46 76 583-35-56'
 
+    exception:
+      title: 'Oops / Alpha State'
+
   application:
     home:
       title: 'Home / Alpha State'

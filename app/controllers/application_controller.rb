@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  rescue_from ActiveRecord::RecordNotFound, with: :page_not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :exception
   before_action :set_locale
 
   def home
@@ -9,11 +9,11 @@ class ApplicationController < ActionController::Base
   def manifesto
   end
 
-  def page_not_found
-    render text: 'Кто здесь?', status: 404
-  end
-
   private
+
+  def exception
+    render nothing: true, layout: 'exception'
+  end
 
   def default_url_options options = {}
     { locale: I18n.locale }

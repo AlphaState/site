@@ -42,6 +42,9 @@ ru:
         telephone-1: 'Тел.: +7 812 982-99-52'
         telephone-2: 'Тел.: +46 76 583-35-56'
 
+    exception:
+      title: 'Кто здесь? / Альфа-уровень'
+
   application:
     home:
       title: 'Главная / Альфа-уровень'
