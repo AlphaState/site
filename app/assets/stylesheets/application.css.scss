@@ -45,12 +45,7 @@ body {
   @include ligatures;
 }
 
-a, a:hover, a:visited {
-  text-decoration: none;
-  color: inherit;
-}
-
-a, input[type=submit] {
+a, button {
   font-family: $alternative-font-family;
 
   border-style: dashed;
@@ -198,7 +193,7 @@ article nav {
         margin-left: 1em;
       }
 
-      li:first-of-type {
+      li.negligible {
         display: none;
       }
     }
@@ -229,7 +224,7 @@ article section {
     }
   }
 
-  p, ul {
+  p, ol, ul {
     margin-bottom: $rhythm;
     @include hyphenation;
 
@@ -239,11 +234,12 @@ article section {
 
     strong {
       font-weight: $regular-font-weight;
+      white-space: nowrap;
     }
   }
 
-  p + ul {
-    margin-top: -$half-rhythm;
+  p + ul, p + ol {
+    margin-top: -$rhythm;
   }
 
   li {
@@ -251,8 +247,35 @@ article section {
     line-height: $rhythm;
     font-weight: $light-font-weight;
     margin-left: 2em;
-    list-style-type: square;
     list-style-position: outside;
+  }
+
+  ol li {
+    list-style-type: decimal;
+  }
+
+  ul li {
+    list-style-type: square;
+  }
+
+  p.actions {
+    padding-bottom: fix($half-rhythm, -1); // To account for the border
+    margin-bottom: $half-rhythm;
+
+    a {
+      white-space: nowrap;
+      display: block;
+    }
+
+    a.left {
+      float: left;
+    }
+
+    a.right {
+      float: right;
+    }
+
+    overflow: hidden;
   }
 }
 
@@ -292,6 +315,10 @@ footer {
       right: $double-rhythm;
       top: 0;
     }
+
+    p:first-of-type {
+      padding-bottom: $half-rhythm;
+    }
   }
 
   #copyright {
@@ -308,25 +335,18 @@ form {
     line-height: 0; // To eliminate extra space
   }
 
-  input, textarea {
-    margin: 0;
-    padding: 0;
-    display: inline;
-
+  input, textarea, button {
     font-family: $text-font-family;
     font-weight: $light-font-weight;
     font-size: 24px;
     line-height: $rhythm;
+  }
 
+  input, textarea {
     background: #fafafa;
     margin-bottom: $half-rhythm;
 
     width: 100%;
-    border: 0;
-
-    &:focus {
-      outline: 0;
-    }
 
     @include placeholder {
       font-style: italic;
@@ -338,11 +358,11 @@ form {
     resize: vertical;
   }
 
-  input[type=submit] {
+  button {
     cursor: pointer;
     background: none;
     width: auto;
-    margin-top: $rhythm;
+    margin-top: $half-rhythm;
     margin-right: 1em;
     @include hack {
       margin-bottom: -1px; // To keep the vertical rhythm
@@ -390,4 +410,5 @@ form {
 //
 article.home { @import 'home'; }
 article.posts { @import 'posts'; }
+article.projects { @import 'projects'; }
 article.ru { @import 'ru'; }

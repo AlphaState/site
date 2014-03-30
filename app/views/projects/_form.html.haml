@@ -1,0 +1,17 @@
+= form.text_field :title, class: 'title',
+  placeholder: Project.human_attribute_name(:title)
+
+= form.text_field :motto, class: 'motto',
+  placeholder: Project.human_attribute_name(:motto)
+
+= form.text_field :thumbnail,
+  placeholder: Project.human_attribute_name(:thumbnail)
+
+= form.text_field :address, class: 'address',
+  placeholder: Project.human_attribute_name(:address)
+
+= form.text_field :priority,
+  placeholder: Project.human_attribute_name(:priority)
+
+= form.text_area :content, class: 'content',
+  placeholder: Project.human_attribute_name(:content)

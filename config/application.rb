@@ -13,6 +13,7 @@ Bundler.require(*Rails.groups)
 
 module AlphaState
   class Application < Rails::Application
+    config.autoload_paths += %W(#{ config.root }/lib)
     config.i18n.default_locale = :en
     config.i18n.fallbacks = true
   end

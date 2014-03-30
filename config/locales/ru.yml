@@ -24,12 +24,20 @@ ru:
   activerecord:
     attributes:
       post:
-        title: 'Заголовок'
-        address: 'Адрес'
-        author: 'Автор'
-        date: 'Дата'
-        description: 'Краткое описание'
-        content: 'Содержание'
+        title: Заголовок
+        address: Адрес
+        author: Автор
+        date: Дата
+        description: Краткое описание
+        content: Содержание
+
+      project:
+        title: Название
+        motto: Слоган
+        thumbnail: Иллюстрация
+        address: Адрес
+        priority: Приоритет
+        content: Описание
 
   layouts:
     application:
@@ -80,11 +88,30 @@ ru:
 
     index:
       read: 'Читать далее'
-      meta: &post-meta '%{author}, %{date}'
+      meta: &posts-meta '%{author}, %{date}'
 
     show:
+      previous: '&larr; Предыдущая'
+      next: 'Следующая &rarr;'
+      meta: *posts-meta
+
+    new:
       return: '&larr; К списку статей'
-      meta: *post-meta
 
     edit:
       return: '&larr; К чтению'
+
+  projects:
+    header:
+      title: 'Работы / Альфа-уровень'
+      name: 'Работы'
+
+    show:
+      previous: '&larr; Предыдущая'
+      next: 'Следующая &rarr;'
+
+    new:
+      return: '&larr; К работам'
+
+    edit:
+      return: '&larr; К проекту'

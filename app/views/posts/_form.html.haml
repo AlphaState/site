@@ -1,10 +1,10 @@
 = form.text_area :title, class: 'title',
   placeholder: Post.human_attribute_name(:title)
 
-= form.text_field :author,
+= form.text_field :author, class: 'author',
   placeholder: Post.human_attribute_name(:author)
 
-= form.text_field :date,
+= form.text_field :date, class: 'date',
   placeholder:  Post.human_attribute_name(:date)
 
 = form.text_area :description, class: 'description',

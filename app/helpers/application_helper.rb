@@ -1,12 +1,25 @@
 module ApplicationHelper
   def locale_path
-    url_for :locale => I18n.default_locale? ? I18n.alternative_locale : nil
+    locale = I18n.default_locale? ? I18n.alternative_locale : nil
+    if @post.blank?
+      url_for locale: locale
+    else
+      posts_path locale: locale
+    end
+  end
+
+  def portfolio_path
+    home_path anchor: 'portfolio'
   end
 
   def page_title
     title = t "#{ params[:controller] }.#{ params[:action] }.title",
       default: t("#{ params[:controller] }.header.title")
-    title = "#{ @post.title } / #{ title }" unless @post.blank? || @post.new_record?
+    if !@post.blank? and !@post.new_record?
+      title = "#{ @post.title } / #{ title }"
+    elsif !@project.blank? and !@project.new_record?
+      title = "#{ @project.title } / #{ title }"
+    end
     title
   end
 

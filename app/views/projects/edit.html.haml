@@ -1,8 +1,8 @@
 = render partial: 'header', locals: { link: true }
 
 %section
-  %p.actions= link_to t('.return').html_safe, post_path(@post)
-  = form_for @post do |form|
+  %p.actions= link_to t('.return').html_safe, project_path(@project)
+  = form_for @project do |form|
     = render partial: 'form', locals: { form: form }
     = form.button t('actions.save')
     = form.button t('actions.delete'), name: :delete

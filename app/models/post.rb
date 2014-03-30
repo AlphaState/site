@@ -1,25 +1,24 @@
 class Post < ActiveRecord::Base
-  before_create :set_locale
+  include Localizable
+  include Addressable
 
   default_scope {
     where(:locale => [ nil, '', I18n.locale ]).order('date DESC')
   }
 
-  def to_param
-    address.blank? ? id : address
+  before_save :set_date
+
+  def find_previous
+    Post.where('date > ?', date).last
   end
 
-  def self.find_by_param! param
-    if param =~ /^(\d+)/
-      find_by! id: $1.to_i
-    else
-      find_by! address: param
-    end
+  def find_next
+    Post.where('date < ?', date).first
   end
 
   private
 
-  def set_locale
-    self.locale = I18n.locale
+  def set_date
+    self.date = Time.now.to_date if date.blank?
   end
 end

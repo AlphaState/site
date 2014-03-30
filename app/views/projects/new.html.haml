@@ -1,7 +1,7 @@
 = render partial: 'header', locals: { link: true }
 
 %section
-  %p.actions= link_to t('.return').html_safe, posts_path
-  = form_for @post do |form|
+  %p.actions= link_to t('.return').html_safe, portfolio_path
+  = form_for @project do |form|
     = render partial: 'form', locals: { form: form }
     = form.button t('actions.save')

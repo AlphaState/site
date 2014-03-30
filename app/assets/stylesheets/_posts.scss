@@ -21,19 +21,6 @@ section {
   }
 }
 
-&.index section {
-  p.actions {
-    text-align: right;
-  }
-}
-
-&.show section {
-  p.description {
-    font-weight: $regular-font-weight;
-    margin-bottom: 2 * $rhythm;
-  }
-}
-
 form {
   textarea.title {
     font-family: $display-font-family;
@@ -45,6 +32,9 @@ form {
 
   textarea.description {
     height: 5 * $rhythm;
+  }
+
+  input.author, input.date {
     font-style: italic;
   }
 

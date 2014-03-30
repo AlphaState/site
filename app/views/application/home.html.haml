@@ -18,7 +18,7 @@
         %a.scroll{ href: '#contact' }= t 'navigation.contact'
 
     %ul.secondary
-      %li
+      %li.negligible
         %a{ href: locale_path }= t 'navigation.locale'
       %li
         %a{ href: manifesto_path }= t 'navigation.manifesto'
@@ -41,74 +41,9 @@
 = dingbat_tag 'black'
 
 %section#portfolio
-  .project
-    %h3 Roxy
-    %p Erotic-dance studio
-    %a{ href: '#' }
-      %img{ src: '/portfolio/thumbnails/roxy.jpg' }
-
-  .project
-    %h3 Social Effect
-    %p Promo campaigns
-    %a{ href: '#' }
-      %img{ src: '/portfolio/thumbnails/soceffect.jpg' }
-
-  .project
-    %h3 Pohjanmann
-    %p Elite furniture
-    %a{ href: '#' }
-      %img{ src: '/portfolio/thumbnails/pohjanmann.jpg' }
-
-  .project
-    %h3 Blues
-    %p PR agency
-    %a{ href: '#' }
-      %img{ src: '/portfolio/thumbnails/blues.jpg' }
-
-  .project
-    %h3 RuGBC
-    %p Russian Green Building Counceil
-    %a{ href: '#' }
-      %img{ src: '/portfolio/thumbnails/rugbc.jpg' }
-
-  .project
-    %h3 Spravochki
-    %p Any certificate for anybody
-    %a{ href: '#' }
-      %img{ src: '/portfolio/thumbnails/spravochki.jpg' }
-
-  .project
-    %h3 Domovoi
-    %p Charity for Children of Earth
-    %a{ href: '#' }
-      %img{ src: '/portfolio/thumbnails/domovoi.jpg' }
-
-  .project
-    %h3 Red Box Gin
-    %p Promo of a London-inspired gin
-    %a{ href: '#' }
-      %img{ src: '/portfolio/thumbnails/redboxgin.jpg' }
-
-  .project
-    %h3 Fototexti
-    %p Handmade postcards
-    %a{ href: '#' }
-      %img{ src: '/portfolio/thumbnails/fototxt.jpg' }
-
-  .project
-    %h3 Green Awards
-    %p Contest in sustainable development
-    %a{ href: '#' }
-      %img{ src: '/portfolio/thumbnails/greenawards.jpg' }
-
-  .project
-    %h3 Peter Tyutrin
-    %p Painter
-    %a{ href: '#' }
-      %img{ src: '/portfolio/thumbnails/tyutrin.jpg' }
-
-  .project
-    %h3 EcoRussia.info
-    %p Sustainable development in Russia
-    %a{ href: '#' }
-      %img{ src: '/portfolio/thumbnails/ecorussia.jpg' }
+  - for project in @projects
+    .project
+      %h3= project.title
+      %p= project.motto
+      %a{ href: project_path(project) }
+        %img{ src: project.thumbnail }

@@ -4,16 +4,17 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   def home
+    @projects = Project.all
   end
 
   def manifesto
   end
 
-  private
-
   def exception
     render nothing: true, layout: 'exception'
   end
+
+  private
 
   def default_url_options options = {}
     { locale: I18n.locale }

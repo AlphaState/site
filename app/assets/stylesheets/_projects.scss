@@ -1,0 +1,61 @@
+& {
+  overflow: hidden;
+}
+
+section {
+  h3 {
+    font-size: 30px;
+    line-height: $rhythm;
+    margin-top: $double-rhythm;
+    margin-bottom: $rhythm;
+    text-align: center;
+  }
+
+  p {
+    position: relative;
+  }
+
+  img {
+    position: relative;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+
+    max-width: 1100px;
+
+    @include apply-when-narrow {
+      max-width: 800px;
+    }
+  }
+}
+
+form {
+  input.title {
+    font-family: $display-font-family;
+    font-size: 28px;
+    @include ligatures;
+  }
+
+  input.motto {
+    font-family: $condensed-font-family;
+    font-size: 20px;
+  }
+
+  input.title, input.motto {
+    width: $project-size;
+    display: block;
+    text-align: center;
+  }
+
+  input.address {
+    font-family: $alternative-font-family;
+  }
+
+  textarea.content {
+    height: 20 * $rhythm;
+  }
+}

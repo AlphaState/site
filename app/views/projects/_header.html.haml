@@ -1,6 +1,5 @@
 - first = link_to t('company'), home_path
-- second = t '.name'
-- second = link_to second, posts_path if defined?(link) && link
+- second = link_to t('.name'), portfolio_path
 %header.inversed#menu
   %nav
     %h1!= "#{ first } <em>/ #{ second }</em>"

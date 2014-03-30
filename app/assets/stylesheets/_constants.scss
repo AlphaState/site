@@ -1,8 +1,17 @@
+//
+// Layout
+//
 $page-width: 800px;
 
 $rhythm: 32px;
 $half-rhythm: $rhythm / 2;
 $double-rhythm: 2 * $rhythm;
+
+//
+// Portfolio
+//
+$project-thumbnail-size: 300px;
+$project-size: ceil($project-thumbnail-size / $half-rhythm) * $half-rhythm;
 
 //
 // Fonts

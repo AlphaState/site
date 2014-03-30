@@ -24,12 +24,20 @@ en:
   activerecord:
     attributes:
       post:
-        title: 'Title'
-        address: 'Address'
-        author: 'Author'
-        date: 'Date'
-        description: 'Description'
-        content: 'Content'
+        title: Title
+        address: Address
+        author: Author
+        date: Date
+        description: Description
+        content: Content
+
+      project:
+        title: Name
+        motto: Motto
+        thumbnail: Thumbnail
+        address: Address
+        priority: Priority
+        content: Description
 
   layouts:
     application:
@@ -96,11 +104,30 @@ en:
 
     index:
       read: 'Continue reading'
-      meta: &post-meta 'by %{author} on %{date}'
+      meta: &posts-meta 'by %{author} on %{date}'
 
     show:
+      previous: '&larr; Previous post'
+      next: 'Next post &rarr;'
+      meta: *posts-meta
+
+    new:
       return: '&larr; To the list of posts'
-      meta: *post-meta
 
     edit:
       return: '&larr; To reading'
+
+  projects:
+    header:
+      title: 'Portfolio / Alpha State'
+      name: 'Portfolio'
+
+    show:
+      previous: '&larr; Previous project'
+      next: 'Next project &rarr;'
+
+    new:
+      return: '&larr; To the portfolio'
+
+    edit:
+      return: '&larr; To the project'

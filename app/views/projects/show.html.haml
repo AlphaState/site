@@ -1,0 +1,11 @@
+= render partial: 'header', locals: { link: true }
+
+%section
+  %p.actions
+    - if project = @project.find_previous
+      = link_to t('.previous').html_safe, project_path(project), class: 'left'
+    - if project = @project.find_next
+      = link_to t('.next').html_safe, project_path(project), class: 'right'
+
+  %h2= @project.title
+  = markdown @project.content

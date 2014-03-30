@@ -11,16 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140325141316) do
+ActiveRecord::Schema.define(version: 20140328205111) do
 
   create_table "posts", force: true do |t|
-    t.string "title"
-    t.string "author"
-    t.text   "description"
-    t.text   "content"
-    t.date   "date"
-    t.string "locale"
-    t.string "address"
+    t.string "title",       default: "", null: false
+    t.string "author",      default: "", null: false
+    t.text   "description", default: "", null: false
+    t.text   "content",     default: "", null: false
+    t.date   "date",                     null: false
+    t.string "locale",      default: "", null: false
+    t.string "address",     default: "", null: false
+  end
+
+  create_table "projects", force: true do |t|
+    t.string "title",     default: "",  null: false
+    t.string "motto",     default: "",  null: false
+    t.string "thumbnail", default: "",  null: false
+    t.string "address",   default: "",  null: false
+    t.string "locale",    default: "",  null: false
+    t.float  "priority",  default: 0.0, null: false
+    t.text   "content",   default: "",  null: false
   end
 
 end
