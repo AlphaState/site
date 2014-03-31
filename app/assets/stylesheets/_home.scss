@@ -80,7 +80,7 @@ nav {
       li {
         display: inline;
         margin-left: 0;
-        margin-right: 1.5em;
+        margin-right: 1.4em;
       }
 
       a {
@@ -100,7 +100,7 @@ nav {
 //
 // Sections
 //
-section:first-of-type {
+section#introduction {
   margin-top: 5 * $half-rhythm;
   margin-bottom: 5 * $half-rhythm;
 
@@ -111,11 +111,11 @@ section:first-of-type {
 
 section#services {
   margin-top: 3 * $rhythm;
-  margin-bottom: 7 * $half-rhythm;
+  margin-bottom: 6 * $half-rhythm;
 }
 
 section#portfolio {
-  margin-top: 8 * $half-rhythm;
+  margin-top: 0;
   text-align: center;
   width: fix(3 * $framed-project-size, 20);
 
@@ -136,7 +136,7 @@ section#portfolio {
   .project {
     margin-left: $half-rhythm;
     margin-right: $half-rhythm;
-    margin-bottom: $double-rhythm;
+    margin-bottom: 5 * $half-rhythm;
 
     width: $project-size;
     display: inline-block;

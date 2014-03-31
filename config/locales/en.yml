@@ -6,6 +6,7 @@ en:
     month_names: [ ~, January, February, March, April, May, June, July, August, September, October, November, December ]
 
   company: 'Alpha State'
+  description: 'Website of a web studio Alpha State.'
   url: 'http://alphastate.se'
 
   navigation:
@@ -40,15 +41,12 @@ en:
         content: Description
 
   layouts:
-    application:
-      description: 'Website of a web studio Alpha State.'
-
-      contact:
-        introduction: 'Should you have an idea to explore, question to ask, or hello to shout, send us an email or give us a call.'
-        city-1: 'Saint Petersburg'
-        city-2: 'Stockholm'
-        telephone-1: 'Tel.: +7 812 982-99-52'
-        telephone-2: 'Tel.: +46 76 583-35-56'
+    footer:
+      introduction: 'Should you have an idea to explore, question to ask, or hello to shout, send us an email or give us a call.'
+      city-1: 'Saint Petersburg'
+      city-2: 'Stockholm'
+      telephone-1: 'Tel.: +7 812 982-99-52'
+      telephone-2: 'Tel.: +46 76 583-35-56'
 
     exception:
       title: 'Oops / Alpha State'
@@ -58,42 +56,47 @@ en:
       title: 'Home / Alpha State'
       name: 'Home'
 
-      introduction: >
+      introduction: |
         We are a web studio. We develop elegant and reach web experiences.
         We love what we do, and we are excited to share our passion with you.
         Work with us and let your customers become your followers.
 
       services:
-        header-1: 'We design &amp; code.'
-        header-2: 'We create &amp; develop.'
+        header: Our services
+        content: |
+          We make websites, web services, and applications for social
+          networks. In each project, we are driven by its purpose, and
+          we pursue usability and beauty in our solutions.
+
+          We develop digital brand identities for creative individuals and
+          innovative companies. We help to promote personalities,
+          differentiate businesses, and reach clients and audiences.
+
+      portfolio:
+        header: Our projects
 
     manifesto:
       title: 'Manifesto / Alpha State'
       name: 'Manifesto'
-
-      statement-1: We are agile.
-      note-1: >
+      content: |
+        ## We are agile.
         We work in short iterations and value your feedback. We adapt
         as we go to deliver the solution that you will benefit the most from.
 
-      statement-2: We thrive on novelty.
-      note-2: >
+        ## We thrive on novelty.
         Web technologies sky-rocket, and we are on the cutting edge. We use
         modern and indispensably efficient, reliable tools and frameworks.
 
-      statement-3: We praise identity.
-      note-3: >
+        ## We praise identity.
         Each project has its own personality. We explore, experiment,
         and balance to get this personality just right and preserve it
         in our work.
 
-      statement-4: We make it real.
-      note-4: >
+        ## We make it real.
         We are designers, coders, and consultants. We are thinkers, makers,
         and communicators. We have it all to make your web ideas work.
 
-      statement-5: We know our craft.
-      note-5: >
+        ## We know our craft.
         Our clients recommend us and come back. We take it as the
         highest acknowledgment of our work.
 
@@ -107,12 +110,11 @@ en:
       meta: &posts-meta 'by %{author} on %{date}'
 
     show:
-      previous: '&larr; Previous post'
-      next: 'Next post &rarr;'
+      return: &posts-return '&larr; To the list of posts'
       meta: *posts-meta
 
     new:
-      return: '&larr; To the list of posts'
+      return: *posts-return
 
     edit:
       return: '&larr; To reading'
@@ -123,8 +125,10 @@ en:
       name: 'Portfolio'
 
     show:
-      previous: '&larr; Previous project'
-      next: 'Next project &rarr;'
+      previous: '&larr; One more'
+      next: 'One more &rarr;'
+      your_previous: '&darr; Your project'
+      your_next: 'Your project &darr;'
 
     new:
       return: '&larr; To the portfolio'

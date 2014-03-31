@@ -1,16 +1,12 @@
 !!! 5
 %html{ lang: I18n.locale }
   %head
-    %meta{ charset: 'utf-8' }
-    %meta{ property: 'og:url', content: t('url') }
-    %meta{ property: 'og:title', content: t('company') }
-    %meta{ property: 'og:type', content: 'website' }
-    %meta{ property: 'og:description', content: t('.description') }
-    %meta{ name: 'description', content: t('.description') }
+    = render partial: 'layouts/meta'
     %title= page_title
     %link{ href: '/favicon.png', rel: 'icon', type: 'image/png' }
     = stylesheet_link_tag :application
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Playfair+Display|Roboto:100,300,300italic,400|Roboto+Condensed:300|Roboto+Slab:100,300&subset=latin,cyrillic'
+    -#= stylesheet_link_tag 'http://basehold.it/16/00ff00'
     /[if lt IE 9]
       <style>article { display: none; } p { width: 650px; margin: 2em auto; font-size: 40px; line-height: 60px; text-align: center; } a, a:hover, a:visited { text-decoration: underline; }</style>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -19,27 +15,6 @@
       <p>Please <a href="http://www.browser-update.org/update.html">update</a> your browser to have the best web experience ever.</p>
     %article#top{ class: page_labels }
       = yield
-
-      %footer.inversed#contact
-        .wrapper
-          %p= t '.contact.introduction'
-
-          #address
-            %address
-              %p= t '.contact.city-1'
-              %p
-                %a{ href: 'mailto:info@alphastate.ru' } info@alphastate.ru
-              %p= t '.contact.telephone-1'
-
-            %address
-              %p= t '.contact.city-2'
-              %p
-                %a{ href: 'mailto:info@alphastate.se' } info@alphastate.se
-              %p= t '.contact.telephone-2'
-
-          = dingbat_tag 'white'
-
-          %p#copyright!= "&copy; 2009&ndash;2014 #{ t 'company' }"
-
+      = render partial: 'layouts/footer'
     = javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js'
     = javascript_include_tag :application

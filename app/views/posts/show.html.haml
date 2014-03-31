@@ -2,10 +2,7 @@
 
 %section
   %p.actions
-    - if post = @post.find_previous
-      = link_to t('.previous').html_safe, post_path(post), class: 'left'
-    - if post = @post.find_next
-      = link_to t('.next').html_safe, post_path(post), class: 'right'
+    = link_to t('.return').html_safe, posts_path
 
   %h2= @post.title
   %p.meta= t('.meta') % { author: @post.author, date: l(@post.date) }

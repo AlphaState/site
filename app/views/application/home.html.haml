@@ -1,7 +1,7 @@
 %header
   %h1= t 'company'
 
-%section
+%section#introduction
   %p!= t '.introduction'
 
 %nav.inversed#menu
@@ -26,21 +26,11 @@
         %a{ href: posts_path }= t 'navigation.blog'
 
 %section#services
-  %h2!= t '.services.header-1'
-  %p
-    We make websites, web services, and applications for social networks.
-    In each project, we are driven by its purpose, and we pursue usability
-    and beauty in our solutions.
-
-  %h2!= t '.services.header-2'
-  %p
-    We develop digital brand identities for creative individuals and innovative
-    companies. We help to promote personalities, differentiate businesses,
-    and reach clients and audiences.
-
-= dingbat_tag 'black'
+  %h2!= t '.services.header'
+  != markdown t('.services.content')
 
 %section#portfolio
+  %h2!= t '.portfolio.header'
   - for project in @projects
     .project
       %h3= project.title

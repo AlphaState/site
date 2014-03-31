@@ -1,0 +1,20 @@
+%footer.inversed#contact
+  .wrapper
+    %p= t '.introduction'
+
+    #address
+      %address
+        %p= t '.city-1'
+        %p
+          %a{ href: "mailto:#{ u t 'company' }%3Ccontact@alphastate.ru%3E" } contact@alphastate.ru
+        %p= t '.telephone-1'
+
+      %address
+        %p= t '.city-2'
+        %p
+          %a{ href: "mailto:#{ u t 'company' }%3Ccontact@alphastate.se%3E" } contact@alphastate.se
+        %p= t '.telephone-2'
+
+    = dingbat_tag 'white'
+
+    %p#copyright!= "&copy; 2009&ndash;#{ Time.now.year } #{ t 'company' }"

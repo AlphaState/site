@@ -14,17 +14,4 @@
         %a.scroll{ href: '#contact' }= t 'navigation.contact'
 
 %section
-  %h2= t '.statement-1'
-  %p= t '.note-1'
-
-  %h2= t '.statement-2'
-  %p= t '.note-2'
-
-  %h2= t '.statement-3'
-  %p= t '.note-3'
-
-  %h2= t '.statement-4'
-  %p= t '.note-4'
-
-  %h2= t '.statement-5'
-  %p= t '.note-5'
+  = markdown t('.content')

@@ -28,7 +28,44 @@ module ApplicationHelper
   end
 
   def markdown text
-    Markdown.new(text, banner: false).to_html.html_safe
+    markdown_engine.render(text).html_safe
+  end
+
+  def markdown_engine
+    return @markdown_engine if defined?(@markdown_engine)
+
+    render_options = {
+      filter_html: true,
+      no_images: false,
+      no_links: false,
+      no_styles: true,
+      safe_links_only: false,
+      with_toc_data: false,
+      hard_wrap: false,
+      xhtml: false,
+      prettify: false,
+      link_attributes: {}
+    }
+
+    renderer = Redcarpet::Render::HTML.new render_options
+
+    extensions = {
+      no_intra_emphasis: true,
+      tables: false,
+      fenced_code_blocks: false,
+      autolink: false,
+      disable_indented_code_blocks: true,
+      strikethrough: false,
+      lax_spacing: true,
+      space_after_headers: true,
+      superscript: false,
+      underline: false,
+      hightlight: false,
+      quote: false,
+      footnote: false
+    }
+
+    @markdown_engine = Redcarpet::Markdown.new renderer, extensions
   end
 
   def dingbat_tag id = 'leaf'

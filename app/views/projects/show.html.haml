@@ -3,9 +3,13 @@
 %section
   %p.actions
     - if project = @project.find_previous
-      = link_to t('.previous').html_safe, project_path(project), class: 'left'
+      = link_to t('.previous').html_safe, project_path(project)
+    - else
+      %a.scroll{ href: '#contact' }= t('.your_previous').html_safe
     - if project = @project.find_next
       = link_to t('.next').html_safe, project_path(project), class: 'right'
+    - else
+      %a.right.scroll{ href: '#contact' }= t('.your_next').html_safe
 
   %h2= @project.title
   = markdown @project.content

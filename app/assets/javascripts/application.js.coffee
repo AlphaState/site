@@ -2,7 +2,7 @@
 #= require menu
 
 window.findElementsToHyphenate = ->
-  return document.querySelectorAll('section p, section ul')
+  return document.querySelectorAll('section p, section ol, section ul')
 
 if window.chrome then Hyphenator.run()
 
