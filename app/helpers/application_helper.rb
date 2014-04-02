@@ -12,15 +12,42 @@ module ApplicationHelper
     home_path anchor: 'portfolio'
   end
 
-  def page_title
-    title = t "#{ params[:controller] }.#{ params[:action] }.title",
-      default: t("#{ params[:controller] }.header.title")
+  def page_breadcrumbs
+    chunks = []
+
+    chunks << t('company')
+
+    chunks << t(
+      "#{ params[:controller] }.#{ params[:action] }.title", default: t(
+      "#{ params[:controller] }.title"))
+
     if !@post.blank? and !@post.new_record?
-      title = "#{ @post.title } / #{ title }"
+      chunks << @post.title
     elsif !@project.blank? and !@project.new_record?
-      title = "#{ @project.title } / #{ title }"
+      chunks << @project.title
     end
-    title
+
+    chunks
+  end
+
+  def page_title
+    page_breadcrumbs.reverse.join(' / ')
+  end
+
+  def page_description
+    if !@post.blank? and !@post.new_record?
+      chunks = page_breadcrumbs
+      chunks << @post.description
+      chunks.join ' / '
+    elsif !@project.blank? and !@project.new_record?
+      page_breadcrumbs.join ' / '
+    else
+      t 'description'
+    end
+  end
+
+  def page_keywords
+    t 'keywords'
   end
 
   def page_labels

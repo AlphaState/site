@@ -6,7 +6,8 @@ en:
     month_names: [ ~, January, February, March, April, May, June, July, August, September, October, November, December ]
 
   company: 'Alpha State'
-  description: 'Website of a web studio Alpha State.'
+  description: 'Alpha State — web design, web development, and digital brand identity.'
+  keywords: 'web design, web development, digital brand identity'
   url: 'http://alphastate.se'
 
   navigation:
@@ -49,12 +50,11 @@ en:
       telephone-2: 'Tel.: +46 76 583-35-56'
 
     exception:
-      title: 'Oops / Alpha State'
+      title: 'Oops'
 
   application:
     home:
-      title: 'Home / Alpha State'
-      name: 'Home'
+      title: 'Home'
 
       introduction: |
         We are a web studio. We develop elegant and reach web experiences.
@@ -62,7 +62,7 @@ en:
         Work with us and let your customers become your followers.
 
       services:
-        header: Our services
+        title: Our services
         content: |
           We make websites, web services, and applications for social
           networks. In each project, we are driven by its purpose, and
@@ -73,12 +73,15 @@ en:
           differentiate businesses, and reach clients and audiences.
 
       portfolio:
-        header: Our projects
+        title: Our projects
 
     manifesto:
-      title: 'Manifesto / Alpha State'
-      name: 'Manifesto'
+      title: 'Manifesto'
       content: |
+        ## We make it real.
+        We are designers, coders, and consultants. We are thinkers, makers,
+        and communicators. We have it all to make your web ideas work.
+
         ## We are agile.
         We work in short iterations and value your feedback. We adapt
         as we go to deliver the solution that you will benefit the most from.
@@ -87,23 +90,17 @@ en:
         Web technologies sky-rocket, and we are on the cutting edge. We use
         modern and indispensably efficient, reliable tools and frameworks.
 
-        ## We praise identity.
+        ## We praise uniqueness.
         Each project has its own personality. We explore, experiment,
         and balance to get this personality just right and preserve it
         in our work.
-
-        ## We make it real.
-        We are designers, coders, and consultants. We are thinkers, makers,
-        and communicators. We have it all to make your web ideas work.
 
         ## We know our craft.
         Our clients recommend us and come back. We take it as the
         highest acknowledgment of our work.
 
   posts:
-    header:
-      title: 'Blog / Alpha State'
-      name: 'Blog'
+    title: 'Blog'
 
     index:
       read: 'Continue reading'
@@ -120,9 +117,7 @@ en:
       return: '&larr; To reading'
 
   projects:
-    header:
-      title: 'Portfolio / Alpha State'
-      name: 'Portfolio'
+    title: 'Portfolio'
 
     show:
       previous: '&larr; One more'

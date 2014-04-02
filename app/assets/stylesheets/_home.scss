@@ -150,7 +150,7 @@ section#portfolio {
     }
 
     @include grayscale-on;
-    transition: 0.1s;
+    transition: 0.2s;
 
     &:hover {
       @include grayscale-off;

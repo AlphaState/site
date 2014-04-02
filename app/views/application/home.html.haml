@@ -26,11 +26,11 @@
         %a{ href: posts_path }= t 'navigation.blog'
 
 %section#services
-  %h2!= t '.services.header'
+  %h2!= t '.services.title'
   != markdown t('.services.content')
 
 %section#portfolio
-  %h2!= t '.portfolio.header'
+  %h2!= t '.portfolio.title'
   - for project in @projects
     .project
       %h3= project.title
