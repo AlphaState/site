@@ -1,37 +1,35 @@
 section {
   h2 {
-    font-size: 40px;
-    line-height: 3 * $half-rhythm;
+    font-size: $post-header-font-size;
+    line-height: 3 * $unit;
     text-align: left;
   }
 
   h3 {
-    font-size: 30px;
-    line-height: $rhythm;
-    margin-bottom: $half-rhythm;
+    margin-bottom: $unit;
   }
 
   p.meta {
     font-style: italic;
-    margin-bottom: $rhythm;
+    margin-bottom: $text-line-height;
   }
 
   p.description {
-    margin-bottom: $rhythm;
+    margin-bottom: $text-line-height;
   }
 }
 
 form {
   textarea.title {
     font-family: $display-font-family;
-    font-size: 40px;
-    line-height: 3 * $half-rhythm;
-    height: 2 * 3 * $half-rhythm;
+    font-size: $post-header-font-size;
+    line-height: 3 * $unit;
+    height: 2 * 3 * $unit;
     overflow: hidden;
   }
 
   textarea.description {
-    height: 5 * $rhythm;
+    height: 10 * $unit;
   }
 
   input.author, input.date {
@@ -39,7 +37,7 @@ form {
   }
 
   textarea.content {
-    height: 20 * $rhythm;
+    height: 40 * $unit;
   }
 
   input.address {

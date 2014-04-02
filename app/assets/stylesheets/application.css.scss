@@ -49,11 +49,11 @@ a, button {
   font-family: $alternative-font-family;
 
   border-style: dashed;
-  border-bottom-width: 1px;
+  border-bottom-width: $border-width;
 
   &:hover {
     border-style: solid;
-    border-bottom-width: 1px;
+    border-bottom-width: $border-width;
   }
 }
 
@@ -62,13 +62,13 @@ h1, h2, h3 {
 
   a {
     font-family: inherit;
-    border-bottom-width: 0px;
+    border-bottom-width: 0;
   }
 }
 
 p {
-  font-size: 24px;
-  line-height: $rhythm;
+  font-size: $text-font-size;
+  line-height: $text-line-height;
   font-weight: $light-font-weight;
 }
 
@@ -76,15 +76,15 @@ p {
 // Header
 //
 article header h1 {
-  font-size: 80px;
-  line-height: 4 * $rhythm;
-  padding-top: fix($rhythm, -12);
-  padding-bottom: fix($rhythm, 12);
+  font-size: $header-font-size;
+  line-height: 8 * $unit;
+  padding-top: fix(2 * $unit, -12px);
+  padding-bottom: fix(2 * $unit, 12px);
 
   em {
-    font-size: $rhythm;
+    font-size: 2 * $unit;
     line-height: 0;
-    margin-left: -8px;
+    margin-left: -0.25em;
     text-transform: lowercase;
   }
 }
@@ -98,43 +98,43 @@ article header h1 {
 }
 
 #totop {
-  font-size: 36px;
-  line-height: $rhythm;
+  font-size: $arrow-font-size;
+  line-height: 2 * $unit;
   display: none;
   position: absolute;
-  left: -100px;
-  top: fix($rhythm, -7);
+  left: -$overhang-width;
+  top: fix(2 * $unit, -7px);
 }
 
 article nav {
   @include balance;
 
   a {
-    border-bottom-width: 0px;
+    border-bottom-width: 0;
   }
 
   h1 a:hover {
-    border-bottom-width: 1px;
+    border-bottom-width: $border-width;
   }
 
-  .secondary {
+  .options {
     position: absolute;
-    right: -100px;
-    top: $rhythm;
+    right: -$overhang-width;
+    top: 2 * $unit;
 
     @include apply-when-narrow {
       right: 0;
     }
 
     a {
-      font-size: 28px;
-      line-height: fix($rhythm, 8);
+      font-size: $option-font-size;
+      line-height: fix(2 * $unit, 8px);
       font-weight: $thin-font-weight;
       text-transform: lowercase;
     }
 
     a:hover {
-      border-bottom-width: 1px;
+      border-bottom-width: $border-width;
     }
   }
 }
@@ -153,11 +153,11 @@ article nav {
     margin: 0;
 
     h1 {
-      font-size: 40px;
-      line-height: $double-rhythm;
+      font-size: $compressed-header-font-size;
+      line-height: 4 * $unit;
 
-      padding-top: fix($half-rhythm, -3);
-      padding-bottom: fix($half-rhythm, 3);
+      padding-top: fix($unit, -3px);
+      padding-bottom: fix($unit, 3px);
 
       em {
         margin-left: 0;
@@ -168,12 +168,12 @@ article nav {
       display: block;
 
       @include apply-when-narrow {
-        left: -50px;
+        left: -$overhang-width / 2;
       }
     }
 
-    .secondary {
-      top: fix($rhythm, -3);
+    .options {
+      top: fix(2 * $unit, -3px);
 
       li {
         display: inline;
@@ -192,27 +192,32 @@ article nav {
 //
 article section {
   @include balance;
-  margin-bottom: 4 * $rhythm;
+  margin-bottom: 8 * $unit;
 
   &:first-of-type {
-    margin-top: 3 * $rhythm;
+    margin-top: 6 * $unit;
   }
 
   h2 {
-    font-size: 70px;
-    line-height: 6 * $half-rhythm;
+    font-size: $section-header-font-size;
+    line-height: 6 * $unit;
     text-align: center;
 
-    margin-top: 5 * $half-rhythm;
-    margin-bottom: $half-rhythm;
+    margin-top: 5 * $unit;
+    margin-bottom: $unit;
 
     &:first-of-type {
       margin-top: 0;
     }
   }
 
+  h3 {
+    font-size: $subsection-header-font-size;
+    line-height: $text-line-height;
+  }
+
   p, ol, ul {
-    margin-bottom: $rhythm;
+    margin-bottom: $text-line-height;
     @include hyphenation;
 
     em {
@@ -226,12 +231,12 @@ article section {
   }
 
   p + ul, p + ol {
-    margin-top: -$rhythm;
+    margin-top: -$text-line-height;
   }
 
   li {
-    font-size: 24px;
-    line-height: $rhythm;
+    font-size: $text-font-size;
+    line-height: $text-line-height;
     font-weight: $light-font-weight;
     margin-left: 2em;
     list-style-position: outside;
@@ -246,8 +251,8 @@ article section {
   }
 
   p.actions {
-    padding-bottom: fix($half-rhythm, -1); // To account for the border
-    margin-bottom: $half-rhythm;
+    padding-bottom: fix($unit, -$border-width); // To account for the border
+    margin-bottom: $unit;
 
     a {
       white-space: nowrap;
@@ -267,18 +272,18 @@ article section {
 // Footer
 //
 footer {
-  padding: $double-rhythm 0 $rhythm 0;
+  padding: (4 * $unit) 0 (2 * $unit) 0;
 
   p {
     font-weight: $thin-font-weight;
   }
 
   a {
-    border-bottom-width: 0px;
+    border-bottom-width: 0;
   }
 
   a:hover {
-    border-bottom-width: 1px;
+    border-bottom-width: $border-width;
   }
 
   .wrapper {
@@ -289,19 +294,19 @@ footer {
     position: relative;
 
     address:first-of-type {
-      margin-left: $double-rhythm;
-      margin-top: $double-rhythm;
-      padding-bottom: $half-rhythm;
+      margin-left: 4 * $unit;
+      margin-top: 4 * $unit;
+      padding-bottom: $unit;
     }
 
     address:last-of-type {
       position: absolute;
-      right: $double-rhythm;
+      right: 4 * $unit;
       top: 0;
     }
 
     p:first-of-type {
-      padding-bottom: $half-rhythm;
+      padding-bottom: $unit;
     }
   }
 
@@ -314,7 +319,7 @@ footer {
 // Forms
 //
 form {
-  margin-top: $rhythm;
+  margin-top: 2 * $unit;
   @include hack {
     line-height: 0; // To eliminate extra space
   }
@@ -322,13 +327,13 @@ form {
   input, textarea, button {
     font-family: $text-font-family;
     font-weight: $light-font-weight;
-    font-size: 24px;
-    line-height: $rhythm;
+    font-size: $text-font-size;
+    line-height: $text-line-height;
   }
 
   input, textarea {
     background: #fafafa;
-    margin-bottom: $half-rhythm;
+    margin-bottom: $unit;
 
     width: 100%;
 
@@ -346,10 +351,10 @@ form {
     cursor: pointer;
     background: none;
     width: auto;
-    margin-top: $half-rhythm;
+    margin-top: $unit;
     margin-right: 1em;
     @include hack {
-      margin-bottom: -1px; // To keep the vertical rhythm
+      margin-bottom: -$border-width; // To keep the vertical rhythm
     }
   }
 }
@@ -365,7 +370,7 @@ form {
 .spectrum {
   @include spectrum;
   background-repeat: repeat;
-  background-position: 0px 0px;
+  background-position: 0 0;
 }
 
 .inversed .spectrum {
@@ -378,10 +383,10 @@ form {
     line-height: 0; // To eliminate extra space
   }
   text-align: center;
-  margin: $double-rhythm;
+  margin: 4 * $unit;
   svg {
-    height: 3 * $rhythm;
-    width: 3 * $rhythm;
+    height: 6 * $unit;
+    width: 6 * $unit;
   }
 }
 

@@ -1,23 +1,23 @@
-$framed-project-size: ($project-size + 2 * $half-rhythm);
+$framed-project-size: ($project-size + 2 * $unit);
 $project-extra-space: $project-size - $project-thumbnail-size;
 
 @mixin apply-when-extra-wide {
-  @media screen and (min-width: fix(4 * $framed-project-size, 40)) { @content; }
+  @media screen and (min-width: fix(4 * $framed-project-size, 40px)) { @content; }
 }
 
 @mixin apply-when-extra-narrow {
-  @media screen and (max-width: fix(3 * $framed-project-size, 40)) { @content; }
+  @media screen and (max-width: fix(3 * $framed-project-size, 40px)) { @content; }
 }
 
 //
 // Header
 //
 header h1 {
-  font-size: 110px;
-  line-height: 4 * $rhythm;
+  font-size: $large-header-font-size;
+  line-height: 8 * $unit;
 
   @include balance;
-  padding-top: $rhythm;
+  padding-top: 2 * $unit;
   padding-bottom: 0;
 }
 
@@ -29,57 +29,57 @@ nav {
 
   .wrapper {
     @include balance;
-    padding-top: fix(3 * $half-rhythm, -6);
-    padding-bottom: fix(3 * $half-rhythm, 6);
+    padding-top: fix(3 * $unit, -6px);
+    padding-bottom: fix(3 * $unit, 6px);
   }
 
-  .primary {
+  .large-options {
     width: $page-width;
     display: inline-block;
 
     a {
       font-family: $text-font-family;
-      font-size: 60px;
-      line-height: $double-rhythm;
+      font-size: $large-option-font-size;
+      line-height: 4 * $unit;
       font-weight: $light-font-weight;
       text-transform: lowercase;
     }
 
     a:hover {
-      border-bottom-width: 0px;
+      border-bottom-width: 0;
     }
 
     li:nth-child(2) {
-      margin-top: $half-rhythm;
-      margin-bottom: $half-rhythm;
+      margin-top: $unit;
+      margin-bottom: $unit;
     }
 
     @include apply-when-wide {
-      margin-left: -100px;
+      margin-left: -$overhang-width;
 
       li:nth-child(2) {
-        margin-left: 100px;
+        margin-left: $overhang-width;
       }
 
       li:nth-child(3) {
-        margin-left: 200px;
+        margin-left: 2 * $overhang-width;
       }
     }
   }
 
-  .secondary {
-    top: 3 * $rhythm;
+  .options {
+    top: 6 * $unit;
   }
 }
 
 @include apply-when-tall {
   #menu.compressed {
     .wrapper {
-      padding-top: $half-rhythm;
-      padding-bottom: $half-rhythm;
+      padding-top: $unit;
+      padding-bottom: $unit;
     }
 
-    .primary {
+    .large-options {
       width: auto;
       margin-left: 0;
 
@@ -90,15 +90,15 @@ nav {
       }
 
       a {
-        font-size: 46px;
-        line-height: fix($double-rhythm, -12);
+        font-size: $compressed-large-option-font-size;
+        line-height: fix(4 * $unit, -12px);
       }
 
-      padding-bottom: fix(0px, 12);
+      padding-bottom: fix(0px, 12px);
     }
 
-    .secondary {
-      top: fix($rhythm, -4);
+    .options {
+      top: fix(2 * $unit, -4px);
     }
   }
 }
@@ -107,8 +107,8 @@ nav {
 // Sections
 //
 section#introduction {
-  margin-top: 5 * $half-rhythm;
-  margin-bottom: 5 * $half-rhythm;
+  margin-top: 5 * $unit;
+  margin-bottom: 5 * $unit;
 
   p {
     margin: 0;
@@ -116,33 +116,33 @@ section#introduction {
 }
 
 section#services {
-  margin-top: 3 * $rhythm;
-  margin-bottom: 6 * $half-rhythm;
+  margin-top: 6 * $unit;
+  margin-bottom: 6 * $unit;
 }
 
 section#portfolio {
   margin-top: 0;
   text-align: center;
-  width: fix(3 * $framed-project-size, 20);
+  width: fix(3 * $framed-project-size, 20px);
 
   @include apply-when-extra-narrow {
-    width: fix(2 * $framed-project-size, 20);
+    width: fix(2 * $framed-project-size, 20px);
   }
 
   @include apply-when-extra-wide {
-    width: fix(4 * $framed-project-size, 20);
+    width: fix(4 * $framed-project-size, 20px);
   }
 
   .project {
-    margin-left: $half-rhythm;
-    margin-right: $half-rhythm;
-    margin-bottom: 5 * $half-rhythm;
+    margin-left: $unit;
+    margin-right: $unit;
+    margin-bottom: 5 * $unit;
 
     width: $project-size;
     display: inline-block;
 
     img {
-      padding-top: $half-rhythm;
+      padding-top: $unit;
 
       padding-bottom: $project-extra-space;
       padding-left: $project-extra-space / 2;
@@ -165,13 +165,13 @@ section#portfolio {
     }
 
     h3 {
-      font-size: 28px;
-      line-height: $rhythm;
+      font-size: $project-header-font-size;
+      line-height: $text-line-height;
     }
 
     p {
       font-family: $condensed-font-family;
-      font-size: 20px;
+      font-size: $project-motto-font-size;
       font-weight: $light-font-weight;
       white-space: nowrap;
       margin: 0;

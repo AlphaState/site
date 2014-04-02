@@ -1,17 +1,9 @@
 //
 // Layout
 //
+$unit: 16px;
 $page-width: 800px;
-
-$rhythm: 32px;
-$half-rhythm: $rhythm / 2;
-$double-rhythm: 2 * $rhythm;
-
-//
-// Portfolio
-//
-$project-thumbnail-size: 300px;
-$project-size: ceil($project-thumbnail-size / $half-rhythm) * $half-rhythm;
+$overhang-width: 100px;
 
 //
 // Fonts
@@ -28,3 +20,35 @@ $condensed-font-family: 'Roboto Condensed',
 $thin-font-weight: 100;
 $light-font-weight: 300;
 $regular-font-weight: 400;
+
+$text-font-size: 24px;
+$text-line-height: 2 * $unit;
+
+$header-font-size: 80px;
+$compressed-header-font-size: 40px;
+$large-header-font-size: 110px; // @ Home
+
+$option-font-size: 28px;
+$large-option-font-size: 60px; // @ Home
+$compressed-large-option-font-size: 46px; // @ Home
+
+$section-header-font-size: 70px;
+$subsection-header-font-size: 30px;
+
+$project-header-font-size: 28px; // @ Home
+$project-motto-font-size: 20px; // @ Home
+
+$post-header-font-size: 40px;
+
+$arrow-font-size: 36px;
+
+//
+// Portfolio @ Home
+//
+$project-thumbnail-size: 300px;
+$project-size: ceil($project-thumbnail-size / $unit) * $unit;
+
+//
+// Links
+//
+$border-width: 1px;
