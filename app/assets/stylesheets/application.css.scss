@@ -117,16 +117,6 @@ article nav {
     border-bottom-width: 1px;
   }
 
-  .primary {
-    a {
-      font-family: $text-font-family;
-    }
-
-    a:hover {
-      border-bottom-width: 0px;
-    }
-  }
-
   .secondary {
     position: absolute;
     right: -100px;
@@ -140,15 +130,12 @@ article nav {
       font-size: 28px;
       line-height: fix($rhythm, 8);
       font-weight: $thin-font-weight;
+      text-transform: lowercase;
     }
 
     a:hover {
       border-bottom-width: 1px;
     }
-  }
-
-  .primary, .secondary {
-    text-transform: lowercase;
   }
 }
 

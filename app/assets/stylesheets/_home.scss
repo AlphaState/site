@@ -38,9 +38,15 @@ nav {
     display: inline-block;
 
     a {
+      font-family: $text-font-family;
       font-size: 60px;
       line-height: $double-rhythm;
       font-weight: $light-font-weight;
+      text-transform: lowercase;
+    }
+
+    a:hover {
+      border-bottom-width: 0px;
     }
 
     li:nth-child(2) {
@@ -127,12 +133,6 @@ section#portfolio {
     width: fix(4 * $framed-project-size, 20);
   }
 
-  a, a:hover {
-    display: block;
-    border: 0;
-    line-height: 0;
-  }
-
   .project {
     margin-left: $half-rhythm;
     margin-right: $half-rhythm;
@@ -149,10 +149,18 @@ section#portfolio {
       padding-right: $project-extra-space / 2;
     }
 
-    @include grayscale-on;
-    transition: 0.2s;
+    a, a:hover {
+      display: block;
+      border: 0;
+      line-height: 0;
+    }
 
-    &:hover {
+    a {
+      @include grayscale-on;
+      transition: 0.1s;
+    }
+
+    a:hover {
       @include grayscale-off;
     }
 
