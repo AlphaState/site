@@ -23,7 +23,7 @@ section {
     -o-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
 
-    max-width: 1100px;
+    max-width: $project-image-width;
 
     @include apply-when-narrow {
       max-width: $page-width;
@@ -54,6 +54,6 @@ form {
   }
 
   textarea.content {
-    height: 40 * $unit;
+    height: 20 * $text-line-height;
   }
 }

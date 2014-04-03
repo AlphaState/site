@@ -1,12 +1,12 @@
-$framed-project-size: ($project-size + 2 * $unit);
+$framed-project-size: ($project-size + 2rem);
 $project-extra-space: $project-size - $project-thumbnail-size;
 
 @mixin apply-when-extra-wide {
-  @media screen and (min-width: fix(4 * $framed-project-size, 40px)) { @content; }
+  @media screen and (min-width: tune(4 * $framed-project-size, 40)) { @content; }
 }
 
 @mixin apply-when-extra-narrow {
-  @media screen and (max-width: fix(3 * $framed-project-size, 40px)) { @content; }
+  @media screen and (max-width: tune(3 * $framed-project-size, 40)) { @content; }
 }
 
 //
@@ -14,10 +14,10 @@ $project-extra-space: $project-size - $project-thumbnail-size;
 //
 header h1 {
   font-size: $large-header-font-size;
-  line-height: 8 * $unit;
+  line-height: $large-header-line-height;
 
   @include balance;
-  padding-top: 2 * $unit;
+  padding-top: 2rem;
   padding-bottom: 0;
 }
 
@@ -29,8 +29,8 @@ nav {
 
   .wrapper {
     @include balance;
-    padding-top: fix(3 * $unit, -6px);
-    padding-bottom: fix(3 * $unit, 6px);
+    padding-top: tune(3rem, -6);
+    padding-bottom: tune(3rem, 6);
   }
 
   .large-options {
@@ -40,7 +40,7 @@ nav {
     a {
       font-family: $text-font-family;
       font-size: $large-option-font-size;
-      line-height: 4 * $unit;
+      line-height: $large-option-line-height;
       font-weight: $light-font-weight;
       text-transform: lowercase;
     }
@@ -50,8 +50,8 @@ nav {
     }
 
     li:nth-child(2) {
-      margin-top: $unit;
-      margin-bottom: $unit;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
     }
 
     @include apply-when-wide {
@@ -68,15 +68,15 @@ nav {
   }
 
   .options {
-    top: 6 * $unit;
+    top: 6rem;
   }
 }
 
 @include apply-when-tall {
   #menu.compressed {
     .wrapper {
-      padding-top: $unit;
-      padding-bottom: $unit;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
     }
 
     .large-options {
@@ -91,14 +91,14 @@ nav {
 
       a {
         font-size: $compressed-large-option-font-size;
-        line-height: fix(4 * $unit, -12px);
+        line-height: $compressed-large-option-line-height;
       }
 
-      padding-bottom: fix(0px, 12px);
+      padding-bottom: tune(0rem, 12);
     }
 
     .options {
-      top: fix(2 * $unit, -4px);
+      top: tune(2rem, -4);
     }
   }
 }
@@ -107,8 +107,8 @@ nav {
 // Sections
 //
 section#introduction {
-  margin-top: 5 * $unit;
-  margin-bottom: 5 * $unit;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 
   p {
     margin: 0;
@@ -116,33 +116,33 @@ section#introduction {
 }
 
 section#services {
-  margin-top: 6 * $unit;
-  margin-bottom: 6 * $unit;
+  margin-top: 6rem;
+  margin-bottom: 6rem;
 }
 
 section#portfolio {
   margin-top: 0;
   text-align: center;
-  width: fix(3 * $framed-project-size, 20px);
+  width: tune(3 * $framed-project-size, 20);
 
   @include apply-when-extra-narrow {
-    width: fix(2 * $framed-project-size, 20px);
+    width: tune(2 * $framed-project-size, 20);
   }
 
   @include apply-when-extra-wide {
-    width: fix(4 * $framed-project-size, 20px);
+    width: tune(4 * $framed-project-size, 20);
   }
 
   .project {
-    margin-left: $unit;
-    margin-right: $unit;
-    margin-bottom: 5 * $unit;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 5rem;
 
     width: $project-size;
     display: inline-block;
 
     img {
-      padding-top: $unit;
+      padding-top: 1rem;
 
       padding-bottom: $project-extra-space;
       padding-left: $project-extra-space / 2;
@@ -158,6 +158,10 @@ section#portfolio {
     a {
       @include grayscale-on;
       transition: 0.1s;
+
+      @include apply-when-touch {
+        @include grayscale-off;
+      }
     }
 
     a:hover {
@@ -166,7 +170,7 @@ section#portfolio {
 
     h3 {
       font-size: $project-header-font-size;
-      line-height: $text-line-height;
+      line-height: $project-line-height;
     }
 
     p {

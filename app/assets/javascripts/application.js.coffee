@@ -1,6 +1,12 @@
 #= require hyphenator
 #= require menu
 
+$pageWidth = 800
+$compressedMenuHeight = 96
+$tallShortThreshold = 700
+$spectrumScrollRate = 0.5
+$scrollTime = 600
+
 window.findElementsToHyphenate = ->
   return document.querySelectorAll('section p, section ol, section ul')
 
@@ -11,25 +17,26 @@ $window = $(window)
 $scrollable = $('body, html') # To make IE work
 
 $spectrum = $('.spectrum')
-$offset = 800 * Math.random()
+$offset = $pageWidth * Math.random()
 
 $menu = $('#menu')
-$menu = new Menu $menu, $menu.offset().top + $menu.outerHeight() - 100
+$menu = new Menu $menu, $menu.offset().top +
+  $menu.outerHeight() - $compressedMenuHeight
 
 onScroll = (e) ->
   scrollTop = $window.scrollTop()
-  position = Math.round($offset + 0.5 * scrollTop)
+  position = Math.round($offset + $spectrumScrollRate * scrollTop)
   $spectrum.css 'background-position': position + 'px 0px'
   $menu.update scrollTop
 
 anchorToScroll = (anchor) ->
   position =  $(anchor).offset().top
 
-  if $window.height() < 700 or anchor is '#top'
+  if $window.height() < $tallShortThreshold
+  else if anchor is '#top'
   else if anchor is '#contact'
-    position = position - 60
   else
-    position = position - 130
+    position = position - $compressedMenuHeight
 
   position
 
@@ -47,7 +54,7 @@ onReady = ->
 
   $('a.scroll').click (e) ->
     anchor = $(e.target).attr('href')
-    $scrollable.animate { scrollTop: anchorToScroll(anchor) }, 600
+    $scrollable.animate { scrollTop: anchorToScroll(anchor) }, $scrollTime
     history.pushState null, null, anchor
 
     e.preventDefault()

@@ -1,9 +1,14 @@
 //
 // Layout
 //
-$unit: 16px;
-$page-width: 800px;
-$overhang-width: 100px;
+$rem: 16px; // = 1rem
+$one: 0.0625rem; // = 1rem / 16 = 1px
+
+$page-width: 800 * $one;
+$overhang-width: 100 * $one;
+
+$wide-narrow-threshold: 1100px;
+$tall-short-threshold: 700px;
 
 //
 // Fonts
@@ -21,34 +26,52 @@ $thin-font-weight: 100;
 $light-font-weight: 300;
 $regular-font-weight: 400;
 
-$text-font-size: 24px;
-$text-line-height: 2 * $unit;
+$text-font-size: 1.5rem;
+$text-line-height: 2rem;
 
-$header-font-size: 80px;
-$compressed-header-font-size: 40px;
-$large-header-font-size: 110px; // @ Home
+$header-font-size: 5rem;
+$header-line-height: 8rem;
 
-$option-font-size: 28px;
-$large-option-font-size: 60px; // @ Home
-$compressed-large-option-font-size: 46px; // @ Home
+$compressed-header-font-size: 2.5em;
+$compressed-header-line-height: 4rem;
 
-$section-header-font-size: 70px;
-$subsection-header-font-size: 30px;
+$large-header-font-size: 6.875rem; // @ Home
+$large-header-line-height: 8rem;
 
-$project-header-font-size: 28px; // @ Home
-$project-motto-font-size: 20px; // @ Home
+$option-font-size: 1.75rem;
+$option-line-height: 2.5rem;
 
-$post-header-font-size: 40px;
+$large-option-font-size: 3.75rem; // @ Home
+$large-option-line-height: 4rem;
 
-$arrow-font-size: 36px;
+$compressed-large-option-font-size: 2.875rem; // @ Home
+$compressed-large-option-line-height: 3.25rem;
+
+$section-header-font-size: 4.375rem;
+$section-header-line-height: 6rem;
+
+$subsection-header-font-size: 1.875rem;
+$subsection-line-height: $text-line-height;
+
+$project-header-font-size: 1.75rem; // @ Home
+$project-line-height: $text-line-height;
+
+$project-motto-font-size: 1.25rem; // @ Home
+
+$post-header-font-size: 2.5rem;
+$post-header-line-height: 3rem;
+
+$arrow-font-size: 2.25rem;
+$arrow-line-height: 2rem;
 
 //
 // Portfolio @ Home
 //
-$project-thumbnail-size: 300px;
-$project-size: ceil($project-thumbnail-size / $unit) * $unit;
+$project-thumbnail-size: 300 * $one;
+$project-size: ceil($project-thumbnail-size);
+$project-image-width: 1100 * $one;
 
 //
 // Links
 //
-$border-width: 1px;
+$border-width: $one;

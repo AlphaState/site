@@ -1,12 +1,12 @@
 section {
   h2 {
     font-size: $post-header-font-size;
-    line-height: 3 * $unit;
+    line-height: $post-header-line-height;
     text-align: left;
   }
 
   h3 {
-    margin-bottom: $unit;
+    margin-bottom: 1rem;
   }
 
   p.meta {
@@ -23,13 +23,13 @@ form {
   textarea.title {
     font-family: $display-font-family;
     font-size: $post-header-font-size;
-    line-height: 3 * $unit;
-    height: 2 * 3 * $unit;
+    line-height: $post-header-line-height;
+    height: 2 * 3rem;
     overflow: hidden;
   }
 
   textarea.description {
-    height: 10 * $unit;
+    height: 5 * $text-line-height;
   }
 
   input.author, input.date {
@@ -37,7 +37,7 @@ form {
   }
 
   textarea.content {
-    height: 40 * $unit;
+    height: 20 * $text-line-height;
   }
 
   input.address {

@@ -12,23 +12,32 @@
 }
 
 @mixin apply-when-wide {
-  @media screen and (min-width: 1101px) { @content; }
+  @media screen and (min-width: $wide-narrow-threshold) { @content; }
 }
 
 @mixin apply-when-narrow {
-  @media screen and (max-width: 1100px) { @content; }
+  @media screen and (max-width: $wide-narrow-threshold) { @content; }
 }
 
 @mixin apply-when-tall {
-  @media screen and (min-height: 701px) { @content; }
+  @media screen and (min-height: $tall-short-threshold) { @content; }
 }
 
 @mixin apply-when-short {
-  @media screen and (max-height: 700px) { @content; }
+  @media screen and (max-height: $tall-short-threshold) { @content; }
+}
+
+@mixin apply-when-touch {
+  @media only screen and (max-device-width: 480px),
+    only screen and (max-device-width: 1024px) { @content; }
 }
 
 @function fix($value, $offset) {
   @return $value + $offset;
+}
+
+@function tune($value, $times) {
+  @return $value + $times * $one;
 }
 
 @mixin hack {
@@ -41,6 +50,7 @@
 body {
   min-width: $page-width;
   font-family: $text-font-family;
+  font-size: $rem;
   text-rendering: optimizeLegibility;
   @include ligatures;
 }
@@ -77,12 +87,12 @@ p {
 //
 article header h1 {
   font-size: $header-font-size;
-  line-height: 8 * $unit;
-  padding-top: fix(2 * $unit, -12px);
-  padding-bottom: fix(2 * $unit, 12px);
+  line-height: $header-line-height;
+  padding-top: tune(2rem, -12);
+  padding-bottom: tune(2rem, 12);
 
   em {
-    font-size: 2 * $unit;
+    font-size: 2rem;
     line-height: 0;
     margin-left: -0.25em;
     text-transform: lowercase;
@@ -99,11 +109,11 @@ article header h1 {
 
 #totop {
   font-size: $arrow-font-size;
-  line-height: 2 * $unit;
+  line-height: $arrow-line-height;
   display: none;
   position: absolute;
   left: -$overhang-width;
-  top: fix(2 * $unit, -7px);
+  top: tune(2rem, -7);
 }
 
 article nav {
@@ -120,7 +130,7 @@ article nav {
   .options {
     position: absolute;
     right: -$overhang-width;
-    top: 2 * $unit;
+    top: 2rem;
 
     @include apply-when-narrow {
       right: 0;
@@ -128,12 +138,18 @@ article nav {
 
     a {
       font-size: $option-font-size;
-      line-height: fix(2 * $unit, 8px);
+      line-height: $option-line-height;
       font-weight: $thin-font-weight;
       text-transform: lowercase;
     }
 
     a:hover {
+      border-bottom-width: $border-width;
+    }
+  }
+
+  @include apply-when-touch {
+    h1 a, .options a {
       border-bottom-width: $border-width;
     }
   }
@@ -154,10 +170,10 @@ article nav {
 
     h1 {
       font-size: $compressed-header-font-size;
-      line-height: 4 * $unit;
+      line-height: $compressed-header-line-height;
 
-      padding-top: fix($unit, -3px);
-      padding-bottom: fix($unit, 3px);
+      padding-top: tune(1rem, -3);
+      padding-bottom: tune(1rem, 3);
 
       em {
         margin-left: 0;
@@ -173,7 +189,7 @@ article nav {
     }
 
     .options {
-      top: fix(2 * $unit, -3px);
+      top: tune(2rem, -3);
 
       li {
         display: inline;
@@ -192,19 +208,19 @@ article nav {
 //
 article section {
   @include balance;
-  margin-bottom: 8 * $unit;
+  margin-bottom: 8rem;
 
   &:first-of-type {
-    margin-top: 6 * $unit;
+    margin-top: 6rem;
   }
 
   h2 {
     font-size: $section-header-font-size;
-    line-height: 6 * $unit;
+    line-height: $section-header-line-height;
     text-align: center;
 
-    margin-top: 5 * $unit;
-    margin-bottom: $unit;
+    margin-top: 5rem;
+    margin-bottom: 1rem;
 
     &:first-of-type {
       margin-top: 0;
@@ -213,7 +229,7 @@ article section {
 
   h3 {
     font-size: $subsection-header-font-size;
-    line-height: $text-line-height;
+    line-height: $subsection-line-height;
   }
 
   p, ol, ul {
@@ -251,8 +267,8 @@ article section {
   }
 
   p.actions {
-    padding-bottom: fix($unit, -$border-width); // To account for the border
-    margin-bottom: $unit;
+    padding-bottom: 1rem - $border-width; // To account for the border
+    margin-bottom: 1rem;
 
     a {
       white-space: nowrap;
@@ -272,7 +288,7 @@ article section {
 // Footer
 //
 footer {
-  padding: (4 * $unit) 0 (2 * $unit) 0;
+  padding: 4rem 0 2rem 0;
 
   p {
     font-weight: $thin-font-weight;
@@ -280,6 +296,10 @@ footer {
 
   a {
     border-bottom-width: 0;
+
+    @include apply-when-touch {
+      border-bottom-width: $border-width;
+    }
   }
 
   a:hover {
@@ -294,19 +314,19 @@ footer {
     position: relative;
 
     address:first-of-type {
-      margin-left: 4 * $unit;
-      margin-top: 4 * $unit;
-      padding-bottom: $unit;
+      margin-left: 4rem;
+      margin-top: 4rem;
+      padding-bottom: 1rem;
     }
 
     address:last-of-type {
       position: absolute;
-      right: 4 * $unit;
+      right: 4rem;
       top: 0;
     }
 
     p:first-of-type {
-      padding-bottom: $unit;
+      padding-bottom: 1rem;
     }
   }
 
@@ -319,7 +339,7 @@ footer {
 // Forms
 //
 form {
-  margin-top: 2 * $unit;
+  margin-top: 2rem;
   @include hack {
     line-height: 0; // To eliminate extra space
   }
@@ -333,7 +353,7 @@ form {
 
   input, textarea {
     background: #fafafa;
-    margin-bottom: $unit;
+    margin-bottom: 1rem;
 
     width: 100%;
 
@@ -351,7 +371,7 @@ form {
     cursor: pointer;
     background: none;
     width: auto;
-    margin-top: $unit;
+    margin-top: 1rem;
     margin-right: 1em;
     @include hack {
       margin-bottom: -$border-width; // To keep the vertical rhythm
@@ -383,10 +403,10 @@ form {
     line-height: 0; // To eliminate extra space
   }
   text-align: center;
-  margin: 4 * $unit;
+  margin: 5rem;
   svg {
-    height: 6 * $unit;
-    width: 6 * $unit;
+    height: 6rem;
+    width: 6rem;
   }
 }
 

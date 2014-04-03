@@ -1,19 +1,19 @@
 &.home header h1 {
-  font-size: fix($large-header-font-size, -10);
+  font-size: tune($large-header-font-size, -10);
 }
 
 &:not(.home) {
   header h1 {
-    font-size: fix($header-font-size, -10);
+    font-size: tune($header-font-size, -10);
   }
 
   nav .options {
     @include apply-when-narrow {
-      right: fix(0px, -$overhang-width / 2);
+      right: -$overhang-width / 2;
     }
   }
 }
 
 &.manifesto section h2 {
-  font-size: fix($section-header-font-size, -10);
+  font-size: tune($section-header-font-size, -10);
 }
