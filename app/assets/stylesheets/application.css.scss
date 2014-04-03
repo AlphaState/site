@@ -48,7 +48,7 @@
 // Defaults
 //
 body {
-  min-width: $page-width;
+  min-width: $page-width + 2 * $text-font-size;
   font-family: $text-font-family;
   font-size: $rem;
   text-rendering: optimizeLegibility;

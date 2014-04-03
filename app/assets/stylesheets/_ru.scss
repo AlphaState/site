@@ -5,11 +5,9 @@
 &:not(.home) {
   header h1 {
     font-size: tune($header-font-size, -10);
-  }
 
-  nav .options {
     @include apply-when-narrow {
-      right: -$overhang-width / 2;
+      font-size: tune($header-font-size, -20);
     }
   }
 }
