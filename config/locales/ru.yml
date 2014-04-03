@@ -109,7 +109,7 @@ ru:
       meta: &posts-meta '%{author}, %{date}'
 
     show:
-      return: &posts-return '&larr; К публикациям в блоге'
+      return: &posts-return '&larr; К блогу'
       meta: *posts-meta
 
     new:
