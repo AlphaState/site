@@ -107,6 +107,6 @@ module ApplicationHelper
   <use xlink:href="##{ id }"  width="251.1" height="241" x="-125.6" y="-120.5" transform="matrix(-1 0 0 1 420 970)" overflow="visible"/>
 </svg>
     EOL
-    content_tag :div, result.html_safe, :class => :dingbat
+    result.html_safe
   end
 end

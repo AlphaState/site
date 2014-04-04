@@ -1,16 +1,19 @@
-#= require hyphenator
 #= require menu
+
+window.findElementsToHyphenate = ->
+  return document.querySelectorAll('section p, section ol, section ul')
+
+if window.chrome then Hyphenator.run()
+
+$mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+
+return if $mobile
 
 $pageWidth = 800
 $compressedMenuHeight = 96
 $tallShortThreshold = 700
 $spectrumScrollRate = 0.5
 $scrollTime = 600
-
-window.findElementsToHyphenate = ->
-  return document.querySelectorAll('section p, section ol, section ul')
-
-if window.chrome then Hyphenator.run()
 
 $document = $(document)
 $window = $(window)

@@ -6,6 +6,6 @@ AlphaState::Application.routes.draw do
     resources :projects, path: 'portfolio'
   end
 
-  match '*path', to: 'application#exception', via: :get
+  match '(:locale)/*path', to: 'application#page_not_found', via: :get
   root 'application#home'
 end

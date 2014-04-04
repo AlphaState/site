@@ -23,17 +23,9 @@
   @media screen and (min-height: $tall-short-threshold) { @content; }
 }
 
-@mixin apply-when-short {
-  @media screen and (max-height: $tall-short-threshold) { @content; }
-}
-
 @mixin apply-when-touch {
   @media only screen and (max-device-width: 480px),
     only screen and (max-device-width: 1024px) { @content; }
-}
-
-@function fix($value, $offset) {
-  @return $value + $offset;
 }
 
 @function tune($value, $times) {
@@ -141,6 +133,10 @@ article nav {
       line-height: $option-line-height;
       font-weight: $thin-font-weight;
       text-transform: lowercase;
+
+      @include apply-when-touch {
+        font-weight: $light-font-weight;
+      }
     }
 
     a:hover {
@@ -246,10 +242,6 @@ article section {
     }
   }
 
-  p + ul, p + ol {
-    margin-top: -$text-line-height;
-  }
-
   li {
     font-size: $text-font-size;
     line-height: $text-line-height;
@@ -292,6 +284,10 @@ footer {
 
   p {
     font-weight: $thin-font-weight;
+
+    @include apply-when-touch {
+      font-weight: $light-font-weight;
+    }
   }
 
   a {
@@ -313,20 +309,23 @@ footer {
   #address {
     position: relative;
 
+    address {
+      padding-top: 4rem;
+      white-space: nowrap;
+
+      p:first-of-type {
+        padding-bottom: 1rem;
+      }
+    }
+
     address:first-of-type {
-      margin-left: 4rem;
-      margin-top: 4rem;
-      padding-bottom: 1rem;
+      margin-left: 5%;
+      width: 45%;
+      float: left;
     }
 
     address:last-of-type {
-      position: absolute;
-      right: 4rem;
-      top: 0;
-    }
-
-    p:first-of-type {
-      padding-bottom: 1rem;
+      margin-left: 55%;
     }
   }
 
