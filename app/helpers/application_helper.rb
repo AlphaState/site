@@ -1,9 +1,10 @@
 module ApplicationHelper
   def locale_path
+    locale = I18n.default_locale? ? I18n.alternative_locale : I18n.default_locale
     if @post.blank?
-      url_for locale: I18n.alternative_locale
+      url_for locale: locale
     else
-      posts_path locale: I18n.alternative_locale
+      posts_path locale: locale
     end
   end
 
