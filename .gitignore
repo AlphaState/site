@@ -1,6 +1,6 @@
 .DS_Store
 .bundle
-tmp/*
+tmp/cache
 log/*
 db/*.sqlite3
 config/database.yml
