@@ -18,7 +18,7 @@ namespace :deploy do
     end
   end
 
+  before 'deploy:assets:precompile', 'deploy:configure'
   after :finishing, 'deploy:cleanup'
-  after :finishing, 'configure'
-  after :finishing, 'restart'
+  after :finishing, 'deploy:restart'
 end
