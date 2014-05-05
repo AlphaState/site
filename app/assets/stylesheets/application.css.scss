@@ -362,6 +362,16 @@ form {
     }
   }
 
+  .field_with_errors {
+    input, textarea {
+      color: #ff9070;
+
+      @include placeholder {
+        color: #ff9070;
+      }
+    }
+  }
+
   textarea {
     resize: vertical;
   }
