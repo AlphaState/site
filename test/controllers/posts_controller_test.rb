@@ -7,18 +7,18 @@ class PostsControllerTest < ActionController::TestCase
     @post = create(:post)
   end
 
-  test 'should get index' do
+  test 'should show all records' do
     get :index
     assert_response :success
     assert_not_nil assigns(:posts)
   end
 
-  test 'should get new' do
+  test 'should offer to create a new record' do
     get :new
     assert_response :success
   end
 
-  test 'should create post' do
+  test 'should create a new record' do
     assert_difference('Post.count') do
       post :create, post: {
         title: @post.title,
@@ -32,17 +32,17 @@ class PostsControllerTest < ActionController::TestCase
     assert_redirected_to post_path(assigns(:post))
   end
 
-  test 'should show post' do
+  test 'should show the selected record' do
     get :show, id: @post
     assert_response :success
   end
 
-  test 'should get edit' do
+  test 'should offer to edit the selected record' do
     get :edit, id: @post
     assert_response :success
   end
 
-  test 'should update post' do
+  test 'should update the selected record' do
     patch :update, id: @post, post: {
       title: @post.title,
       author: @post.author,
@@ -53,7 +53,7 @@ class PostsControllerTest < ActionController::TestCase
     assert_redirected_to post_path(assigns(:post))
   end
 
-  test 'should destroy post' do
+  test 'should destroy the selected record' do
     assert_difference('Post.count', -1) do
       delete :destroy, id: @post
     end
