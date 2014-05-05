@@ -2,11 +2,15 @@ class Post < ActiveRecord::Base
   include Localizable
   include Addressable
 
+  validates :title, :author, :date, :description, :address,
+    :content, :locale, presence: true
+  validates :address, uniqueness: { scope: :locale }
+
   default_scope {
     where(:locale => [ nil, '', I18n.locale ]).order('date DESC')
   }
 
-  before_save :set_date
+  before_validation :set_date
 
   def find_previous
     Post.where('date > ?', date).last

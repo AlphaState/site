@@ -1,6 +1,6 @@
 module Restful
   def self.included base
-    base.before_action :find, only: [ :show, :edit, :update ]
+    base.before_action :find, only: [ :show, :edit, :update, :destroy ]
   end
 
   def index
@@ -19,7 +19,7 @@ module Restful
     if instance.save
       redirect_to instance
     else
-      render 'edit'
+      render 'new'
     end
   end
 
@@ -27,14 +27,16 @@ module Restful
   end
 
   def update
-    if params.include? :delete
-      instance.destroy
-      redirect_to collection_path
-    elsif instance.update_attributes post_params
+    if instance.update_attributes post_params
       redirect_to instance
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    instance.destroy
+    redirect_to collection_path
   end
 
   private

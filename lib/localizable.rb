@@ -1,6 +1,6 @@
 module Localizable
   def self.included base
-    base.before_create :set_locale
+    base.before_validation :set_locale
   end
 
   private
