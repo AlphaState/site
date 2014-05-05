@@ -28,4 +28,23 @@ class PostTest < ActiveSupport::TestCase
     assert one.save
     assert_not_nil one.date
   end
+
+  test 'should find the previous record' do
+    time = Time.now
+
+    past = build :post
+    past.date = time - 1.day
+    assert past.save
+
+    current = build :post
+    current.date = time
+    assert current.save
+
+    future = build :post
+    future.date = time + 1.day
+    assert future.save
+
+    assert_equal current.find_previous, future
+    assert_equal current.find_next, past
+  end
 end
