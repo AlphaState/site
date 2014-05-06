@@ -20,13 +20,7 @@ class PostsControllerTest < ActionController::TestCase
 
   test 'should create a new record' do
     assert_difference('Post.count') do
-      post :create, post: {
-        title: @post.title,
-        author: @post.author,
-        description: @post.description,
-        content: @post.content,
-        address: generate(:post_address)
-      }
+      post :create, post: build(:post).attributes
     end
 
     assert_redirected_to post_path(assigns(:post))
@@ -43,13 +37,7 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test 'should update the selected record' do
-    patch :update, id: @post, post: {
-      title: @post.title,
-      author: @post.author,
-      description: @post.description,
-      content: @post.content,
-      address: @post.address
-    }
+    patch :update, id: @post, post: build(:post).attributes
     assert_redirected_to post_path(assigns(:post))
   end
 

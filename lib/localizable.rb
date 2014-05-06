@@ -6,6 +6,6 @@ module Localizable
   private
 
   def set_locale
-    self.locale = I18n.locale
+    self.locale = I18n.locale if self.locale.blank?
   end
 end

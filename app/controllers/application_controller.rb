@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  unless Rails.env.development?
+  if Rails.env.production?
     rescue_from Exception, with: :exception
     rescue_from ActiveRecord::RecordNotFound, with: :page_not_found
   end
