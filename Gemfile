@@ -20,4 +20,6 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 2.6.1'
   gem 'rspec-rails', '~> 2.14.2'
   gem 'factory_girl_rails', '~> 4.4.1'
+  gem 'cucumber-rails', '~> 1.4.0', require: false
+  gem 'database_cleaner', '~>1.2.0'
 end

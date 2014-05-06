@@ -10,3 +10,4 @@ config/database.yml
 *.swo
 *.swp
 *.swk
+tmp/pids/*

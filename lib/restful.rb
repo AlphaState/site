@@ -27,7 +27,9 @@ module Restful
   end
 
   def update
-    if instance.update_attributes post_params
+    if params.include? :delete
+      destroy
+    elsif instance.update_attributes post_params
       redirect_to instance
     else
       render 'edit'
