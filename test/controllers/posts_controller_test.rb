@@ -25,7 +25,7 @@ class PostsControllerTest < ActionController::TestCase
         author: @post.author,
         description: @post.description,
         content: @post.content,
-        address: generate(:address)
+        address: generate(:post_address)
       }
     end
 

@@ -12,14 +12,6 @@ class Post < ActiveRecord::Base
 
   before_validation :set_date
 
-  def find_previous
-    Post.where('date > ?', date).last
-  end
-
-  def find_next
-    Post.where('date < ?', date).first
-  end
-
   private
 
   def set_date
