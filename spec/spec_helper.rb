@@ -4,6 +4,14 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 
+#
+# NOTE: A nasty workaround for the following problem related to
+# spring and shoulda-matchers:
+#
+# https://github.com/rails/spring/issues/209
+#
+require 'shoulda-matchers'
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
