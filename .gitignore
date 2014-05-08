@@ -1,6 +1,5 @@
 .DS_Store
 .bundle
-tmp/cache
 log/*
 db/*.sqlite3
 config/database.yml
@@ -10,4 +9,4 @@ config/database.yml
 *.swo
 *.swp
 *.swk
-tmp/pids/*
+tmp/*

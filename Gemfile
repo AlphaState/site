@@ -19,9 +19,12 @@ group :development do
   gem 'spring-commands-rspec', '~> 1.0.2'
 end
 
-group :test do
+group :development, :test do
   gem 'rspec-rails', '~> 2.14.2'
   gem 'cucumber-rails', '~> 1.4.0', require: false
+end
+
+group :test do
   gem 'database_cleaner', '~>1.2.0'
   gem 'shoulda-matchers', '~> 2.6.1', require: false
   gem 'factory_girl_rails', '~> 4.4.1'

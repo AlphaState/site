@@ -14,20 +14,20 @@ describe PostsController do
       expect(response).to render_template(:new)
     end
 
-    it 'creates a new records and displays it right after' do
+    it 'creates a new post and displays it right after' do
       one = build :post
       expect{ post :create, post: one.attributes }.to change(Post, :count).by(1)
       expect(response).to redirect_to(assigns(:post))
     end
   end
 
-  context 'when there are some records' do
+  context 'when there are some posts' do
     before :each do
       @post = create :post
     end
 
     describe 'GET #index' do
-      it 'fetches the records and returns HTTP success' do
+      it 'fetches the posts and returns HTTP success' do
         get :index
         expect(assigns(:posts)).not_to be_empty
         expect(response).to be_success
@@ -35,7 +35,7 @@ describe PostsController do
     end
 
     describe 'GET #show' do
-      it 'finds the selected record and returns HTTP success' do
+      it 'finds the selected post and returns HTTP success' do
         get :show, id: @post
         expect(assigns(:post)).to eq(@post)
         expect(response).to be_success
@@ -57,7 +57,7 @@ describe PostsController do
     end
 
     describe 'DELETE #destroy' do
-      it 'removes the selected record and redirects to #index' do
+      it 'removes the selected post and redirects to #index' do
         expect{ delete :destroy, id: @post }.to change(Post, :count).by(-1)
         expect(response).to redirect_to(posts_path)
       end
