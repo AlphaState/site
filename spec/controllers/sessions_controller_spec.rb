@@ -16,7 +16,7 @@ describe SessionsController do
     describe 'POST #create' do
       it 'authenticate the user if the email/password pair is correct' do
         post :create, email: @user.email, password: @user.password
-        expect(response).to redirect_to(root_path)
+        expect(response).to redirect_to(home_path)
         expect(session[:user_id]).to eq(@user.id)
       end
 
@@ -42,7 +42,7 @@ describe SessionsController do
       describe 'GET #destroy' do
         it 'closes the session of the current user' do
           get :destroy
-          expect(response).to redirect_to(root_path)
+          expect(response).to redirect_to(home_path)
           expect(session[:user_id]).to be_blank
         end
       end
@@ -50,7 +50,7 @@ describe SessionsController do
       describe 'DELETE #destroy' do
         it 'closes the session of the current user' do
           delete :destroy
-          expect(response).to redirect_to(root_path)
+          expect(response).to redirect_to(home_path)
           expect(session[:user_id]).to be_blank
         end
       end

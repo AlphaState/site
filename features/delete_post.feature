@@ -15,4 +15,4 @@ Feature: Removing posts from the blog
   Scenario: A visitor tries to delete a post
     Given I am a visitor
     When I go to the edit page of a post
-    Then I should be on the index page of posts
+    Then I should be on the home page

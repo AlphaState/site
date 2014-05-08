@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe PostsController do
+  before do
+    controller.stub(:current_user) { true }
+  end
+
   describe 'GET #new' do
     it 'returns HTTP success' do
       get :new

@@ -3,6 +3,7 @@ module Restful
 
   included do
     before_action :find, only: [ :show, :edit, :update, :destroy ]
+    before_filter :require_user, except: [ :index, :show ]
   end
 
   def index

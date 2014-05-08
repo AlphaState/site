@@ -20,4 +20,4 @@ Feature: Adding new posts to the blog
     Given I am a visitor
     And there is one post
     When I go to the new page of posts
-    Then I should be on the index page of posts
+    Then I should be on the home page

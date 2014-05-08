@@ -20,4 +20,8 @@ module Authenticable
     @current_user = nil
     session.delete :user_id
   end
+
+  def require_user
+    redirect_to home_path unless current_user.present?
+  end
 end
