@@ -1,13 +1,6 @@
+#= require jquery.turbolinks
+#= require turbolinks
 #= require menu
-
-window.findElementsToHyphenate = ->
-  return document.querySelectorAll('section p, section ol, section ul')
-
-if window.chrome then Hyphenator.run()
-
-$mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-
-return if $mobile
 
 $pageWidth = 800
 $compressedMenuHeight = 96
@@ -17,22 +10,13 @@ $scrollTime = 600
 
 $document = $(document)
 $window = $(window)
-$scrollable = $('body, html') # To make IE work
 
-$spectrum = $('.spectrum')
-$offset = $pageWidth * Math.random()
+window.findElementsToHyphenate = ->
+  return document.querySelectorAll('section p, section ol, section ul')
 
-$menu = $('#menu')
-$menu = new Menu $menu, $menu.offset().top +
-  $menu.outerHeight() - $compressedMenuHeight
+$mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 
-onScroll = (e) ->
-  scrollTop = $window.scrollTop()
-  position = Math.round($offset + $spectrumScrollRate * scrollTop)
-  $spectrum.css 'background-position': position + 'px 0px'
-  $menu.update scrollTop
-
-anchorToScroll = (anchor) ->
+computeAnchorPosition = (anchor) ->
   position =  $(anchor).offset().top
 
   if $window.height() < $tallShortThreshold
@@ -44,20 +28,47 @@ anchorToScroll = (anchor) ->
   position
 
 onReady = ->
-  setTimeout(
-    () ->
-      anchor = window.location.hash
-      if anchor and anchor.length > 0
-        $scrollable.scrollTop anchorToScroll(anchor)
-    1
-  )
+  Hyphenator.run() if window.chrome
+
+  initialized = window.initialized
+  window.initialized = true
+
+  $document.on 'page:load', onReady unless initialized
+
+  return if $mobile
+
+  $scrollable = $('body, html') # To make IE work
+  $spectrum = $('.spectrum')
+  $offset = $pageWidth * Math.random()
+
+  $menu = $('#menu')
+  $menu = new Menu $menu, $menu.offset().top +
+    $menu.outerHeight() - $compressedMenuHeight
+
+  onScroll = (e) ->
+    scrollTop = $window.scrollTop()
+    position = Math.round($offset + $spectrumScrollRate * scrollTop)
+    $spectrum.css 'background-position': position + 'px 0px'
+    $menu.update scrollTop
+
+  scrollToWindowAnchor = ->
+    anchor = window.location.hash
+    if anchor and anchor.length > 0
+      $scrollable.scrollTop computeAnchorPosition(anchor)
+
+  unless initialized
+    setTimeout scrollToWindowAnchor, 1
+  else
+    scrollToWindowAnchor()
+    $window.off 'scroll'
 
   onScroll()
   $window.on 'scroll', onScroll
 
   $('a.scroll').click (e) ->
     anchor = $(e.target).attr('href')
-    $scrollable.animate { scrollTop: anchorToScroll(anchor) }, $scrollTime
+    $scrollable.animate \
+      { scrollTop: computeAnchorPosition(anchor) }, $scrollTime
     history.pushState null, null, anchor
 
     e.preventDefault()

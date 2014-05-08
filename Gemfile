@@ -6,6 +6,8 @@ gem 'sqlite3', '~> 1.3.9'
 gem 'haml', '~> 4.0.5'
 gem 'redcarpet', '~> 3.1.1'
 gem 'bcrypt', '~> 3.1.7'
+gem 'turbolinks', '~> 2.2.2'
+gem 'jquery-turbolinks', '~> 2.0.2'
 
 group :assets do
   gem 'sass-rails', '~> 4.0.2'
