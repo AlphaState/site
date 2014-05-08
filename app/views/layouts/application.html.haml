@@ -20,3 +20,5 @@
     = javascript_include_tag '/javascripts/hyphenator.js'
     = javascript_include_tag :application
     = render partial: 'layouts/analytics'
+    - if current_user.present?
+      = render partial: 'layouts/administration'

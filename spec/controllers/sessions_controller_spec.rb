@@ -22,13 +22,13 @@ describe SessionsController do
 
       it 'does not authenticate the user if the email is wrong' do
         post :create, email: "#{ @user.email }:)", password: @user.password
-        expect(response).to redirect_to(root_path)
+        expect(response).to render_template(:new)
         expect(session[:user_id]).to be_blank
       end
 
       it 'does not authenticate the user if the password is wrong' do
         post :create, email: @user.email, password: "#{ @user.password }:)"
-        expect(response).to redirect_to(root_path)
+        expect(response).to render_template(:new)
         expect(session[:user_id]).to be_blank
       end
     end

@@ -7,6 +7,6 @@ FactoryGirl.define do
     name 'Ivan'
     email { generate :user_email }
     password 'secret'
-    password_confirmation 'secret'
+    password_confirmation { password }
   end
 end

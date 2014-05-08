@@ -1,0 +1,8 @@
+= render partial: 'header'
+
+%section
+  %p.actions= link_to t('.return').html_safe, home_path
+  = form_tag signin_path do |form|
+    = text_field_tag :email, params[:email], placeholder: User.human_attribute_name(:email)
+    = password_field_tag :password, '', placeholder: User.human_attribute_name(:password)
+    = button_tag t('actions.sign_in')

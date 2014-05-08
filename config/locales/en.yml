@@ -22,6 +22,8 @@ en:
   actions:
     save: 'Save'
     delete: 'Delete'
+    sign_in: 'Sign in'
+    sign_out: 'Sign out'
 
   activerecord:
     attributes:
@@ -40,6 +42,10 @@ en:
         address: Address
         priority: Priority
         content: Description
+
+      user:
+        email: Email
+        password: Password
 
   layouts:
     footer:
@@ -130,3 +136,9 @@ en:
 
     edit:
       return: '&larr; To the project'
+
+  sessions:
+    title: 'Secret passage'
+
+    new:
+      return: '&larr; Back home'

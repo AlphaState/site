@@ -1,5 +1,14 @@
 def path_to address
   case address
+  when /^the (.*) page$/
+    case $1
+    when 'home'
+      home_path :locale => I18n.locale
+    when 'sign-in'
+      signin_path :locale => I18n.locale
+    else
+      raise "Cannot recognize the address '#{ address }'."
+    end
   when /^the (\w+) page of the (\w+) "(.+)"$/
     action = $1
     resource = $2

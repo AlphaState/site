@@ -6,9 +6,9 @@ AlphaState::Application.routes.draw do
     resources :posts, path: 'blog'
     resources :projects, path: 'portfolio'
 
-    resources :sessions, only: [ :new, :create, :destroy ]
     match '/signin', to: 'sessions#new', via: :get
-    match '/signout', to: 'sessions#destroy', via: :delete
+    match '/signin', to: 'sessions#create', via: :post
+    match '/signout', to: 'sessions#destroy', via: [ :get, :delete ]
 
     match '/*path', to: 'application#page_not_found', via: :get
   end

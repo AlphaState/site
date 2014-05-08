@@ -22,6 +22,8 @@ ru:
   actions:
     save: 'Сохранить'
     delete: 'Удалить'
+    sign_in: 'Войти'
+    sign_out: 'Выйти'
 
   activerecord:
     attributes:
@@ -40,6 +42,10 @@ ru:
         address: Адрес
         priority: Приоритет
         content: Описание
+
+      user:
+        email: Email
+        password: Пароль
 
   layouts:
     footer:
@@ -133,3 +139,9 @@ ru:
 
     edit:
       return: '&larr; К проекту'
+
+  sessions:
+    title: 'Секретный вход'
+
+    new:
+      return: '&larr; На главную'
