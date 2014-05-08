@@ -1,6 +1,8 @@
 module Restful
-  def self.included base
-    base.before_action :find, only: [ :show, :edit, :update, :destroy ]
+  extend ActiveSupport::Concern
+
+  included do
+    before_action :find, only: [ :show, :edit, :update, :destroy ]
   end
 
   def index

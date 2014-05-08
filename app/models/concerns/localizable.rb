@@ -1,6 +1,8 @@
 module Localizable
-  def self.included base
-    base.before_validation :set_locale
+  extend ActiveSupport::Concern
+
+  included do
+    before_validation :set_locale
   end
 
   private

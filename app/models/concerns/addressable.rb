@@ -1,6 +1,8 @@
 module Addressable
-  def self.included base
-    base.extend ClassMethods
+  extend ActiveSupport::Concern
+
+  included do
+    extend ClassMethods
   end
 
   def to_param
