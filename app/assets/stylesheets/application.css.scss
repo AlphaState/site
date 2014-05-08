@@ -430,3 +430,22 @@ article.home { @import 'home'; }
 article.posts { @import 'posts'; }
 article.projects { @import 'projects'; }
 article.ru { @import 'ru'; }
+
+//
+// Administration
+//
+#administration {
+  p {
+    margin: 0;
+    padding: 0 0.5em 0 0.5em;
+    line-height: 2em;
+  }
+
+  transform-origin: 0em 0em;
+  @include rotation(-90deg, right bottom);
+
+  position: fixed;
+  right: 0;
+  top: 40%;
+  z-index: 10;
+}

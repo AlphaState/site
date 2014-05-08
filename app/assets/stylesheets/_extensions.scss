@@ -59,3 +59,13 @@ $spec-col-6: #00b3c1;
   &::-moz-placeholder { @content; }
   &:-ms-input-placeholder { @content; }
 }
+
+@mixin rotation($angle, $origin) {
+  transform: rotate($angle);
+  -ms-transform: rotate($angle);
+  -webkit-transform: rotate($angle);
+
+  transform-origin: $origin;
+  -ms-transform-origin: $origin;
+  -webkit-transform-origin: $origin;
+}
