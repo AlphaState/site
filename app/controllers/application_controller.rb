@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  if Rails.env.production?
+  unless Rails.env.development?
     rescue_from Exception, with: :exception
     rescue_from ActiveRecord::RecordNotFound, with: :page_not_found
   end
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   def exception code: 500
     respond_to do |format|
       format.html do
-        render nothing: true, layout: 'exception', status: code
+        render template: 'layouts/exception', layout: false, status: code
       end
       format.all do
         render nothing: true, status: code
