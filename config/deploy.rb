@@ -1,4 +1,4 @@
-lock '3.1.0'
+lock '3.2.1'
 
 set :application, 'alpha'
 set :repo_url, 'gitolite@ukhov.me:web/alpha.git'
