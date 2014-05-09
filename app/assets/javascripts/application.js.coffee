@@ -1,6 +1,7 @@
 #= require jquery.turbolinks
 #= require turbolinks
 #= require menu
+#= require hyphenator
 
 $pageWidth = 800
 $compressedMenuHeight = 96
