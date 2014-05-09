@@ -12,7 +12,7 @@ $document = $(document)
 $window = $(window)
 
 window.findElementsToHyphenate = ->
-  return document.querySelectorAll('section p, section ol, section ul')
+  document.querySelectorAll('section p, section ol, section ul')
 
 $mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 
@@ -22,8 +22,7 @@ computeAnchorPosition = (anchor) ->
   if $window.height() < $tallShortThreshold
   else if anchor is '#top'
   else if anchor is '#contact'
-  else
-    position = position - $compressedMenuHeight
+  else position = position - $compressedMenuHeight
 
   position
 

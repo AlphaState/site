@@ -1,9 +1,9 @@
 class window.Menu
   constructor: (@element, @threshold) ->
-    id = @element.attr('id')
-    id = if id then id + '-placeholder' else 'placeholder'
-    @placeholder = $('<div/>')
-      .attr('id', id)
+    id = "#{ @element.attr('id') }-placeholder"
+    @placeholder = $("##{ id }")
+    @placeholder = $('<div/>').attr('id', id) if @placeholder.length == 0
+    @placeholder
       .css(width: '100%', height: @element.outerHeight(true) + 'px')
       .insertAfter(@element)
     @compressed = false
