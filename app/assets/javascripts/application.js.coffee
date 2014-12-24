@@ -1,5 +1,3 @@
-#= require jquery.turbolinks
-#= require turbolinks
 #= require menu
 #= require hyphenator
 
