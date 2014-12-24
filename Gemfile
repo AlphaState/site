@@ -6,6 +6,7 @@ gem 'sqlite3', '~> 1.3.10'
 gem 'haml', '~> 4.0.6'
 gem 'redcarpet', '~> 3.2.2'
 gem 'bcrypt', '~> 3.1.9'
+gem 'json', '~> 1.8.1'
 
 group :assets do
   gem 'sass-rails', '~> 5.0.0'
