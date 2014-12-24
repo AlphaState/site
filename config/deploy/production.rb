@@ -1,12 +1,17 @@
 set :stage, :production
 
-role :web, %w{ivan@ukhov}
-server 'ukhov', user: 'ivan', roles: %w{web app}
+role :web, 'ivan@alphastate.se'
+server 'alphastate.se', user: 'ivan', roles: %w{web app}
 
 set :deploy_to, '/home/ivan/projects/alpha'
 
+paths = [
+  '/usr/local/rvm/gems/ruby-2.1.5',
+  '/usr/local/rvm/gems/ruby-2.1.5@global',
+]
+
 set :default_env, {
-  GEM_HOME: '/usr/local/rvm/gems/ruby-2.1.0',
-  GEM_PATH: '/usr/local/rvm/gems/ruby-2.1.0:/usr/local/rvm/gems/ruby-2.1.0@global',
-  PATH: "/usr/local/rvm/rubies/ruby-2.1.0/bin:/usr/local/rvm/gems/ruby-2.1.0/bin:$PATH"
+  GEM_HOME: paths[0],
+  GEM_PATH: paths.join(':'),
+  PATH: "#{paths.map{ |p| File.join(p, 'bin') }.join(':')}:$PATH",
 }
