@@ -39,12 +39,16 @@
 //
 // Defaults
 //
+* {
+  -webkit-font-smoothing: subpixel-antialiased;
+  text-rendering: optimizeLegibility;
+  @include open-type-features;
+}
+
 body {
   min-width: $page-width + 2 * $text-font-size;
   font-family: $text-font-family;
   font-size: $rem;
-  text-rendering: optimizeLegibility;
-  @include ligatures;
 }
 
 a, button {

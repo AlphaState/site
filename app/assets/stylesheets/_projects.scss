@@ -35,7 +35,6 @@ form {
   input.title {
     font-family: $display-font-family;
     font-size: $project-header-font-size;
-    @include ligatures;
   }
 
   input.motto {
