@@ -8,7 +8,7 @@ namespace :deploy do
   desc 'Configure the application'
   task :configure do
     on roles(:all) do
-      execute "ln -s #{ deploy_to }/shared/config/database.yml #{ release_path }/config/database.yml"
+      execute "ln -s #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml"
     end
   end
 
