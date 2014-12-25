@@ -15,6 +15,7 @@ $project-extra-space: $project-size - $project-thumbnail-size;
 header h1 {
   font-size: $large-header-font-size;
   line-height: $large-header-line-height;
+  font-weight: $light-font-weight;
 
   @include balance;
   padding-top: 2rem;
@@ -38,10 +39,10 @@ nav {
     display: inline-block;
 
     a {
-      font-family: $text-font-family;
+      font-family: $display-font-family;
       font-size: $large-option-font-size;
       line-height: $large-option-line-height;
-      font-weight: $light-font-weight;
+      font-weight: $regular-font-weight;
       text-transform: lowercase;
     }
 
@@ -174,7 +175,6 @@ section#portfolio {
     }
 
     p {
-      font-family: $condensed-font-family;
       font-size: $project-motto-font-size;
       font-weight: $light-font-weight;
       white-space: nowrap;

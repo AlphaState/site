@@ -13,16 +13,11 @@ $tall-short-threshold: 700px;
 //
 // Fonts
 //
-$display-font-family: 'Playfair Display',
+$display-font-family: futura-pt,
+  'Helvetica Neue', helvetica, arial, sans-serif;
+$text-font-family: petersburg-web,
   'Times New Roman', times, serif;
-$text-font-family: 'Roboto',
-  'Helvetica Neue', helvetica, arial, sans-serif;
-$alternative-font-family: 'Roboto Slab',
-  'Helvetica Neue', helvetica, arial, sans-serif;
-$condensed-font-family: 'Roboto Condensed',
-  'Helvetica Neue', helvetica, arial, sans-serif;
 
-$thin-font-weight: 100;
 $light-font-weight: 300;
 $regular-font-weight: 400;
 
