@@ -3,7 +3,7 @@ set :stage, :production
 role :web, 'ivan@alphastate.se'
 server 'alphastate.se', user: 'ivan', roles: %w{web app}
 
-set :deploy_to, '/home/ivan/projects/alpha-v1'
+set :deploy_to, '/home/ivan/projects/alpha-v2'
 
 paths = [
   '/usr/local/rvm/rubies/ruby-2.1.5',

@@ -1,7 +1,7 @@
 lock '3.3.5'
 
 set :application, 'alpha'
-set :repo_url, 'gitolite@code.alphastate.se:web/alpha.git'
+set :repo_url, 'git@code.alphastate.se:web/alpha.git'
 
 namespace :deploy do
   desc 'Configure the application'
