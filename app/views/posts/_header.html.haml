@@ -1,7 +1,7 @@
 - first = link_to t('company'), home_path
 - second = t 'posts.title'
 - second = link_to second, posts_path if defined?(link) && link
-%header.inversed#menu
+%header#menu
   %nav
     %h1!= "#{ first } <em>/ #{ second }</em>"
 

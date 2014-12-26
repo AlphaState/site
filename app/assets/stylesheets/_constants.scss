@@ -30,14 +30,14 @@ $header-line-height: 8rem;
 $compressed-header-font-size: 2.5em;
 $compressed-header-line-height: 4rem;
 
-$large-header-font-size: 6.875rem; // @ Home
+$large-header-font-size: 8rem; // @ Home
 $large-header-line-height: 8rem;
 
-$option-font-size: 1.75rem;
+$option-font-size: 2.5rem;
 $option-line-height: 2.5rem;
 
-$large-option-font-size: 3.75rem; // @ Home
-$large-option-line-height: 4rem;
+$large-option-font-size: 5rem; // @ Home
+$large-option-line-height: 5rem;
 
 $compressed-large-option-font-size: 2.875rem; // @ Home
 $compressed-large-option-line-height: 3.25rem;
@@ -58,6 +58,18 @@ $post-header-line-height: 3rem;
 
 $arrow-font-size: 2.25rem;
 $arrow-line-height: 2rem;
+
+//
+// Color
+//
+$text-color: #000; // #4a4a4a;
+$background-color: #fff;
+
+$menu-text-color: #000; // #fff;
+$menu-background-color: #b8e986;
+
+$footer-text-color: #fff;
+$footer-background-color: #000;
 
 //
 // Portfolio @ Home

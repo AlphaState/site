@@ -1,30 +1,16 @@
-$spec-pos-1: 11.24% / 2;
-$spec-pos-2: 24.16% / 2;
-$spec-pos-3: 39.33% / 2;
-$spec-pos-4: 78.65% / 2;
-$spec-pos-5: 81.46% / 2;
-$spec-pos-6: 100.00% / 2;
+$spec-pos-1: 0%;
+$spec-pos-2: 80%;
+$spec-pos-3: 100%;
 
-$spec-col-1: #f0c83b;
-$spec-col-2: #f1563c;
-$spec-col-3: #c34b9b;
-$spec-col-4: #00b3c1;
-$spec-col-5: #00b36c;
-$spec-col-6: #00b3c1;
+$spec-col-1: #b8e986;
+$spec-col-2: #d4e57e;
+$spec-col-3: #b8e986;
 
 @mixin spectrum {
   background: -webkit-linear-gradient(left,
     $spec-col-1 $spec-pos-1,
     $spec-col-2 $spec-pos-2,
-    $spec-col-3 $spec-pos-3,
-    $spec-col-4 $spec-pos-4,
-    $spec-col-5 $spec-pos-5,
-    $spec-col-6 $spec-pos-6,
-    $spec-col-5 100% - $spec-pos-5,
-    $spec-col-4 100% - $spec-pos-4,
-    $spec-col-3 100% - $spec-pos-3,
-    $spec-col-2 100% - $spec-pos-2,
-    $spec-col-1 100% - $spec-pos-1);
+    $spec-col-3 $spec-pos-3);
 }
 
 @mixin grayscale-on {

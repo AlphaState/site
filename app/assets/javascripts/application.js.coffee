@@ -4,7 +4,6 @@
 $pageWidth = 800
 $compressedMenuHeight = 96
 $tallShortThreshold = 700
-$spectrumScrollRate = 0.5
 $scrollTime = 600
 
 $document = $(document)
@@ -36,7 +35,6 @@ onReady = ->
   return if $mobile
 
   $scrollable = $('body, html') # To make IE work
-  $spectrum = $('.spectrum')
   $offset = $pageWidth * Math.random()
 
   $menu = $('#menu')
@@ -44,10 +42,7 @@ onReady = ->
     $menu.outerHeight() - $compressedMenuHeight
 
   onScroll = (e) ->
-    scrollTop = $window.scrollTop()
-    position = Math.round($offset + $spectrumScrollRate * scrollTop)
-    $spectrum.css 'background-position': position + 'px 0px'
-    $menu.update scrollTop
+    $menu.update $window.scrollTop()
 
   scrollToWindowAnchor = ->
     anchor = window.location.hash

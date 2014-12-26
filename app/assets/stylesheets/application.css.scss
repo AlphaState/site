@@ -49,6 +49,7 @@ body {
   min-width: $page-width + 2 * $text-font-size;
   font-family: $text-font-family;
   font-size: $rem;
+  color: $text-color;
 }
 
 a, button {
@@ -63,7 +64,6 @@ a, button {
 
 h1, h2, h3 {
   font-family: $display-font-family;
-  font-weight: $regular-font-weight;
 
   a {
     font-family: inherit;
@@ -71,11 +71,11 @@ h1, h2, h3 {
   }
 }
 
-h1 {
+h1, h2 {
   font-weight: $light-font-weight;
 }
 
-h2, h3 {
+h3 {
   font-weight: $regular-font-weight;
 }
 
@@ -105,7 +105,7 @@ article header h1 {
 // Navigation
 //
 #menu-placeholder {
-  background: #000;
+  background: $background-color;
   display: none;
 }
 
@@ -116,6 +116,12 @@ article header h1 {
   position: absolute;
   left: -$overhang-width;
   top: tune(2rem, -7);
+}
+
+article #menu {
+  color: $menu-text-color;
+  background: $menu-background-color;
+  @include spectrum;
 }
 
 article nav {
@@ -196,7 +202,7 @@ article nav {
     }
 
     .options {
-      top: tune(2rem, -3);
+      top: tune(2rem, -6);
 
       li {
         display: inline;
@@ -290,6 +296,9 @@ article section {
 // Footer
 //
 footer {
+  color: $footer-text-color;
+  background: $footer-background-color;
+
   padding: 4rem 0 2rem 0;
 
   p {
@@ -339,6 +348,10 @@ footer {
 
   #copyright {
     text-align: center;
+  }
+
+  svg path {
+    fill: $footer-text-color;
   }
 }
 
@@ -399,22 +412,6 @@ form {
 //
 // Decorations
 //
-.inversed {
-  color: #fff;
-  background: #000;
-}
-
-.spectrum {
-  @include spectrum;
-  background-repeat: repeat;
-  background-position: 0 0;
-}
-
-.inversed .spectrum {
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .dingbat {
   @include hack {
     line-height: 0; // To eliminate extra space
@@ -427,17 +424,12 @@ form {
   }
 }
 
-.inversed svg path {
-  fill: #fff;
-}
-
 //
 // Page-specific styles
 //
 article.home { @import 'home'; }
 article.posts { @import 'posts'; }
 article.projects { @import 'projects'; }
-article.ru { @import 'ru'; }
 
 //
 // Administration
