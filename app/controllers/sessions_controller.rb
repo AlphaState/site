@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    unless [ :email, :password ].all? { |field| params.include? field }
+    unless [:email, :password].all? { |field| params.include? field }
       render :new
       return
     end

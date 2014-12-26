@@ -1,6 +1,6 @@
 FactoryGirl.define do
   sequence :post_address do |n|
-    "post_#{ n }"
+    "post_#{n}"
   end
 
   factory :post do

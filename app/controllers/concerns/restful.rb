@@ -2,8 +2,8 @@ module Restful
   extend ActiveSupport::Concern
 
   included do
-    before_action :find, only: [ :show, :edit, :update, :destroy ]
-    before_filter :require_user, except: [ :index, :show ]
+    before_action :find, only: [:show, :edit, :update, :destroy]
+    before_filter :require_user, except: [:index, :show]
   end
 
   def index
@@ -63,19 +63,19 @@ module Restful
   end
 
   def instance
-    instance_variable_get "@#{ singular_name }"
+    instance_variable_get "@#{singular_name}"
   end
 
   def instance= value
-    instance_variable_set "@#{ singular_name }", value
+    instance_variable_set "@#{singular_name}", value
   end
 
   def collection
-    instance_variable_get "@#{ plural_name }"
+    instance_variable_get "@#{plural_name}"
   end
 
   def collection= value
-    instance_variable_set "@#{ plural_name }", value
+    instance_variable_set "@#{plural_name}", value
   end
 
   def collection_path

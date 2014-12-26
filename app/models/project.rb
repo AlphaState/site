@@ -7,7 +7,7 @@ class Project < ActiveRecord::Base
   validates :address, uniqueness: { scope: :locale }
 
   default_scope {
-    where(:locale => [ nil, '', I18n.locale ]).order('priority DESC')
+    where(:locale => [nil, '', I18n.locale]).order('priority DESC')
   }
 
   def find_previous

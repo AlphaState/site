@@ -3,7 +3,7 @@ en:
     formats:
       default: '%B %-d, %Y'
 
-    month_names: [ ~, January, February, March, April, May, June, July, August, September, October, November, December ]
+    month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
 
   company: 'Alpha State'
   description: 'Alpha State — web design, web development, and digital brand identity.'

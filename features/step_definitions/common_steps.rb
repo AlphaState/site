@@ -9,7 +9,7 @@ Given /am a (\w+)/ do |role|
     expect(page).to have_content('Sign out')
   when 'visitor'
   else
-    raise "Cannot recognize the role '#{ role }'."
+    raise "Cannot recognize the role '#{role}'."
   end
 end
 

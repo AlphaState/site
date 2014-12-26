@@ -1,6 +1,6 @@
 FactoryGirl.define do
   sequence :project_address do |n|
-    "project_#{ n }"
+    "project_#{n}"
   end
 
   sequence :project_priority do |n|
