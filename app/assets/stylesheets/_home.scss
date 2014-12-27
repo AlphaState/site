@@ -87,15 +87,11 @@ nav {
       }
 
       a {
-        font-size: $compressed-large-option-font-size;
-        line-height: $compressed-large-option-line-height;
+        font-size: $option-font-size;
+        line-height: $option-line-height;
       }
 
       padding-bottom: tune(0rem, 12);
-    }
-
-    .options {
-      top: tune(2rem, -4);
     }
   }
 }

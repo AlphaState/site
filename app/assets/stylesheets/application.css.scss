@@ -52,7 +52,7 @@ body {
   color: $text-color;
 }
 
-a, button {
+section a, button {
   border-style: dashed;
   border-bottom-width: $border-width;
 
@@ -67,7 +67,6 @@ h1, h2, h3 {
 
   a {
     font-family: inherit;
-    border-bottom-width: 0;
   }
 }
 
@@ -115,7 +114,7 @@ article header h1 {
   display: none;
   position: absolute;
   left: -$overhang-width;
-  top: tune(2rem, -7);
+  top: tune(2rem, -12);
 }
 
 article #menu {
@@ -126,10 +125,6 @@ article #menu {
 
 article nav {
   @include balance;
-
-  a {
-    border-bottom-width: 0;
-  }
 
   h1 a:hover {
     border-bottom-width: $border-width;
@@ -174,6 +169,7 @@ article nav {
   }
 
   article #menu.compressed {
+    height: $overhang-width;
     position: fixed;
     left: 0;
     top: 0;
@@ -182,11 +178,10 @@ article nav {
     margin: 0;
 
     h1 {
-      font-size: $compressed-header-font-size;
-      line-height: $compressed-header-line-height;
+      font-size: $option-font-size;
+      line-height: $option-line-height;
 
-      padding-top: tune(1rem, -3);
-      padding-bottom: tune(1rem, 3);
+      padding-top: 1rem;
 
       em {
         margin-left: 0;
@@ -202,7 +197,7 @@ article nav {
     }
 
     .options {
-      top: tune(2rem, -6);
+      top: 1rem;
 
       li {
         display: inline;

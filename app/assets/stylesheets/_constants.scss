@@ -5,7 +5,7 @@ $rem: 16px; // = 1rem
 $one: 0.0625rem; // = 1rem / 16 = 1px
 
 $page-width: 800 * $one;
-$overhang-width: 100 * $one;
+$overhang-width: 84 * $one;
 
 $wide-narrow-threshold: 1100px;
 $tall-short-threshold: 700px;
@@ -27,9 +27,6 @@ $text-line-height: 2rem;
 $header-font-size: 5rem;
 $header-line-height: 8rem;
 
-$compressed-header-font-size: 2.5em;
-$compressed-header-line-height: 4rem;
-
 $large-header-font-size: 8rem; // @ Home
 $large-header-line-height: 8rem;
 
@@ -38,9 +35,6 @@ $option-line-height: 2.5rem;
 
 $large-option-font-size: 5rem; // @ Home
 $large-option-line-height: 5rem;
-
-$compressed-large-option-font-size: 2.875rem; // @ Home
-$compressed-large-option-line-height: 3.25rem;
 
 $section-header-font-size: 4.375rem;
 $section-header-line-height: 6rem;
