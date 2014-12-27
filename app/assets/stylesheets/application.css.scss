@@ -52,7 +52,7 @@ body {
   color: $text-color;
 }
 
-section a, button {
+section a, section button, footer a, #administration a {
   border-style: dashed;
   border-bottom-width: $border-width;
 
@@ -126,8 +126,8 @@ article #menu {
 article nav {
   @include balance;
 
-  h1 a:hover {
-    border-bottom-width: $border-width;
+  a:hover {
+    color: $background-color;
   }
 
   .options {
@@ -293,6 +293,7 @@ article section {
 footer {
   color: $footer-text-color;
   background: $footer-background-color;
+  border-color: $footer-text-color;
 
   padding: 4rem 0 2rem 0;
 
@@ -303,8 +304,6 @@ footer {
   }
 
   a {
-    border-bottom-width: 0;
-
     @include apply-when-touch {
       border-bottom-width: $border-width;
     }
