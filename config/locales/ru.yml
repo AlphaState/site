@@ -8,7 +8,7 @@ ru:
   company: 'Альфа-уровень'
   description: 'Студия веб-разработки «Альфа-уровень» — создание приложений для социальных сетей, индивидуальных интернет-решений, веб-сервисов и сайтов на Ruby on Rails.'
   keywords: 'индивидуальные интернет-решения, веб-сервисы, приложения для социальных сетей, ruby on rails, ror, rails, ruby'
-  url: 'http://alphastate.ru'
+  url: 'https://alphastate.ru'
 
   navigation:
     services: 'Услуги'
