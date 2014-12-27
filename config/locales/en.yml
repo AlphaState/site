@@ -113,7 +113,7 @@ en:
       meta: &posts-meta 'by %{author} on %{date}'
 
     show:
-      return: &posts-return '&larr; To the list of posts'
+      return: &posts-return '&larr; To the blog'
       meta: *posts-meta
 
     new:

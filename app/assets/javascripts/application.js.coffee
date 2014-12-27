@@ -2,7 +2,7 @@
 #= require hyphenator
 
 $pageWidth = 800
-$compressedMenuHeight = 96
+$compressedMenuHeight = 84
 $tallShortThreshold = 700
 $spectrumScrollRate = 0.5
 $scrollTime = 600
