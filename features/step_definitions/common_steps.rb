@@ -1,8 +1,8 @@
 Given /am a (\w+)/ do |role|
   case role
   when 'user'
-    user = create :user
-    visit signin_path locale: I18n.locale
+    user = create(:user)
+    visit signin_path(locale: I18n.locale)
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     click_button 'Sign in'
@@ -21,14 +21,14 @@ Given /^there (?:is|are) ([\d\w]+) (\w+)$/ do |count, name|
     count = count.to_i
   end
 
-  factory = to_factory name
-  count.times { create factory }
+  factory = to_factory(name)
+  count.times { create(factory) }
 end
 
 Given /^there is an? (\w+) with the following:$/ do |name, table|
-  factory = to_factory name
-  attributes = table_to_hash table
-  create factory, attributes
+  factory = to_factory(name)
+  attributes = table_to_hash(table)
+  create(factory, attributes)
 end
 
 Given /am on (.*)/ do |address|
@@ -77,7 +77,7 @@ Then /there should be ([\d\w]+) (.*)/ do |count, name|
     count = count.to_i
   end
 
-  model = to_model name
+  model = to_model(name)
   expect(model.count).to eq(count)
 end
 

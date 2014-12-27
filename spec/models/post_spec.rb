@@ -8,7 +8,7 @@ describe Post do
   it { should validate_presence_of(:content) }
 
   context 'when there is a record in the other locale' do
-    it 'should validate the uniqueness of `address` scoped to `locale`' do
+    it 'should validate the uniqueness of "address" scoped to "locale"' do
       stranger = create(:post, locale: I18n.alternative_locale)
 
       one = build(:post, address: stranger.address)

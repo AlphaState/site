@@ -3,9 +3,9 @@ def path_to address
   when /^the (.*) page$/
     case $1
     when 'home'
-      home_path :locale => I18n.locale
+      home_path(locale: I18n.locale)
     when 'sign-in'
-      signin_path :locale => I18n.locale
+      signin_path(locale: I18n.locale)
     else
       raise "Cannot recognize the address '#{address}'."
     end
@@ -19,7 +19,7 @@ def path_to address
       action = nil
     end
 
-    subject = resource.capitalize.constantize.find_by_param! param
+    subject = resource.capitalize.constantize.find_by_param!(param)
 
     send "#{[action, resource].compact.join('_')}_path",
       subject, locale: I18n.locale
@@ -34,8 +34,8 @@ def path_to address
 
     subject = resource.capitalize.constantize.first
 
-    send "#{[action, resource].compact.join('_')}_path",
-      subject, locale: I18n.locale
+    send("#{[action, resource].compact.join('_')}_path",
+      subject, locale: I18n.locale)
   when /^the (\w+) page of (\w+)$/
     action = $1
 
@@ -47,8 +47,8 @@ def path_to address
       resource = $2.singularize
     end
 
-    send "#{[action, resource].compact.join('_')}_path",
-      locale: I18n.locale
+    send("#{[action, resource].compact.join('_')}_path",
+      locale: I18n.locale)
   else
     raise "Cannot recognize the address '#{address}'."
   end
