@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe SessionsController do
   describe 'GET #new' do
@@ -10,7 +10,7 @@ describe SessionsController do
 
   context 'when there is a user' do
     before :each do
-      @user = create :user
+      @user = create(:user)
     end
 
     describe 'POST #create' do
@@ -35,7 +35,7 @@ describe SessionsController do
 
     context 'when the user is signed in' do
       before :each do
-        controller.send :remember_current_user, @user
+        controller.send(:remember_current_user, @user)
         expect(session[:user_id]).not_to be_blank
       end
 

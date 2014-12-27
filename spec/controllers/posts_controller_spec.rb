@@ -1,8 +1,8 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe PostsController do
   before do
-    controller.stub(:current_user) { true }
+    allow(controller).to receive(:current_user) { true }
   end
 
   describe 'GET #new' do
@@ -27,7 +27,7 @@ describe PostsController do
 
   context 'when there are some posts' do
     before :each do
-      @post = create :post
+      @post = create(:post)
     end
 
     describe 'GET #index' do
