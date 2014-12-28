@@ -8,7 +8,7 @@ AlphaState::Application.routes.draw do
 
     match '/signin', to: 'sessions#new', via: :get
     match '/signin', to: 'sessions#create', via: :post
-    match '/signout', to: 'sessions#destroy', via: [ :get, :delete ]
+    match '/signout', to: 'sessions#destroy', via: [:get, :delete]
 
     match '/*path', to: 'application#page_not_found', via: :get
   end
