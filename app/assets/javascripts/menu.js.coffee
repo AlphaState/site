@@ -9,13 +9,13 @@ class window.Menu
     @compressed = false
 
   compress: () ->
-    @element.addClass 'compressed'
-    @placeholder.addClass 'active'
+    @element.addClass('compressed')
+    @placeholder.addClass('active')
     @compressed = true
 
   decompress: () ->
-    @element.removeClass 'compressed'
-    @placeholder.removeClass 'active'
+    @element.removeClass('compressed')
+    @placeholder.removeClass('active')
     @compressed = false
 
   isCompressed: () ->

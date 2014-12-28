@@ -31,7 +31,7 @@ onReady = ->
   initialized = window.initialized
   window.initialized = true
 
-  $document.on 'page:load', onReady unless initialized
+  $document.on('page:load', onReady) unless initialized
 
   return if $mobile
 
@@ -40,36 +40,35 @@ onReady = ->
   $offset = $pageWidth * Math.random()
 
   $menu = $('#menu')
-  $menu = new Menu $menu, $menu.offset().top +
-    $menu.outerHeight() - $compressedMenuHeight
+  $menu = new Menu($menu, $menu.offset().top +
+    $menu.outerHeight() - $compressedMenuHeight)
 
   onScroll = (e) ->
     scrollTop = $window.scrollTop()
     position = Math.round($offset + $spectrumScrollRate * scrollTop)
-    $spectrum.css 'background-position': "#{position}px 0px"
-    $menu.update scrollTop
+    $spectrum.css('background-position': "#{position}px 0px")
+    $menu.update(scrollTop)
 
   scrollToWindowAnchor = ->
     anchor = window.location.hash
     if anchor and anchor.length > 0
-      $scrollable.scrollTop computeAnchorPosition(anchor)
+      $scrollable.scrollTop(computeAnchorPosition(anchor))
 
   unless initialized
-    setTimeout scrollToWindowAnchor, 1
+    setTimeout(scrollToWindowAnchor, 1)
   else
     scrollToWindowAnchor()
-    $window.off 'scroll'
+    $window.off('scroll')
 
   onScroll()
-  $window.on 'scroll', onScroll
+  $window.on('scroll', onScroll)
 
   $('a.scroll').click (e) ->
     anchor = $(e.target).attr('href')
-    $scrollable.animate \
-      { scrollTop: computeAnchorPosition(anchor) }, $scrollTime
-    history.pushState null, null, anchor
+    $scrollable.animate({ scrollTop: computeAnchorPosition(anchor) }, $scrollTime)
+    history.pushState(null, null, anchor)
 
     e.preventDefault()
     return false
 
-$document.on 'ready', onReady
+$document.on('ready', onReady)
