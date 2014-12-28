@@ -1,7 +1,7 @@
 lock '3.3.5'
 
 set :application, 'alpha'
-set :repo_url, 'git@code.alphastate.se:web/alpha.git'
+set :repo_url, 'git@github.com:AlphaState/site.git'
 set :branch, 'v1'
 
 namespace :deploy do
