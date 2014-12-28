@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   before_action :set_locale
+  before_action :set_expire
 
   def home
     @projects = Project.all
@@ -41,5 +42,13 @@ class ApplicationController < ActionController::Base
   def set_locale
     locale = params[:locale] || I18n.default_locale
     I18n.locale = locale if I18n.available_locales.include? locale.to_sym
+  end
+
+  def set_expire
+    if current_user.present?
+      expires_now
+    else
+      expires_in(1.years, public: true)
+    end
   end
 end
