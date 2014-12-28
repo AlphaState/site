@@ -4,6 +4,7 @@ module Restful
   included do
     before_action :find, only: [:show, :edit, :update, :destroy]
     before_filter :require_user, except: [:index, :show]
+    caches_page :index, :show
   end
 
   def index
@@ -18,8 +19,9 @@ module Restful
   end
 
   def create
-    self.instance = model.new post_params
+    self.instance = model.new(post_params)
     if instance.save
+      expire
       redirect_to(instance)
     else
       render('new')
@@ -33,6 +35,7 @@ module Restful
     if params.include?(:delete)
       destroy
     elsif instance.update_attributes(post_params)
+      expire(instance)
       redirect_to(instance)
     else
       render('edit')
@@ -41,6 +44,7 @@ module Restful
 
   def destroy
     instance.destroy
+    expire(instance)
     redirect_to(collection_path)
   end
 
@@ -80,5 +84,18 @@ module Restful
 
   def collection_path
     url_for(controller: plural_name, action: 'index')
+  end
+
+  def expire(instance = nil)
+    expire_show(instance) if instance
+    expire_index
+  end
+
+  def expire_show(instance)
+    expire_page(action: :show, id: instance.to_param, locale: I18n.locale)
+  end
+
+  def expire_index
+    expire_page(action: :index, locale: I18n.locale)
   end
 end

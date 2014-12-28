@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
+  caches_page :home, :manifesto, :page_not_found
+
   unless Rails.env.development?
     rescue_from Exception, with: :exception
     rescue_from ActiveRecord::RecordNotFound, with: :page_not_found

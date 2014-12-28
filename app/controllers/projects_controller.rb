@@ -11,4 +11,8 @@ class ProjectsController < ApplicationController
   def collection_path
     home_path
   end
+
+  def expire_index
+    expire_page(controller: :application, action: :home, locale: I18n.locale)
+  end
 end
