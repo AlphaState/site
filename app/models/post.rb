@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
   validates :address, uniqueness: { scope: :locale }
 
   default_scope {
-    where(:locale => [nil, '', I18n.locale]).order('date DESC')
+    where(locale: [nil, '', I18n.locale]).order('date DESC')
   }
 
   before_validation :set_date

@@ -12,9 +12,9 @@ module Addressable
   module ClassMethods
     def find_by_param! param
       if param =~ /^(\d+)/
-        find_by! id: $1.to_i
+        find_by!(id: $1.to_i)
       else
-        find_by! address: param
+        find_by!(address: param)
       end
     end
   end

@@ -20,9 +20,9 @@ module Restful
   def create
     self.instance = model.new post_params
     if instance.save
-      redirect_to instance
+      redirect_to(instance)
     else
-      render 'new'
+      render('new')
     end
   end
 
@@ -30,18 +30,18 @@ module Restful
   end
 
   def update
-    if params.include? :delete
+    if params.include?(:delete)
       destroy
-    elsif instance.update_attributes post_params
-      redirect_to instance
+    elsif instance.update_attributes(post_params)
+      redirect_to(instance)
     else
-      render 'edit'
+      render('edit')
     end
   end
 
   def destroy
     instance.destroy
-    redirect_to collection_path
+    redirect_to(collection_path)
   end
 
   private
@@ -59,26 +59,26 @@ module Restful
   end
 
   def find
-    self.instance = model.find_by_param! params[:id]
+    self.instance = model.find_by_param!(params[:id])
   end
 
   def instance
-    instance_variable_get "@#{singular_name}"
+    instance_variable_get("@#{singular_name}")
   end
 
-  def instance= value
-    instance_variable_set "@#{singular_name}", value
+  def instance=(value)
+    instance_variable_set("@#{singular_name}", value)
   end
 
   def collection
-    instance_variable_get "@#{plural_name}"
+    instance_variable_get("@#{plural_name}")
   end
 
-  def collection= value
-    instance_variable_set "@#{plural_name}", value
+  def collection=(value)
+    instance_variable_set("@#{plural_name}", value)
   end
 
   def collection_path
-    url_for controller: plural_name, action: 'index'
+    url_for(controller: plural_name, action: 'index')
   end
 end
