@@ -28,10 +28,6 @@
     only screen and (max-device-width: 1024px) { @content; }
 }
 
-@function tune($value, $times) {
-  @return $value + $times * $one;
-}
-
 @mixin hack {
   @content;
 }
@@ -181,7 +177,7 @@ article nav {
       font-size: $option-font-size;
       line-height: $option-line-height;
 
-      padding-top: 1rem;
+      padding-top: $overhang-padding;
 
       em {
         margin-left: 0;
@@ -197,7 +193,7 @@ article nav {
     }
 
     .options {
-      top: 1rem;
+      top: $overhang-padding;
 
       li {
         display: inline;

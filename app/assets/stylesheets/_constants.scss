@@ -4,11 +4,16 @@
 $rem: 16px; // = 1rem
 $one: 0.0625rem; // = 1rem / 16 = 1px
 
-$page-width: 800 * $one;
-$overhang-width: 84 * $one;
+@function tune($value, $times) {
+  @return $value + $times * $one;
+}
 
+$page-width: 800 * $one;
 $wide-narrow-threshold: 1100px;
 $tall-short-threshold: 700px;
+
+$overhang-width: 84 * $one;
+$overhang-padding: tune(1rem, 2);
 
 //
 // Fonts

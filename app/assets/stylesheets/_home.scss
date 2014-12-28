@@ -72,7 +72,7 @@ nav {
 @include apply-when-tall {
   #menu.compressed {
     .wrapper {
-      padding-top: 1rem;
+      padding-top: $overhang-padding;
       padding-bottom: 1rem;
     }
 
