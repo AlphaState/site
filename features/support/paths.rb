@@ -21,8 +21,7 @@ def path_to address
 
     subject = resource.capitalize.constantize.find_by_param!(param)
 
-    send "#{[action, resource].compact.join('_')}_path",
-      subject, locale: I18n.locale
+    send("#{[action, resource].compact.join('_')}_path", subject, locale: I18n.locale)
   when /^the (\w+) page of a (\w+)$/
     action = $1
     resource = $2
@@ -34,8 +33,7 @@ def path_to address
 
     subject = resource.capitalize.constantize.first
 
-    send("#{[action, resource].compact.join('_')}_path",
-      subject, locale: I18n.locale)
+    send("#{[action, resource].compact.join('_')}_path", subject, locale: I18n.locale)
   when /^the (\w+) page of (\w+)$/
     action = $1
 
@@ -47,8 +45,7 @@ def path_to address
       resource = $2.singularize
     end
 
-    send("#{[action, resource].compact.join('_')}_path",
-      locale: I18n.locale)
+    send("#{[action, resource].compact.join('_')}_path", locale: I18n.locale)
   else
     raise "Cannot recognize the address '#{address}'."
   end
