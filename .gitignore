@@ -1,12 +1,5 @@
-.DS_Store
 .bundle
 log/*
 db/*.sqlite3
-*.swl
-*.swm
-*.swn
-*.swo
-*.swp
-*.swk
 tmp/*
 .capistrano
