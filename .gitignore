@@ -2,7 +2,6 @@
 .bundle
 log/*
 db/*.sqlite3
-config/database.yml
 *.swl
 *.swm
 *.swn

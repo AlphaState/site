@@ -7,7 +7,9 @@ namespace :deploy do
   desc 'Configure the application'
   task :configure do
     on roles(:all) do
+      execute "rm -f #{release_path}/config/database.yml"
       execute "ln -s #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml"
+
       execute "rm -f #{release_path}/config/secrets.yml"
       execute "ln -s #{deploy_to}/shared/config/secrets.yml #{release_path}/config/secrets.yml"
     end
