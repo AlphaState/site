@@ -18,7 +18,10 @@ Feature: Signing in and signing out
       | Password | secret        |
     And press "Sign in"
     Then I should be on the home page
-    And I should see "Sign out"
-    When I click "Sign out"
+
+    When I go to the new page of posts
+    Then I should be on the new page of posts
+
+    When I go to the sign-out page
+    And I go to the new page of posts
     Then I should be on the home page
-    And I should not see "Sign out"

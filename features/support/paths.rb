@@ -6,6 +6,8 @@ def path_to address
       home_path(locale: I18n.locale)
     when 'sign-in'
       signin_path(locale: I18n.locale)
+    when 'sign-out'
+      signout_path(locale: I18n.locale)
     else
       raise "Cannot recognize the address '#{address}'."
     end
